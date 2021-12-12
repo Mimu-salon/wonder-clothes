@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import { Header } from '../components/atomic/organisms/layout/header';
+import { Header } from '../components/atomic/organisms/layout/Header';
 
 const SignUp: NextPage = () => {
   return (
