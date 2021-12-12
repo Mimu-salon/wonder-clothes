@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
+import { Footer } from '../components/atomic/organisms/layout/footer';
 import { Header } from '../components/atomic/organisms/layout/header';
 
 const About: NextPage = () => {
@@ -12,6 +13,7 @@ const About: NextPage = () => {
       </Head>
       <Header />
       <h1>aboutページ</h1>
+      <Footer />
     </>
   );
 };
