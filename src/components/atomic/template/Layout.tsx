@@ -2,8 +2,8 @@ import Head from 'next/head';
 import type { ReactNode, VFC } from 'react';
 import { memo } from 'react';
 
-import { Footer } from '../organisms/layout/Footer';
-import { Header } from '../organisms/layout/Header';
+import { Footer } from '../organisms/layout/footer';
+import { Header } from '../organisms/layout/header';
 
 type Props = {
   title: string;
