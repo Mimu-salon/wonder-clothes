@@ -1,11 +1,16 @@
+import { Box } from '@chakra-ui/layout';
 import type { NextPage } from 'next';
 
+import { Heros } from '../components/atomic/organisms/about/Heros';
+import { Heros2 } from '../components/atomic/organisms/about/Heros2';
 import { Layout } from '../components/atomic/template/Layout';
 
 const About: NextPage = () => {
   return (
     <Layout title="わんだーくろーす | 愛犬ファッション投稿">
-      <h1>aboutsページ</h1>
+      <Heros />
+      <Box textAlign="center">一時的なスペース</Box>
+      <Heros2 />
     </Layout>
   );
 };
