@@ -3,23 +3,23 @@ import Link from 'next/link';
 import type { VFC } from 'react';
 import { memo } from 'react';
 
-export const Footer: VFC = memo(() => {
+export const FooterLayout: VFC = memo(() => {
   return (
     <Stack pt={8}>
       <Stack direction="row" justify="center" fontSize="sm">
         <Box pr={4}>
-          <Link href="/" passHref>
+          <Link href="/about" passHref>
             <a href="replace">使い方</a>
           </Link>
         </Box>
         <Box pr={4}>
-          <Link href="/" passHref>
+          <Link href="/terms" passHref>
             <a href="replace">利用規約</a>
           </Link>
         </Box>
         <Box pr={4}>
-          <Link href="/" passHref>
-            <a href="replace">セキュリティーポリシー</a>
+          <Link href="/privacy" passHref>
+            <a href="replace">プライバシーポリシー</a>
           </Link>
         </Box>
       </Stack>

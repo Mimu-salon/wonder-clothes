@@ -5,9 +5,7 @@ import Link from 'next/link';
 import type { VFC } from 'react';
 import { memo } from 'react';
 
-import { PrimaryButton } from '../../atoms/button/PrimaryButton';
-
-export const Header: VFC = memo(() => {
+export const HeaderLayout: VFC = memo(() => {
   return (
     <Heading bg="orange.200" p={{ base: 3, md: 5 }}>
       <Flex align="center" justify="space-between">
@@ -17,14 +15,14 @@ export const Header: VFC = memo(() => {
         <Spacer />
         <Box>
           <Link href="/signup" passHref>
-            <PrimaryButton colorScheme="green" variant="solid" mr={4}>
+            <Button colorScheme="green" variant="solid" _hover={{ opacity: 0.8 }} mr={4}>
               新規会員登録
-            </PrimaryButton>
+            </Button>
           </Link>
           <Link href="/signin" passHref>
-            <PrimaryButton colorScheme="green" variant="outline" bg="white">
+            <Button colorScheme="green" variant="outline" bg="white" _hover={{ opacity: 0.8 }}>
               ログイン
-            </PrimaryButton>
+            </Button>
           </Link>
         </Box>
       </Flex>

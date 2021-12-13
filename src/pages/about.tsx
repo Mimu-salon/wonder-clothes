@@ -1,20 +1,12 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 
-import { Footer } from '../components/atomic/organisms/layout/footer';
-import { Header } from '../components/atomic/organisms/layout/header';
+import { Layout } from '../components/atomic/template/Layout';
 
 const About: NextPage = () => {
   return (
-    <>
-      <Head>
-        <title>わんだーくろーす</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header />
-      <h1>aboutページ</h1>
-      <Footer />
-    </>
+    <Layout title="わんだーくろーす | 愛犬ファッション投稿">
+      <h1>aboutsページ</h1>
+    </Layout>
   );
 };
 
