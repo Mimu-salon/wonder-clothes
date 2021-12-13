@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { VFC } from 'react';
 import { memo } from 'react';
 
-export const Footer: VFC = memo(() => {
+export const FooterLayout: VFC = memo(() => {
   return (
     <Stack pt={8}>
       <Stack direction="row" justify="center" fontSize="sm">

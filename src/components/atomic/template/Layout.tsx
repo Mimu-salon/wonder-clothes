@@ -2,8 +2,8 @@ import Head from 'next/head';
 import type { ReactNode, VFC } from 'react';
 import { memo } from 'react';
 
-import { Footer } from '../organisms/layout/footer';
-import { Header } from '../organisms/layout/header';
+import { FooterLayout } from '../organisms/layout/FooterLayout';
+import { HeaderLayout } from '../organisms/layout/HeaderLayout';
 
 type Props = {
   title: string;
@@ -20,9 +20,9 @@ export const Layout: VFC<Props> = memo((props) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content=" width=device-width, initial-scale=1.0" />
       </Head>
-      <Header />
+      <HeaderLayout />
       {children}
-      <Footer />
+      <FooterLayout />
     </>
   );
 });

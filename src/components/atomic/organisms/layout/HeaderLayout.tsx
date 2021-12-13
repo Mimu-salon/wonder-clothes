@@ -5,7 +5,7 @@ import Link from 'next/link';
 import type { VFC } from 'react';
 import { memo } from 'react';
 
-export const Header: VFC = memo(() => {
+export const HeaderLayout: VFC = memo(() => {
   return (
     <Heading bg="orange.200" p={{ base: 3, md: 5 }}>
       <Flex align="center" justify="space-between">
