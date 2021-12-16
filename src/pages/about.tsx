@@ -1,6 +1,7 @@
 import { Box } from '@chakra-ui/layout';
 import type { NextPage } from 'next';
 
+import { Concept } from '../components/atomic/organisms/about/Concept';
 import { Heros } from '../components/atomic/organisms/about/Heros';
 import { Heros2 } from '../components/atomic/organisms/about/Heros2';
 import { Layout } from '../components/atomic/template/Layout';
@@ -11,6 +12,7 @@ const About: NextPage = () => {
       <Heros />
       <Box textAlign="center">一時的なスペース</Box>
       <Heros2 />
+      <Concept />
     </Layout>
   );
 };
