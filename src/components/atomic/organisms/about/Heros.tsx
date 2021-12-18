@@ -1,8 +1,7 @@
 import { Button } from '@chakra-ui/button';
 import { ArrowRightIcon } from '@chakra-ui/icons';
 import { Image } from '@chakra-ui/image';
-import { Badge, Box, Flex, SimpleGrid } from '@chakra-ui/layout';
-import { chakra } from '@chakra-ui/system';
+import { Badge, Box, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/layout';
 import type { VFC } from 'react';
 import { memo } from 'react';
 
@@ -26,17 +25,17 @@ export const Heros: VFC = memo(() => {
         <Badge color="white" px={3} py={1} mb={3} variant="solid" colorScheme="blue" rounded="full">
           Beta版
         </Badge>
-        <chakra.h1
+        <Heading
           mb={6}
           fontSize={{ base: '4xl', md: '4xl', lg: '5xl' }}
           fontWeight="bold"
           color="brand.600"
           lineHeight="shorter">
           犬のファッションを自慢しよう。
-        </chakra.h1>
-        <chakra.p pr={{ base: 0, lg: 16 }} mb={4} fontSize="sm" letterSpacing="wider">
+        </Heading>
+        <Text pr={{ base: 0, lg: 16 }} mb={4} fontSize="sm" letterSpacing="wider">
           「わんだーくろーす」は犬のファッションの共有サイトです。服を着たかわいいワンちゃんを自由に投稿してみよう。
-        </chakra.p>
+        </Text>
         <Button rightIcon={<ArrowRightIcon />}>テストログイン</Button>
       </Flex>
       <Box>

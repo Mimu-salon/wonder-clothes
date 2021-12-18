@@ -1,6 +1,6 @@
 import { Button } from '@chakra-ui/button';
 import { ArrowRightIcon } from '@chakra-ui/icons';
-import { Badge, Flex, Stack, Text, VStack } from '@chakra-ui/layout';
+import { Badge, Flex, Heading, Stack, Text, VStack } from '@chakra-ui/layout';
 import { useBreakpointValue } from '@chakra-ui/media-query';
 import type { VFC } from 'react';
 import { memo } from 'react';
@@ -23,13 +23,13 @@ export const Heros2: VFC = memo(() => {
           <Badge color="white" px={3} py={1} mb={3} variant="solid" colorScheme="blue" rounded="full">
             Beta版
           </Badge>
-          <Text
+          <Heading
             color={'white'}
             fontWeight={700}
             lineHeight={1.2}
             fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
             犬のファッションを自慢しよう。
-          </Text>
+          </Heading>
           <Text color={'white'} fontSize="sm">
             「わんだーくろーす」は犬のファッションの共有サイトです。
             <br />

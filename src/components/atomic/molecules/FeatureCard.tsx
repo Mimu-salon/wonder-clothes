@@ -17,8 +17,8 @@ export const FeatureCard: VFC<Props> = memo((props) => {
       <Text w={250} fontWeight={600} fontSize="2xl" textAlign="center">
         {title}
       </Text>
-      <Box maxW={250}>
-        <Image src={src} alt={alt} width={250} height={250} />
+      <Box w={250} h={250}>
+        <Image src={src} alt={alt} />
       </Box>
       <Text w={250} color={'gray.600'}>
         {text}
