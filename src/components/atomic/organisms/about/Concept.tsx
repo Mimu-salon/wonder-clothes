@@ -8,13 +8,13 @@ import { FeatureCard } from '../../molecules/FeatureCard';
 export const Concept: VFC = memo(() => {
   return (
     <>
-      <Box my={20}>
+      <Box py={20}>
         <Text fontWeight={700} fontSize="3xl" textAlign="center">
           できること
         </Text>
       </Box>
       <Flex justifyContent="center">
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 10, md: 24 }}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 10, md: 24 }} pb={20}>
           <FeatureCard
             title="おすすめしたい！"
             src={sampledog}
