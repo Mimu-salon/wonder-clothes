@@ -9,7 +9,7 @@ import { Layout } from '../components/atomic/template/Layout';
 
 const About: NextPage = () => {
   return (
-    <Layout title="わんだーくろーす | 愛犬ファッション投稿">
+    <Layout title="わんだーくろーす | 愛犬ファッション共有SNS">
       <Heros />
       <Box textAlign="center">一時的なスペース</Box>
       <Heros2 />
