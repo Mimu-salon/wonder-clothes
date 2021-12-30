@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import React from 'react';
 import { FiMenu } from 'react-icons/fi';
 
+import { SearchBar } from '../components/atomic/molecules/SearchBar';
 import { SidebarContent } from '../components/atomic/organisms/layout/SidebarContent';
 import { Layout } from '../components/atomic/template/Layout';
 
@@ -45,7 +46,7 @@ export const Home: NextPage = () => {
           />
         </Box>
         <Box p={4}>
-          <Box>テスト</Box>
+          <SearchBar />
         </Box>
       </Flex>
     </Layout>
