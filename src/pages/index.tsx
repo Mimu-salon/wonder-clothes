@@ -4,6 +4,7 @@ import React from 'react';
 import { FiMenu } from 'react-icons/fi';
 
 import { SearchBar } from '../components/atomic/molecules/SearchBar';
+import { NewPostList } from '../components/atomic/organisms/home/NewPostList';
 import { SidebarContent } from '../components/atomic/organisms/layout/SidebarContent';
 import { Layout } from '../components/atomic/template/Layout';
 
@@ -37,16 +38,17 @@ export const Home: NextPage = () => {
             w="50px"
             h="50px"
             borderRadius="50%"
-            shadow="lg"
+            shadow="xl"
             _hover={{ bg: 'gray.300' }}
-            variant="outline"
+            variant="solid"
             onClick={onOpen}
             aria-label="サイドバーを開く"
             icon={<FiMenu />}
           />
         </Box>
-        <Box p={4}>
+        <Box p={4} textAlign="center" w="1200px" mx="auto">
           <SearchBar />
+          <NewPostList />
         </Box>
       </Flex>
     </Layout>
