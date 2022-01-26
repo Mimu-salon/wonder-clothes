@@ -32,7 +32,7 @@ export const HeaderLayout: VFC = memo(() => {
             投稿
           </Button>
         </Box>
-        {/* <Box>
+        <Box>
           <Link href="/signup" passHref>
             <Button colorScheme="green" variant="solid" _hover={{ opacity: 0.8 }} mr={4}>
               新規会員登録
@@ -43,7 +43,7 @@ export const HeaderLayout: VFC = memo(() => {
               ログイン
             </Button>
           </Link>
-        </Box> */}
+        </Box>
       </Flex>
     </Heading>
   );
