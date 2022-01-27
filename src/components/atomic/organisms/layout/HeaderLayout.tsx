@@ -1,15 +1,13 @@
 import { Button } from '@chakra-ui/button';
 import { Flex, Heading, Spacer } from '@chakra-ui/layout';
-import { Avatar, AvatarBadge, Box } from '@chakra-ui/react';
+import { Avatar, Box } from '@chakra-ui/react';
 import Link from 'next/link';
 import type { VFC } from 'react';
 import { memo } from 'react';
-import { BsFillBellFill } from 'react-icons/bs';
+
+import { Notification } from '../../molecules/Notification';
 
 export const HeaderLayout: VFC = memo(() => {
-  const onClickNotification = () => {
-    alert('通知機能は現在開発中です。');
-  };
   return (
     <Heading bg="orange.200" p={{ base: 3, md: 5 }}>
       <Flex align="center" justify="space-between">
@@ -18,15 +16,7 @@ export const HeaderLayout: VFC = memo(() => {
         </Link>
         <Spacer />
         <Box>
-          <Avatar
-            icon={<BsFillBellFill />}
-            size="md"
-            bg="white"
-            _hover={{ bg: 'gray.300' }}
-            onClick={onClickNotification}
-            mr={4}>
-            <AvatarBadge boxSize="1.1em" bg="blue.300" />
-          </Avatar>
+          <Notification isNortification />
           <Avatar size="md" name="ユーザーの名前" _hover={{ opacity: 0.8 }} src="https://bit.ly/dan-abramov" mr={4} />
           <Button colorScheme="green" variant="solid" _hover={{ opacity: 0.8 }}>
             投稿
