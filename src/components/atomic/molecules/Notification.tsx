@@ -9,7 +9,7 @@ type Props = {
 
 export const Notification: VFC<Props> = memo((props) => {
   return (
-    <Menu isLazy>
+    <Menu isLazy id="notification-menu">
       <MenuButton>
         <Avatar icon={<BsFillBellFill />} size="md" bg="white" cursor="pointer" _hover={{ bg: 'gray.300' }} mr={4}>
           {props.isNortification && <AvatarBadge boxSize="1.1em" bg="blue.300" />}
