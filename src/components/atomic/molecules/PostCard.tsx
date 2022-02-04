@@ -5,6 +5,7 @@ import { memo } from 'react';
 import { FaRegComment, FaRegHeart } from 'react-icons/fa';
 
 import sampledog from '../../../../public/sampledog.png';
+import { UserIcon } from '../atoms/UserIcon';
 
 export const PostCard: VFC = memo(() => {
   const toPostDetailPage = () => {
@@ -31,7 +32,7 @@ export const PostCard: VFC = memo(() => {
         </Flex>
         <Stack flex={1} flexDirection="column">
           <Stack direction="row" spacing={4} align="center" cursor="pointer" onClick={toUserDetailPage}>
-            <Avatar src={'https://avatars0.githubusercontent.com/u/1164541?v=4'} alt={'ユーザー画像'} />
+            <UserIcon src="/sampledog.png" width={50} height={50} />
             <Stack direction="column" spacing={0} fontSize="sm">
               <Text textAlign="left" fontWeight={600}>
                 UserName
