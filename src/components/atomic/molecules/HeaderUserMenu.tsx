@@ -1,14 +1,15 @@
-import { Avatar, Menu, MenuButton, MenuGroup, MenuList } from '@chakra-ui/react';
+import { Menu, MenuButton, MenuGroup, MenuList } from '@chakra-ui/react';
 import type { VFC } from 'react';
 import { memo } from 'react';
 
 import { HeaderUserMenuIcon } from '../atoms/HeaderUserMenuIcon';
+import { UserIcon } from '../atoms/UserIcon';
 
 export const HeaderUserMenu: VFC = memo(() => {
   return (
     <Menu isLazy id="header-user-menu">
-      <MenuButton>
-        <Avatar size="md" name="ユーザーの名前" _hover={{ opacity: 0.8 }} src="https://bit.ly/dan-abramov" mr={4} />
+      <MenuButton mr={4} my={0}>
+        <UserIcon src="/sampledog.png" width={50} height={50} />
       </MenuButton>
       <MenuList fontSize="sm" pb={0}>
         <MenuGroup title="ユーザーさん">

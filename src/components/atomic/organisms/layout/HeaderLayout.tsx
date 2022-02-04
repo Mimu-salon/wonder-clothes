@@ -20,14 +20,14 @@ export const HeaderLayout: VFC = memo(() => {
           <Button color="black">ロゴ</Button>
         </Link>
         <Spacer />
-        <Box>
+        <Flex alignItems="center">
           <Notification isNortification />
           <HeaderUserMenu />
           <Button colorScheme="green" variant="solid" _hover={{ opacity: 0.8 }} onClick={onClickNewPost}>
             投稿
           </Button>
           <NewPostModal isOpen={isOpen} onClose={onClose} />
-        </Box>
+        </Flex>
         <Box>
           <Link href="/signup" passHref>
             <Button colorScheme="green" variant="solid" _hover={{ opacity: 0.8 }} mr={4}>
