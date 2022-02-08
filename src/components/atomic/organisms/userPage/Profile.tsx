@@ -7,7 +7,7 @@ import { UserIcon } from '../../atoms/UserIcon';
 
 export const Profile: VFC = memo(() => {
   return (
-    <VStack py={6}>
+    <VStack py={8}>
       <Stack
         borderWidth="1px"
         borderRadius="lg"
@@ -15,7 +15,7 @@ export const Profile: VFC = memo(() => {
         height={{ sm: '450px', md: '21rem', lg: '20rem' }}
         direction={{ base: 'column', md: 'row' }}
         bg="white"
-        boxShadow={'2xl'}
+        boxShadow={'1xl'}
         padding={6}>
         <Box mr={4}>
           <UserIcon src="/sampledog.png" width={120} height={120} />

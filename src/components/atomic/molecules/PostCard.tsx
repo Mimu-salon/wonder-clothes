@@ -1,4 +1,4 @@
-import { Avatar, Box, Center, Flex, Icon, Stack, Text } from '@chakra-ui/react';
+import { Box, Center, Flex, Icon, Stack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import type { VFC } from 'react';
 import { memo } from 'react';
