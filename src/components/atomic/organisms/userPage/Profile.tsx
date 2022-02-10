@@ -1,4 +1,5 @@
 import { Alert, AlertIcon, Box, Button, Heading, Stack, Text, VStack } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import type { VFC } from 'react';
 import { memo } from 'react';
 import { VscEdit } from 'react-icons/vsc';
@@ -6,6 +7,7 @@ import { VscEdit } from 'react-icons/vsc';
 import { UserIcon } from '../../atoms/UserIcon';
 
 export const Profile: VFC = memo(() => {
+  const router = useRouter();
   return (
     <VStack py={8}>
       <Stack
@@ -13,6 +15,7 @@ export const Profile: VFC = memo(() => {
         borderRadius="lg"
         w={{ sm: '100%', md: '600px', lg: '720px' }}
         height={{ sm: '450px', md: '21rem', lg: '20rem' }}
+        alignItems="flex-start"
         direction={{ base: 'column', md: 'row' }}
         bg="white"
         boxShadow={'1xl'}
@@ -23,7 +26,16 @@ export const Profile: VFC = memo(() => {
         <Stack direction="column" w="100%">
           <Stack direction="row" justifyContent="space-between" alignItems="center">
             <Heading fontSize={'2xl'}>Lindsey James</Heading>
-            <Button size="sm" leftIcon={<VscEdit />} color="gray.500" variant="outline" opacity={0.9} boxShadow="md">
+            <Button
+              size="sm"
+              leftIcon={<VscEdit />}
+              color="gray.500"
+              variant="outline"
+              opacity={0.9}
+              boxShadow="md"
+              onClick={() => {
+                router.push('/setting/account');
+              }}>
               編集
             </Button>
           </Stack>
