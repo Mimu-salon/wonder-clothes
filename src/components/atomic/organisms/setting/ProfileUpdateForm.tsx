@@ -1,10 +1,19 @@
-import { Box, Button, Flex, Input, Stack, Text, Textarea, VStack } from '@chakra-ui/react';
+/* eslint-disable @next/next/no-img-element */
+import { Box, Button, Flex, Input, Stack, Text, Textarea, useDisclosure, VStack } from '@chakra-ui/react';
 import type { VFC } from 'react';
+import { useState } from 'react';
 import { memo } from 'react';
 
 import { UserIcon } from '../../atoms/UserIcon';
+import { ImageTrimmingModal } from '../../molecules/ImageTrimmingModal';
 
 export const ProfileUpdateForm: VFC = memo(() => {
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [uploadImage, setUploadImage] = useState<Blob | string | null>(null);
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const onClickUpdateAccount = () => {
     alert('onClickUpdateAccount');
   };
@@ -20,13 +29,25 @@ export const ProfileUpdateForm: VFC = memo(() => {
         bg="white"
         boxShadow={'2xl'}
         padding={6}>
-        <Stack direction="column" _hover={{ opacity: 0.8 }} mr={4} mb={4}>
-          <UserIcon src="/sampledog.png" width={120} height={120} />
-
+        <Stack direction="column" _hover={{ opacity: 0.8 }} mr={4} mb={4} onClick={onOpen}>
+          {previewImage ? (
+            <Box borderRadius="full" w="120px" h="120px" overflow="hidden">
+              <img src={previewImage} alt="プレビュー" />
+            </Box>
+          ) : (
+            <UserIcon src="/sampledog.png" width={120} height={120} />
+          )}
           <Text textAlign="center" fontSize="13px" color="blue.400">
             変更
           </Text>
         </Stack>
+        <ImageTrimmingModal
+          isOpen={isOpen}
+          onClose={onClose}
+          setImage={setPreviewImage}
+          setUploadImage={setUploadImage}
+        />
+
         <Stack direction="column" w="100%" spacing={4}>
           <Box>
             <Text mb={2} fontSize="sm">

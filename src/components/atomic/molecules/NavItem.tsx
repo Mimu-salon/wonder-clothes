@@ -1,13 +1,13 @@
 import { Flex, Icon } from '@chakra-ui/react';
 import Link from 'next/link';
-import type { ReactText, VFC } from 'react';
+import type { ReactNode, VFC } from 'react';
 import { memo } from 'react';
 import type { IconType } from 'react-icons';
 
 type Props = {
   href: string;
   icon: IconType;
-  children: ReactText;
+  children: ReactNode;
 };
 export const NavItem: VFC<Props> = memo((props) => {
   const { href, icon, children } = props;
