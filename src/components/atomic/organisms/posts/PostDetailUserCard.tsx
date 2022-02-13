@@ -15,7 +15,7 @@ export const PostDetailUserCard: VFC = memo(() => {
         borderWidth="1px"
         borderRadius="lg"
         w={{ sm: '100%', md: '600px', lg: '720px' }}
-        height={{ sm: '450px', md: '6rem', lg: '6rem' }}
+        height={{ sm: '100px', md: '6rem', lg: '6rem' }}
         alignItems="flex-start"
         direction="row"
         bg="white"
