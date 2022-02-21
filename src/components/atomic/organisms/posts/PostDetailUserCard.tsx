@@ -10,11 +10,11 @@ import { EditMenu } from '../../molecules/EditMenu';
 export const PostDetailUserCard: VFC = memo(() => {
   const router = useRouter();
   return (
-    <VStack py={8}>
+    <VStack mt={4}>
       <Stack
         borderWidth="1px"
         borderRadius="lg"
-        w={{ sm: '100%', md: '540px' }}
+        w={{ base: '95vw', md: '540px' }}
         height={{ sm: '100px', md: '6rem' }}
         alignItems="flex-start"
         direction="row"
