@@ -1,4 +1,8 @@
 **/node_modules/*
+**/functions/node_modules/*
 **/out/*
 **/.next/*
 /.eslintrc.js
+
+# local env files
+.env.cocals
