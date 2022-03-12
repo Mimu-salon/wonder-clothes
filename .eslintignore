@@ -3,6 +3,3 @@
 **/out/*
 **/.next/*
 /.eslintrc.js
-
-# local env files
-.env.cocals

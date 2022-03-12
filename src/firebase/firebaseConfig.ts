@@ -1,4 +1,3 @@
-/* eslint-disable import/no-default-export */
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
@@ -20,7 +19,8 @@ import firebase from 'firebase/app';
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
-export const strage = firebase.storage();
+export const storage = firebase.storage();
 export const functions = firebase.functions();
 
+// eslint-disable-next-line import/no-default-export
 export default firebase;
