@@ -1,0 +1,25 @@
+overwrite: true
+schema:
+  - "https://wonder-clothes.hasura.app/v1/graphql":
+      headers:
+        "x-hasura-admin-secret": ${NEXT_PUBLIC_HASURA_GRAPHQL_ADMIN_SECRET}
+
+documents: "src/apollo/**/*.{ts,tsx}"
+generates:
+  src/apollo/graphql.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+    config:
+      skipTipename: false
+      withHooks: true
+      withHOC: false
+      withComponent: false
+      preResolveTypes: false
+      reactApolloVersion: 3
+      namingConvention: 
+        typeNames: "pascal-case#pascalCase"
+        enumValues: "upper-case#upperCase"
+      apolloReactCommonImportFrom: "@apollo/client"
+      apolloReactHooksImportFrom: "@apollo/client"

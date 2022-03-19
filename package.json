@@ -10,7 +10,8 @@
     "lint:prettier": "prettier --check .",
     "fix": "run-s -l -c fix:eslint fix:prettier",
     "fix:eslint": "eslint --ext .tsx . --fix",
-    "fix:prettier": "prettier --write ."
+    "fix:prettier": "prettier --write .",
+    "gen-types": "graphql-codegen --require dotenv/config --config codegen.yml"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
@@ -33,6 +34,10 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.6.2",
+    "@graphql-codegen/typescript": "2.4.8",
+    "@graphql-codegen/typescript-operations": "2.3.5",
+    "@graphql-codegen/typescript-react-apollo": "3.2.11",
     "@types/node": "16.11.11",
     "@types/react": "17.0.37",
     "@types/react-image-crop": "^8.1.3",
