@@ -3,3 +3,4 @@
 **/out/*
 **/.next/*
 /.eslintrc.js
+src/apollo/graphql.tsx
