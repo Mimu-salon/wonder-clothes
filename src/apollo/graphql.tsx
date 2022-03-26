@@ -1,7 +1,6 @@
-import type * as ApolloReactCommon from '@apollo/client';
 import { gql } from '@apollo/client';
+import * as ApolloReactCommon from '@apollo/client';
 import * as ApolloReactHooks from '@apollo/client';
-
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -65,167 +64,9 @@ export type StringComparisonExp = {
   _similar?: InputMaybe<Scalars['String']>;
 };
 
-/** columns and relationships of "followings" */
-export type Followings = {
-  __typename?: 'followings';
-  id: Scalars['uuid'];
-  /** An array relationship */
-  relationships: Array<Relationships>;
-  /** An aggregate relationship */
-  relationships_aggregate: RelationshipsAggregate;
-  /** An object relationship */
-  user: Users;
-  user_id: Scalars['uuid'];
-};
-
-
-/** columns and relationships of "followings" */
-export type FollowingsRelationshipsArgs = {
-  distinct_on?: InputMaybe<Array<RelationshipsSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<RelationshipsOrderBy>>;
-  where?: InputMaybe<RelationshipsBoolExp>;
-};
-
-
-/** columns and relationships of "followings" */
-export type FollowingsRelationshipsAggregateArgs = {
-  distinct_on?: InputMaybe<Array<RelationshipsSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<RelationshipsOrderBy>>;
-  where?: InputMaybe<RelationshipsBoolExp>;
-};
-
-/** aggregated selection of "followings" */
-export type FollowingsAggregate = {
-  __typename?: 'followings_aggregate';
-  aggregate?: Maybe<FollowingsAggregateFields>;
-  nodes: Array<Followings>;
-};
-
-/** aggregate fields of "followings" */
-export type FollowingsAggregateFields = {
-  __typename?: 'followings_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<FollowingsMaxFields>;
-  min?: Maybe<FollowingsMinFields>;
-};
-
-
-/** aggregate fields of "followings" */
-export type FollowingsAggregateFieldsCountArgs = {
-  columns?: InputMaybe<Array<FollowingsSelectColumn>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-};
-
-/** Boolean expression to filter rows from the table "followings". All fields are combined with a logical 'AND'. */
-export type FollowingsBoolExp = {
-  _and?: InputMaybe<Array<FollowingsBoolExp>>;
-  _not?: InputMaybe<FollowingsBoolExp>;
-  _or?: InputMaybe<Array<FollowingsBoolExp>>;
-  id?: InputMaybe<UuidComparisonExp>;
-  relationships?: InputMaybe<RelationshipsBoolExp>;
-  user?: InputMaybe<UsersBoolExp>;
-  user_id?: InputMaybe<UuidComparisonExp>;
-};
-
-/** unique or primary key constraints on table "followings" */
-export enum FollowingsConstraint {
-  /** unique or primary key constraint */
-  FOLLOWINGS_PKEY = 'followings_pkey',
-  /** unique or primary key constraint */
-  FOLLOWINGS_USER_ID_KEY = 'followings_user_id_key'
-}
-
-/** input type for inserting data into table "followings" */
-export type FollowingsInsertInput = {
-  id?: InputMaybe<Scalars['uuid']>;
-  relationships?: InputMaybe<RelationshipsArrRelInsertInput>;
-  user?: InputMaybe<UsersObjRelInsertInput>;
-  user_id?: InputMaybe<Scalars['uuid']>;
-};
-
-/** aggregate max on columns */
-export type FollowingsMaxFields = {
-  __typename?: 'followings_max_fields';
-  id?: Maybe<Scalars['uuid']>;
-  user_id?: Maybe<Scalars['uuid']>;
-};
-
-/** aggregate min on columns */
-export type FollowingsMinFields = {
-  __typename?: 'followings_min_fields';
-  id?: Maybe<Scalars['uuid']>;
-  user_id?: Maybe<Scalars['uuid']>;
-};
-
-/** response of any mutation on the table "followings" */
-export type FollowingsMutationResponse = {
-  __typename?: 'followings_mutation_response';
-  /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
-  /** data from the rows affected by the mutation */
-  returning: Array<Followings>;
-};
-
-/** input type for inserting object relation for remote table "followings" */
-export type FollowingsObjRelInsertInput = {
-  data: FollowingsInsertInput;
-  /** upsert condition */
-  on_conflict?: InputMaybe<FollowingsOnConflict>;
-};
-
-/** on_conflict condition type for table "followings" */
-export type FollowingsOnConflict = {
-  constraint: FollowingsConstraint;
-  update_columns?: Array<FollowingsUpdateColumn>;
-  where?: InputMaybe<FollowingsBoolExp>;
-};
-
-/** Ordering options when selecting data from "followings". */
-export type FollowingsOrderBy = {
-  id?: InputMaybe<OrderBy>;
-  relationships_aggregate?: InputMaybe<RelationshipsAggregateOrderBy>;
-  user?: InputMaybe<UsersOrderBy>;
-  user_id?: InputMaybe<OrderBy>;
-};
-
-/** primary key columns input for table: followings */
-export type FollowingsPkColumnsInput = {
-  id: Scalars['uuid'];
-};
-
-/** select columns of table "followings" */
-export enum FollowingsSelectColumn {
-  /** column name */
-  ID = 'id',
-  /** column name */
-  USER_ID = 'user_id'
-}
-
-/** input type for updating data in table "followings" */
-export type FollowingsSetInput = {
-  id?: InputMaybe<Scalars['uuid']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
-};
-
-/** update columns of table "followings" */
-export enum FollowingsUpdateColumn {
-  /** column name */
-  ID = 'id',
-  /** column name */
-  USER_ID = 'user_id'
-}
-
 /** mutation root */
 export type MutationRoot = {
   __typename?: 'mutation_root';
-  /** delete data from the table: "followings" */
-  delete_followings?: Maybe<FollowingsMutationResponse>;
-  /** delete single row from the table: "followings" */
-  delete_followings_by_pk?: Maybe<Followings>;
   /** delete data from the table: "notification" */
   delete_notification?: Maybe<NotificationMutationResponse>;
   /** delete single row from the table: "notification" */
@@ -258,10 +99,6 @@ export type MutationRoot = {
   delete_users?: Maybe<UsersMutationResponse>;
   /** delete single row from the table: "users" */
   delete_users_by_pk?: Maybe<Users>;
-  /** insert data into the table: "followings" */
-  insert_followings?: Maybe<FollowingsMutationResponse>;
-  /** insert a single row into the table: "followings" */
-  insert_followings_one?: Maybe<Followings>;
   /** insert data into the table: "notification" */
   insert_notification?: Maybe<NotificationMutationResponse>;
   /** insert a single row into the table: "notification" */
@@ -294,10 +131,6 @@ export type MutationRoot = {
   insert_users?: Maybe<UsersMutationResponse>;
   /** insert a single row into the table: "users" */
   insert_users_one?: Maybe<Users>;
-  /** update data of the table: "followings" */
-  update_followings?: Maybe<FollowingsMutationResponse>;
-  /** update single row of the table: "followings" */
-  update_followings_by_pk?: Maybe<Followings>;
   /** update data of the table: "notification" */
   update_notification?: Maybe<NotificationMutationResponse>;
   /** update single row of the table: "notification" */
@@ -330,18 +163,6 @@ export type MutationRoot = {
   update_users?: Maybe<UsersMutationResponse>;
   /** update single row of the table: "users" */
   update_users_by_pk?: Maybe<Users>;
-};
-
-
-/** mutation root */
-export type MutationRootDeleteFollowingsArgs = {
-  where: FollowingsBoolExp;
-};
-
-
-/** mutation root */
-export type MutationRootDeleteFollowingsByPkArgs = {
-  id: Scalars['uuid'];
 };
 
 
@@ -438,20 +259,6 @@ export type MutationRootDeleteUsersArgs = {
 /** mutation root */
 export type MutationRootDeleteUsersByPkArgs = {
   id: Scalars['uuid'];
-};
-
-
-/** mutation root */
-export type MutationRootInsertFollowingsArgs = {
-  objects: Array<FollowingsInsertInput>;
-  on_conflict?: InputMaybe<FollowingsOnConflict>;
-};
-
-
-/** mutation root */
-export type MutationRootInsertFollowingsOneArgs = {
-  object: FollowingsInsertInput;
-  on_conflict?: InputMaybe<FollowingsOnConflict>;
 };
 
 
@@ -564,20 +371,6 @@ export type MutationRootInsertUsersArgs = {
 export type MutationRootInsertUsersOneArgs = {
   object: UsersInsertInput;
   on_conflict?: InputMaybe<UsersOnConflict>;
-};
-
-
-/** mutation root */
-export type MutationRootUpdateFollowingsArgs = {
-  _set?: InputMaybe<FollowingsSetInput>;
-  where: FollowingsBoolExp;
-};
-
-
-/** mutation root */
-export type MutationRootUpdateFollowingsByPkArgs = {
-  _set?: InputMaybe<FollowingsSetInput>;
-  pk_columns: FollowingsPkColumnsInput;
 };
 
 
@@ -1512,6 +1305,7 @@ export type Posts = {
   id: Scalars['uuid'];
   image?: Maybe<Scalars['String']>;
   imageUrl?: Maybe<Scalars['String']>;
+  petGender: Scalars['String'];
   petName: Scalars['String'];
   /** An array relationship */
   post_comments: Array<PostComments>;
@@ -1617,6 +1411,7 @@ export type PostsBoolExp = {
   id?: InputMaybe<UuidComparisonExp>;
   image?: InputMaybe<StringComparisonExp>;
   imageUrl?: InputMaybe<StringComparisonExp>;
+  petGender?: InputMaybe<StringComparisonExp>;
   petName?: InputMaybe<StringComparisonExp>;
   post_comments?: InputMaybe<PostCommentsBoolExp>;
   post_likes?: InputMaybe<PostLikesBoolExp>;
@@ -1640,6 +1435,7 @@ export type PostsInsertInput = {
   id?: InputMaybe<Scalars['uuid']>;
   image?: InputMaybe<Scalars['String']>;
   imageUrl?: InputMaybe<Scalars['String']>;
+  petGender?: InputMaybe<Scalars['String']>;
   petName?: InputMaybe<Scalars['String']>;
   post_comments?: InputMaybe<PostCommentsArrRelInsertInput>;
   post_likes?: InputMaybe<PostLikesArrRelInsertInput>;
@@ -1658,6 +1454,7 @@ export type PostsMaxFields = {
   id?: Maybe<Scalars['uuid']>;
   image?: Maybe<Scalars['String']>;
   imageUrl?: Maybe<Scalars['String']>;
+  petGender?: Maybe<Scalars['String']>;
   petName?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
   user_id?: Maybe<Scalars['uuid']>;
@@ -1670,6 +1467,7 @@ export type PostsMaxOrderBy = {
   id?: InputMaybe<OrderBy>;
   image?: InputMaybe<OrderBy>;
   imageUrl?: InputMaybe<OrderBy>;
+  petGender?: InputMaybe<OrderBy>;
   petName?: InputMaybe<OrderBy>;
   updated_at?: InputMaybe<OrderBy>;
   user_id?: InputMaybe<OrderBy>;
@@ -1683,6 +1481,7 @@ export type PostsMinFields = {
   id?: Maybe<Scalars['uuid']>;
   image?: Maybe<Scalars['String']>;
   imageUrl?: Maybe<Scalars['String']>;
+  petGender?: Maybe<Scalars['String']>;
   petName?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
   user_id?: Maybe<Scalars['uuid']>;
@@ -1695,6 +1494,7 @@ export type PostsMinOrderBy = {
   id?: InputMaybe<OrderBy>;
   image?: InputMaybe<OrderBy>;
   imageUrl?: InputMaybe<OrderBy>;
+  petGender?: InputMaybe<OrderBy>;
   petName?: InputMaybe<OrderBy>;
   updated_at?: InputMaybe<OrderBy>;
   user_id?: InputMaybe<OrderBy>;
@@ -1730,6 +1530,7 @@ export type PostsOrderBy = {
   id?: InputMaybe<OrderBy>;
   image?: InputMaybe<OrderBy>;
   imageUrl?: InputMaybe<OrderBy>;
+  petGender?: InputMaybe<OrderBy>;
   petName?: InputMaybe<OrderBy>;
   post_comments_aggregate?: InputMaybe<PostCommentsAggregateOrderBy>;
   post_likes_aggregate?: InputMaybe<PostLikesAggregateOrderBy>;
@@ -1758,6 +1559,8 @@ export enum PostsSelectColumn {
   /** column name */
   IMAGEURL = 'imageUrl',
   /** column name */
+  PETGENDER = 'petGender',
+  /** column name */
   PETNAME = 'petName',
   /** column name */
   UPDATED_AT = 'updated_at',
@@ -1772,6 +1575,7 @@ export type PostsSetInput = {
   id?: InputMaybe<Scalars['uuid']>;
   image?: InputMaybe<Scalars['String']>;
   imageUrl?: InputMaybe<Scalars['String']>;
+  petGender?: InputMaybe<Scalars['String']>;
   petName?: InputMaybe<Scalars['String']>;
   updated_at?: InputMaybe<Scalars['timestamptz']>;
   user_id?: InputMaybe<Scalars['uuid']>;
@@ -1790,6 +1594,8 @@ export enum PostsUpdateColumn {
   /** column name */
   IMAGEURL = 'imageUrl',
   /** column name */
+  PETGENDER = 'petGender',
+  /** column name */
   PETNAME = 'petName',
   /** column name */
   UPDATED_AT = 'updated_at',
@@ -1799,12 +1605,6 @@ export enum PostsUpdateColumn {
 
 export type QueryRoot = {
   __typename?: 'query_root';
-  /** fetch data from the table: "followings" */
-  followings: Array<Followings>;
-  /** fetch aggregated fields from the table: "followings" */
-  followings_aggregate: FollowingsAggregate;
-  /** fetch data from the table: "followings" using primary key columns */
-  followings_by_pk?: Maybe<Followings>;
   /** fetch data from the table: "notification" */
   notification: Array<Notification>;
   /** fetch aggregated fields from the table: "notification" */
@@ -1841,9 +1641,9 @@ export type QueryRoot = {
   posts_aggregate: PostsAggregate;
   /** fetch data from the table: "posts" using primary key columns */
   posts_by_pk?: Maybe<Posts>;
-  /** An array relationship */
+  /** fetch data from the table: "relationships" */
   relationships: Array<Relationships>;
-  /** An aggregate relationship */
+  /** fetch aggregated fields from the table: "relationships" */
   relationships_aggregate: RelationshipsAggregate;
   /** fetch data from the table: "relationships" using primary key columns */
   relationships_by_pk?: Maybe<Relationships>;
@@ -1853,29 +1653,6 @@ export type QueryRoot = {
   users_aggregate: UsersAggregate;
   /** fetch data from the table: "users" using primary key columns */
   users_by_pk?: Maybe<Users>;
-};
-
-
-export type QueryRootFollowingsArgs = {
-  distinct_on?: InputMaybe<Array<FollowingsSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<FollowingsOrderBy>>;
-  where?: InputMaybe<FollowingsBoolExp>;
-};
-
-
-export type QueryRootFollowingsAggregateArgs = {
-  distinct_on?: InputMaybe<Array<FollowingsSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<FollowingsOrderBy>>;
-  where?: InputMaybe<FollowingsBoolExp>;
-};
-
-
-export type QueryRootFollowingsByPkArgs = {
-  id: Scalars['uuid'];
 };
 
 
@@ -2065,13 +1842,13 @@ export type QueryRootUsersByPkArgs = {
 /** columns and relationships of "relationships" */
 export type Relationships = {
   __typename?: 'relationships';
-  follow_id?: Maybe<Scalars['uuid']>;
   /** An object relationship */
-  following?: Maybe<Followings>;
+  follow?: Maybe<Users>;
+  follow_id?: Maybe<Scalars['uuid']>;
   id: Scalars['uuid'];
   /** An object relationship */
-  user: Users;
-  user_id: Scalars['uuid'];
+  user?: Maybe<Users>;
+  user_id?: Maybe<Scalars['uuid']>;
 };
 
 /** aggregated selection of "relationships" */
@@ -2115,8 +1892,8 @@ export type RelationshipsBoolExp = {
   _and?: InputMaybe<Array<RelationshipsBoolExp>>;
   _not?: InputMaybe<RelationshipsBoolExp>;
   _or?: InputMaybe<Array<RelationshipsBoolExp>>;
+  follow?: InputMaybe<UsersBoolExp>;
   follow_id?: InputMaybe<UuidComparisonExp>;
-  following?: InputMaybe<FollowingsBoolExp>;
   id?: InputMaybe<UuidComparisonExp>;
   user?: InputMaybe<UsersBoolExp>;
   user_id?: InputMaybe<UuidComparisonExp>;
@@ -2130,8 +1907,8 @@ export enum RelationshipsConstraint {
 
 /** input type for inserting data into table "relationships" */
 export type RelationshipsInsertInput = {
+  follow?: InputMaybe<UsersObjRelInsertInput>;
   follow_id?: InputMaybe<Scalars['uuid']>;
-  following?: InputMaybe<FollowingsObjRelInsertInput>;
   id?: InputMaybe<Scalars['uuid']>;
   user?: InputMaybe<UsersObjRelInsertInput>;
   user_id?: InputMaybe<Scalars['uuid']>;
@@ -2185,8 +1962,8 @@ export type RelationshipsOnConflict = {
 
 /** Ordering options when selecting data from "relationships". */
 export type RelationshipsOrderBy = {
+  follow?: InputMaybe<UsersOrderBy>;
   follow_id?: InputMaybe<OrderBy>;
-  following?: InputMaybe<FollowingsOrderBy>;
   id?: InputMaybe<OrderBy>;
   user?: InputMaybe<UsersOrderBy>;
   user_id?: InputMaybe<OrderBy>;
@@ -2226,12 +2003,6 @@ export enum RelationshipsUpdateColumn {
 
 export type SubscriptionRoot = {
   __typename?: 'subscription_root';
-  /** fetch data from the table: "followings" */
-  followings: Array<Followings>;
-  /** fetch aggregated fields from the table: "followings" */
-  followings_aggregate: FollowingsAggregate;
-  /** fetch data from the table: "followings" using primary key columns */
-  followings_by_pk?: Maybe<Followings>;
   /** fetch data from the table: "notification" */
   notification: Array<Notification>;
   /** fetch aggregated fields from the table: "notification" */
@@ -2268,9 +2039,9 @@ export type SubscriptionRoot = {
   posts_aggregate: PostsAggregate;
   /** fetch data from the table: "posts" using primary key columns */
   posts_by_pk?: Maybe<Posts>;
-  /** An array relationship */
+  /** fetch data from the table: "relationships" */
   relationships: Array<Relationships>;
-  /** An aggregate relationship */
+  /** fetch aggregated fields from the table: "relationships" */
   relationships_aggregate: RelationshipsAggregate;
   /** fetch data from the table: "relationships" using primary key columns */
   relationships_by_pk?: Maybe<Relationships>;
@@ -2280,29 +2051,6 @@ export type SubscriptionRoot = {
   users_aggregate: UsersAggregate;
   /** fetch data from the table: "users" using primary key columns */
   users_by_pk?: Maybe<Users>;
-};
-
-
-export type SubscriptionRootFollowingsArgs = {
-  distinct_on?: InputMaybe<Array<FollowingsSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<FollowingsOrderBy>>;
-  where?: InputMaybe<FollowingsBoolExp>;
-};
-
-
-export type SubscriptionRootFollowingsAggregateArgs = {
-  distinct_on?: InputMaybe<Array<FollowingsSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<FollowingsOrderBy>>;
-  where?: InputMaybe<FollowingsBoolExp>;
-};
-
-
-export type SubscriptionRootFollowingsByPkArgs = {
-  id: Scalars['uuid'];
 };
 
 
@@ -2507,9 +2255,15 @@ export type Users = {
   __typename?: 'users';
   created_at: Scalars['timestamptz'];
   display_id: Scalars['String'];
-  email: Scalars['String'];
-  /** An object relationship */
-  following?: Maybe<Followings>;
+  email?: Maybe<Scalars['String']>;
+  /** An array relationship */
+  followed: Array<Relationships>;
+  /** An aggregate relationship */
+  followed_aggregate: RelationshipsAggregate;
+  /** An array relationship */
+  following: Array<Relationships>;
+  /** An aggregate relationship */
+  following_aggregate: RelationshipsAggregate;
   id: Scalars['uuid'];
   image?: Maybe<Scalars['String']>;
   imageUrl?: Maybe<Scalars['String']>;
@@ -2532,11 +2286,47 @@ export type Users = {
   /** An aggregate relationship */
   posts_aggregate: PostsAggregate;
   profile?: Maybe<Scalars['String']>;
-  /** An array relationship */
-  relationships: Array<Relationships>;
-  /** An aggregate relationship */
-  relationships_aggregate: RelationshipsAggregate;
   updated_at: Scalars['timestamptz'];
+};
+
+
+/** columns and relationships of "users" */
+export type UsersFollowedArgs = {
+  distinct_on?: InputMaybe<Array<RelationshipsSelectColumn>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<RelationshipsOrderBy>>;
+  where?: InputMaybe<RelationshipsBoolExp>;
+};
+
+
+/** columns and relationships of "users" */
+export type UsersFollowedAggregateArgs = {
+  distinct_on?: InputMaybe<Array<RelationshipsSelectColumn>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<RelationshipsOrderBy>>;
+  where?: InputMaybe<RelationshipsBoolExp>;
+};
+
+
+/** columns and relationships of "users" */
+export type UsersFollowingArgs = {
+  distinct_on?: InputMaybe<Array<RelationshipsSelectColumn>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<RelationshipsOrderBy>>;
+  where?: InputMaybe<RelationshipsBoolExp>;
+};
+
+
+/** columns and relationships of "users" */
+export type UsersFollowingAggregateArgs = {
+  distinct_on?: InputMaybe<Array<RelationshipsSelectColumn>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<RelationshipsOrderBy>>;
+  where?: InputMaybe<RelationshipsBoolExp>;
 };
 
 
@@ -2619,26 +2409,6 @@ export type UsersPostsAggregateArgs = {
   where?: InputMaybe<PostsBoolExp>;
 };
 
-
-/** columns and relationships of "users" */
-export type UsersRelationshipsArgs = {
-  distinct_on?: InputMaybe<Array<RelationshipsSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<RelationshipsOrderBy>>;
-  where?: InputMaybe<RelationshipsBoolExp>;
-};
-
-
-/** columns and relationships of "users" */
-export type UsersRelationshipsAggregateArgs = {
-  distinct_on?: InputMaybe<Array<RelationshipsSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<RelationshipsOrderBy>>;
-  where?: InputMaybe<RelationshipsBoolExp>;
-};
-
 /** aggregated selection of "users" */
 export type UsersAggregate = {
   __typename?: 'users_aggregate';
@@ -2669,7 +2439,8 @@ export type UsersBoolExp = {
   created_at?: InputMaybe<TimestamptzComparisonExp>;
   display_id?: InputMaybe<StringComparisonExp>;
   email?: InputMaybe<StringComparisonExp>;
-  following?: InputMaybe<FollowingsBoolExp>;
+  followed?: InputMaybe<RelationshipsBoolExp>;
+  following?: InputMaybe<RelationshipsBoolExp>;
   id?: InputMaybe<UuidComparisonExp>;
   image?: InputMaybe<StringComparisonExp>;
   imageUrl?: InputMaybe<StringComparisonExp>;
@@ -2680,7 +2451,6 @@ export type UsersBoolExp = {
   post_likes?: InputMaybe<PostLikesBoolExp>;
   posts?: InputMaybe<PostsBoolExp>;
   profile?: InputMaybe<StringComparisonExp>;
-  relationships?: InputMaybe<RelationshipsBoolExp>;
   updated_at?: InputMaybe<TimestamptzComparisonExp>;
 };
 
@@ -2695,7 +2465,8 @@ export type UsersInsertInput = {
   created_at?: InputMaybe<Scalars['timestamptz']>;
   display_id?: InputMaybe<Scalars['String']>;
   email?: InputMaybe<Scalars['String']>;
-  following?: InputMaybe<FollowingsObjRelInsertInput>;
+  followed?: InputMaybe<RelationshipsArrRelInsertInput>;
+  following?: InputMaybe<RelationshipsArrRelInsertInput>;
   id?: InputMaybe<Scalars['uuid']>;
   image?: InputMaybe<Scalars['String']>;
   imageUrl?: InputMaybe<Scalars['String']>;
@@ -2706,7 +2477,6 @@ export type UsersInsertInput = {
   post_likes?: InputMaybe<PostLikesArrRelInsertInput>;
   posts?: InputMaybe<PostsArrRelInsertInput>;
   profile?: InputMaybe<Scalars['String']>;
-  relationships?: InputMaybe<RelationshipsArrRelInsertInput>;
   updated_at?: InputMaybe<Scalars['timestamptz']>;
 };
 
@@ -2766,7 +2536,8 @@ export type UsersOrderBy = {
   created_at?: InputMaybe<OrderBy>;
   display_id?: InputMaybe<OrderBy>;
   email?: InputMaybe<OrderBy>;
-  following?: InputMaybe<FollowingsOrderBy>;
+  followed_aggregate?: InputMaybe<RelationshipsAggregateOrderBy>;
+  following_aggregate?: InputMaybe<RelationshipsAggregateOrderBy>;
   id?: InputMaybe<OrderBy>;
   image?: InputMaybe<OrderBy>;
   imageUrl?: InputMaybe<OrderBy>;
@@ -2777,7 +2548,6 @@ export type UsersOrderBy = {
   post_likes_aggregate?: InputMaybe<PostLikesAggregateOrderBy>;
   posts_aggregate?: InputMaybe<PostsAggregateOrderBy>;
   profile?: InputMaybe<OrderBy>;
-  relationships_aggregate?: InputMaybe<RelationshipsAggregateOrderBy>;
   updated_at?: InputMaybe<OrderBy>;
 };
 
@@ -2878,9 +2648,519 @@ export type CreateUserMutation = (
   )> }
 );
 
+export type ReactiveVarGetUserQueryVariables = Exact<{
+  id: Scalars['uuid'];
+}>;
+
+
+export type ReactiveVarGetUserQuery = (
+  { __typename?: 'query_root' }
+  & { users_by_pk?: Maybe<(
+    { __typename?: 'users' }
+    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'email' | 'image' | 'created_at'>
+  )> }
+);
+
+export type GetAllPostQueryVariables = Exact<{
+  limit: Scalars['Int'];
+  offset: Scalars['Int'];
+}>;
+
+
+export type GetAllPostQuery = (
+  { __typename?: 'query_root' }
+  & { posts: Array<(
+    { __typename?: 'posts' }
+    & Pick<Posts, 'id' | 'image' | 'content' | 'created_at'>
+    & { user: (
+      { __typename?: 'users' }
+      & Pick<Users, 'id' | 'image' | 'name'>
+      & { post_comments_aggregate: (
+        { __typename?: 'post_comments_aggregate' }
+        & { aggregate?: Maybe<(
+          { __typename?: 'post_comments_aggregate_fields' }
+          & Pick<PostCommentsAggregateFields, 'count'>
+        )> }
+      ), post_likes_aggregate: (
+        { __typename?: 'post_likes_aggregate' }
+        & { aggregate?: Maybe<(
+          { __typename?: 'post_likes_aggregate_fields' }
+          & Pick<PostLikesAggregateFields, 'count'>
+        )> }
+      ) }
+    ) }
+  )> }
+);
+
+export type GetAllUsersWithPostsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllUsersWithPostsQuery = (
+  { __typename?: 'query_root' }
+  & { users: Array<(
+    { __typename?: 'users' }
+    & Pick<Users, 'id' | 'display_id'>
+    & { posts: Array<(
+      { __typename?: 'posts' }
+      & Pick<Posts, 'id'>
+    )> }
+  )> }
+);
+
+export type GetOneUserWithPostQueryVariables = Exact<{
+  userId: Scalars['String'];
+  postId: Scalars['uuid'];
+}>;
+
+
+export type GetOneUserWithPostQuery = (
+  { __typename?: 'query_root' }
+  & { users: Array<(
+    { __typename?: 'users' }
+    & Pick<Users, 'id' | 'display_id' | 'name' | 'image'>
+    & { posts: Array<(
+      { __typename?: 'posts' }
+      & Pick<Posts, 'id' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'content' | 'created_at'>
+      & { post_tag_size?: Maybe<(
+        { __typename?: 'post_tag_size' }
+        & Pick<PostTagSize, 'id' | 'size'>
+      )>, post_tag_recommend?: Maybe<(
+        { __typename?: 'post_tag_recommend' }
+        & Pick<PostTagRecommend, 'id' | 'recommend'>
+      )>, post_comments: Array<(
+        { __typename?: 'post_comments' }
+        & Pick<PostComments, 'id' | 'comment' | 'created_at'>
+        & { user: (
+          { __typename?: 'users' }
+          & Pick<Users, 'image' | 'name' | 'display_id'>
+        ) }
+      )> }
+    )> }
+  )> }
+);
+
+export type GetPostLikeCountQueryVariables = Exact<{
+  postId: Scalars['uuid'];
+}>;
+
+
+export type GetPostLikeCountQuery = (
+  { __typename?: 'query_root' }
+  & { post_likes: Array<(
+    { __typename?: 'post_likes' }
+    & Pick<PostLikes, 'id' | 'post_id' | 'user_id'>
+  )> }
+);
+
+export type AddPostLikeMutationVariables = Exact<{
+  userId: Scalars['uuid'];
+  postId: Scalars['uuid'];
+}>;
+
+
+export type AddPostLikeMutation = (
+  { __typename?: 'mutation_root' }
+  & { insert_post_likes_one?: Maybe<(
+    { __typename?: 'post_likes' }
+    & Pick<PostLikes, 'id' | 'user_id' | 'post_id'>
+  )> }
+);
+
+export type RemovePostLikeMutationVariables = Exact<{
+  userId: Scalars['uuid'];
+  postId: Scalars['uuid'];
+}>;
+
+
+export type RemovePostLikeMutation = (
+  { __typename?: 'mutation_root' }
+  & { delete_post_likes?: Maybe<(
+    { __typename?: 'post_likes_mutation_response' }
+    & Pick<PostLikesMutationResponse, 'affected_rows'>
+  )> }
+);
+
+export type AddPostCommentMutationVariables = Exact<{
+  userId: Scalars['uuid'];
+  postId: Scalars['uuid'];
+  comment: Scalars['String'];
+}>;
+
+
+export type AddPostCommentMutation = (
+  { __typename?: 'mutation_root' }
+  & { insert_post_comments_one?: Maybe<(
+    { __typename?: 'post_comments' }
+    & Pick<PostComments, 'id' | 'comment' | 'created_at'>
+    & { user: (
+      { __typename?: 'users' }
+      & Pick<Users, 'image' | 'name' | 'display_id'>
+    ) }
+  )> }
+);
+
+export type SubscriptionPostCommentSubscriptionVariables = Exact<{
+  postId: Scalars['uuid'];
+}>;
+
+
+export type SubscriptionPostCommentSubscription = (
+  { __typename?: 'subscription_root' }
+  & { post_comments: Array<(
+    { __typename?: 'post_comments' }
+    & Pick<PostComments, 'id' | 'comment' | 'created_at'>
+    & { user: (
+      { __typename?: 'users' }
+      & Pick<Users, 'image' | 'name' | 'display_id'>
+    ) }
+  )> }
+);
+
+export type InsertPostOneMutationVariables = Exact<{
+  user_id: Scalars['uuid'];
+  content: Scalars['String'];
+  image?: InputMaybe<Scalars['String']>;
+  imageUrl?: InputMaybe<Scalars['String']>;
+  petName: Scalars['String'];
+  petGender: Scalars['String'];
+  post_tag_size: Scalars['String'];
+  post_tag_recommend: Scalars['String'];
+}>;
+
+
+export type InsertPostOneMutation = (
+  { __typename?: 'mutation_root' }
+  & { insert_posts_one?: Maybe<(
+    { __typename?: 'posts' }
+    & Pick<Posts, 'id' | 'user_id' | 'content' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'created_at'>
+  )> }
+);
+
+export type EditPostOneMutationVariables = Exact<{
+  id: Scalars['uuid'];
+  user_id: Scalars['uuid'];
+  content: Scalars['String'];
+  image: Scalars['String'];
+  imageUrl: Scalars['String'];
+  petName: Scalars['String'];
+  petGender: Scalars['String'];
+}>;
+
+
+export type EditPostOneMutation = (
+  { __typename?: 'mutation_root' }
+  & { insert_posts_one?: Maybe<(
+    { __typename?: 'posts' }
+    & Pick<Posts, 'id' | 'user_id' | 'content' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'created_at'>
+  )> }
+);
+
+export type EditPostOneWithoutImageMutationVariables = Exact<{
+  id: Scalars['uuid'];
+  user_id: Scalars['uuid'];
+  content: Scalars['String'];
+  petName: Scalars['String'];
+  petGender: Scalars['String'];
+}>;
+
+
+export type EditPostOneWithoutImageMutation = (
+  { __typename?: 'mutation_root' }
+  & { insert_posts_one?: Maybe<(
+    { __typename?: 'posts' }
+    & Pick<Posts, 'id' | 'user_id' | 'content' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'created_at'>
+  )> }
+);
+
+export type DelatePostOneMutationVariables = Exact<{
+  postId: Scalars['uuid'];
+}>;
+
+
+export type DelatePostOneMutation = (
+  { __typename?: 'mutation_root' }
+  & { delete_posts_by_pk?: Maybe<(
+    { __typename?: 'posts' }
+    & Pick<Posts, 'id' | 'image' | 'imageUrl' | 'user_id'>
+  )> }
+);
+
+export type UpdateUserProfileMutationVariables = Exact<{
+  id: Scalars['uuid'];
+  name: Scalars['String'];
+  displayId: Scalars['String'];
+  profile?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type UpdateUserProfileMutation = (
+  { __typename?: 'mutation_root' }
+  & { insert_users_one?: Maybe<(
+    { __typename?: 'users' }
+    & Pick<Users, 'id' | 'name' | 'display_id' | 'profile' | 'image'>
+  )> }
+);
+
+export type GetUserInfomationQueryVariables = Exact<{
+  display_id: Scalars['String'];
+}>;
+
+
+export type GetUserInfomationQuery = (
+  { __typename?: 'query_root' }
+  & { users: Array<(
+    { __typename?: 'users' }
+    & { posts_aggregate: (
+      { __typename?: 'posts_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'posts_aggregate_fields' }
+        & Pick<PostsAggregateFields, 'count'>
+      )> }
+    ), following_aggregate: (
+      { __typename?: 'relationships_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'relationships_aggregate_fields' }
+        & Pick<RelationshipsAggregateFields, 'count'>
+      )> }
+    ), followed_aggregate: (
+      { __typename?: 'relationships_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'relationships_aggregate_fields' }
+        & Pick<RelationshipsAggregateFields, 'count'>
+      )> }
+    ) }
+  )> }
+);
+
+export type GetOneUserAllPostQueryVariables = Exact<{
+  display_id: Scalars['String'];
+}>;
+
+
+export type GetOneUserAllPostQuery = (
+  { __typename?: 'query_root' }
+  & { users: Array<(
+    { __typename?: 'users' }
+    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
+    & { posts: Array<(
+      { __typename?: 'posts' }
+      & Pick<Posts, 'id' | 'image' | 'content' | 'updated_at'>
+      & { post_comments_aggregate: (
+        { __typename?: 'post_comments_aggregate' }
+        & { aggregate?: Maybe<(
+          { __typename?: 'post_comments_aggregate_fields' }
+          & Pick<PostCommentsAggregateFields, 'count'>
+        )> }
+      ), post_likes_aggregate: (
+        { __typename?: 'post_likes_aggregate' }
+        & { aggregate?: Maybe<(
+          { __typename?: 'post_likes_aggregate_fields' }
+          & Pick<PostLikesAggregateFields, 'count'>
+        )> }
+      ) }
+    )> }
+  )> }
+);
+
+export type GetAllUsersQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllUsersQuery = (
+  { __typename?: 'query_root' }
+  & { users: Array<(
+    { __typename?: 'users' }
+    & Pick<Users, 'id' | 'display_id'>
+  )> }
+);
+
+export type GetOneUserLikePostQueryVariables = Exact<{
+  display_id: Scalars['String'];
+}>;
+
+
+export type GetOneUserLikePostQuery = (
+  { __typename?: 'query_root' }
+  & { users: Array<(
+    { __typename?: 'users' }
+    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
+    & { post_likes: Array<(
+      { __typename?: 'post_likes' }
+      & { post: (
+        { __typename?: 'posts' }
+        & Pick<Posts, 'id' | 'content' | 'image' | 'updated_at'>
+        & { user: (
+          { __typename?: 'users' }
+          & Pick<Users, 'id' | 'image' | 'name' | 'created_at'>
+          & { post_comments_aggregate: (
+            { __typename?: 'post_comments_aggregate' }
+            & { aggregate?: Maybe<(
+              { __typename?: 'post_comments_aggregate_fields' }
+              & Pick<PostCommentsAggregateFields, 'count'>
+            )> }
+          ), post_likes_aggregate: (
+            { __typename?: 'post_likes_aggregate' }
+            & { aggregate?: Maybe<(
+              { __typename?: 'post_likes_aggregate_fields' }
+              & Pick<PostLikesAggregateFields, 'count'>
+            )> }
+          ) }
+        ) }
+      ) }
+    )> }
+  )> }
+);
+
+export type GetFollowUserPostQueryVariables = Exact<{
+  user_id: Scalars['uuid'];
+}>;
+
+
+export type GetFollowUserPostQuery = (
+  { __typename?: 'query_root' }
+  & { posts: Array<(
+    { __typename?: 'posts' }
+    & Pick<Posts, 'id' | 'user_id' | 'image' | 'content' | 'petName' | 'petGender' | 'created_at'>
+    & { user: (
+      { __typename?: 'users' }
+      & Pick<Users, 'id' | 'image' | 'name' | 'created_at'>
+      & { post_comments_aggregate: (
+        { __typename?: 'post_comments_aggregate' }
+        & { aggregate?: Maybe<(
+          { __typename?: 'post_comments_aggregate_fields' }
+          & Pick<PostCommentsAggregateFields, 'count'>
+        )> }
+      ), post_likes_aggregate: (
+        { __typename?: 'post_likes_aggregate' }
+        & { aggregate?: Maybe<(
+          { __typename?: 'post_likes_aggregate_fields' }
+          & Pick<PostLikesAggregateFields, 'count'>
+        )> }
+      ) }
+    ) }
+  )>, users: Array<(
+    { __typename?: 'users' }
+    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
+  )> }
+);
+
+export type GetOneUserFollowingQueryVariables = Exact<{
+  display_id: Scalars['String'];
+}>;
+
+
+export type GetOneUserFollowingQuery = (
+  { __typename?: 'query_root' }
+  & { users: Array<(
+    { __typename?: 'users' }
+    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
+    & { following: Array<(
+      { __typename?: 'relationships' }
+      & { follow?: Maybe<(
+        { __typename?: 'users' }
+        & Pick<Users, 'id' | 'display_id' | 'name' | 'image' | 'created_at'>
+      )> }
+    )> }
+  )> }
+);
+
+export type GetOneUserFollowerQueryVariables = Exact<{
+  display_id: Scalars['String'];
+}>;
+
+
+export type GetOneUserFollowerQuery = (
+  { __typename?: 'query_root' }
+  & { users: Array<(
+    { __typename?: 'users' }
+    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
+    & { followed: Array<(
+      { __typename?: 'relationships' }
+      & { user?: Maybe<(
+        { __typename?: 'users' }
+        & Pick<Users, 'id' | 'display_id' | 'name' | 'image' | 'created_at'>
+      )> }
+    )> }
+  )> }
+);
+
+export type IsFollowUserQueryVariables = Exact<{
+  fromUserId: Scalars['uuid'];
+  toUserId: Scalars['uuid'];
+}>;
+
+
+export type IsFollowUserQuery = (
+  { __typename?: 'query_root' }
+  & { relationships: Array<(
+    { __typename?: 'relationships' }
+    & Pick<Relationships, 'id' | 'user_id' | 'follow_id'>
+  )> }
+);
+
+export type AddFollowMutationVariables = Exact<{
+  fromUserId: Scalars['uuid'];
+  toUserId: Scalars['uuid'];
+}>;
+
+
+export type AddFollowMutation = (
+  { __typename?: 'mutation_root' }
+  & { insert_relationships_one?: Maybe<(
+    { __typename?: 'relationships' }
+    & Pick<Relationships, 'id' | 'user_id' | 'follow_id'>
+  )> }
+);
+
+export type RemoveFollowMutationVariables = Exact<{
+  fromUserId: Scalars['uuid'];
+  toUserId: Scalars['uuid'];
+}>;
+
+
+export type RemoveFollowMutation = (
+  { __typename?: 'mutation_root' }
+  & { delete_relationships?: Maybe<(
+    { __typename?: 'relationships_mutation_response' }
+    & Pick<RelationshipsMutationResponse, 'affected_rows'>
+  )> }
+);
+
+export type GetSearchResultQueryVariables = Exact<{
+  word: Scalars['String'];
+}>;
+
+
+export type GetSearchResultQuery = (
+  { __typename?: 'query_root' }
+  & { users: Array<(
+    { __typename?: 'users' }
+    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
+  )>, posts: Array<(
+    { __typename?: 'posts' }
+    & Pick<Posts, 'id' | 'user_id' | 'image' | 'content' | 'petName' | 'petGender' | 'created_at'>
+    & { user: (
+      { __typename?: 'users' }
+      & Pick<Users, 'id' | 'display_id' | 'image' | 'name'>
+    ), post_comments_aggregate: (
+      { __typename?: 'post_comments_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_comments_aggregate_fields' }
+        & Pick<PostCommentsAggregateFields, 'count'>
+      )> }
+    ), post_likes_aggregate: (
+      { __typename?: 'post_likes_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_likes_aggregate_fields' }
+        & Pick<PostLikesAggregateFields, 'count'>
+      )> }
+    ) }
+  )> }
+);
+
 
 export const CreateUserDocument = gql`
-    mutation createUser($id: uuid!, $display_id: String!, $email: String!, $name: String!, $image: String) {
+    mutation CreateUser($id: uuid!, $display_id: String!, $email: String!, $name: String!, $image: String) {
   insert_users_one(
     object: {id: $id, display_id: $display_id, name: $name, email: $email, image: $image}
   ) {
@@ -2923,3 +3203,1159 @@ export function useCreateUserMutation(baseOptions?: ApolloReactHooks.MutationHoo
 export type CreateUserMutationHookResult = ReturnType<typeof useCreateUserMutation>;
 export type CreateUserMutationResult = ApolloReactCommon.MutationResult<CreateUserMutation>;
 export type CreateUserMutationOptions = ApolloReactCommon.BaseMutationOptions<CreateUserMutation, CreateUserMutationVariables>;
+export const ReactiveVarGetUserDocument = gql`
+    query ReactiveVarGetUser($id: uuid!) {
+  users_by_pk(id: $id) {
+    id
+    display_id
+    name
+    profile
+    email
+    image
+    created_at
+  }
+}
+    `;
+
+/**
+ * __useReactiveVarGetUserQuery__
+ *
+ * To run a query within a React component, call `useReactiveVarGetUserQuery` and pass it any options that fit your needs.
+ * When your component renders, `useReactiveVarGetUserQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useReactiveVarGetUserQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useReactiveVarGetUserQuery(baseOptions: ApolloReactHooks.QueryHookOptions<ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables>(ReactiveVarGetUserDocument, options);
+      }
+export function useReactiveVarGetUserLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables>(ReactiveVarGetUserDocument, options);
+        }
+export type ReactiveVarGetUserQueryHookResult = ReturnType<typeof useReactiveVarGetUserQuery>;
+export type ReactiveVarGetUserLazyQueryHookResult = ReturnType<typeof useReactiveVarGetUserLazyQuery>;
+export type ReactiveVarGetUserQueryResult = ApolloReactCommon.QueryResult<ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables>;
+export const GetAllPostDocument = gql`
+    query GetAllPost($limit: Int!, $offset: Int!) {
+  posts(limit: $limit, order_by: {id: asc}, offset: $offset) {
+    id
+    image
+    content
+    created_at
+    user {
+      id
+      image
+      name
+      post_comments_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+      post_likes_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllPostQuery__
+ *
+ * To run a query within a React component, call `useGetAllPostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllPostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllPostQuery({
+ *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useGetAllPostQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetAllPostQuery, GetAllPostQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetAllPostQuery, GetAllPostQueryVariables>(GetAllPostDocument, options);
+      }
+export function useGetAllPostLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetAllPostQuery, GetAllPostQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetAllPostQuery, GetAllPostQueryVariables>(GetAllPostDocument, options);
+        }
+export type GetAllPostQueryHookResult = ReturnType<typeof useGetAllPostQuery>;
+export type GetAllPostLazyQueryHookResult = ReturnType<typeof useGetAllPostLazyQuery>;
+export type GetAllPostQueryResult = ApolloReactCommon.QueryResult<GetAllPostQuery, GetAllPostQueryVariables>;
+export const GetAllUsersWithPostsDocument = gql`
+    query GetAllUsersWithPosts {
+  users {
+    id
+    display_id
+    posts {
+      id
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllUsersWithPostsQuery__
+ *
+ * To run a query within a React component, call `useGetAllUsersWithPostsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllUsersWithPostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllUsersWithPostsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetAllUsersWithPostsQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<GetAllUsersWithPostsQuery, GetAllUsersWithPostsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetAllUsersWithPostsQuery, GetAllUsersWithPostsQueryVariables>(GetAllUsersWithPostsDocument, options);
+      }
+export function useGetAllUsersWithPostsLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetAllUsersWithPostsQuery, GetAllUsersWithPostsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetAllUsersWithPostsQuery, GetAllUsersWithPostsQueryVariables>(GetAllUsersWithPostsDocument, options);
+        }
+export type GetAllUsersWithPostsQueryHookResult = ReturnType<typeof useGetAllUsersWithPostsQuery>;
+export type GetAllUsersWithPostsLazyQueryHookResult = ReturnType<typeof useGetAllUsersWithPostsLazyQuery>;
+export type GetAllUsersWithPostsQueryResult = ApolloReactCommon.QueryResult<GetAllUsersWithPostsQuery, GetAllUsersWithPostsQueryVariables>;
+export const GetOneUserWithPostDocument = gql`
+    query GetOneUserWithPost($userId: String!, $postId: uuid!) {
+  users(where: {display_id: {_eq: $userId}}) {
+    id
+    display_id
+    name
+    image
+    posts(where: {id: {_eq: $postId}}) {
+      id
+      image
+      imageUrl
+      petName
+      petGender
+      content
+      created_at
+      post_tag_size {
+        id
+        size
+      }
+      post_tag_recommend {
+        id
+        recommend
+      }
+      post_comments {
+        id
+        comment
+        created_at
+        user {
+          image
+          name
+          display_id
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetOneUserWithPostQuery__
+ *
+ * To run a query within a React component, call `useGetOneUserWithPostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetOneUserWithPostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetOneUserWithPostQuery({
+ *   variables: {
+ *      userId: // value for 'userId'
+ *      postId: // value for 'postId'
+ *   },
+ * });
+ */
+export function useGetOneUserWithPostQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetOneUserWithPostQuery, GetOneUserWithPostQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetOneUserWithPostQuery, GetOneUserWithPostQueryVariables>(GetOneUserWithPostDocument, options);
+      }
+export function useGetOneUserWithPostLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetOneUserWithPostQuery, GetOneUserWithPostQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetOneUserWithPostQuery, GetOneUserWithPostQueryVariables>(GetOneUserWithPostDocument, options);
+        }
+export type GetOneUserWithPostQueryHookResult = ReturnType<typeof useGetOneUserWithPostQuery>;
+export type GetOneUserWithPostLazyQueryHookResult = ReturnType<typeof useGetOneUserWithPostLazyQuery>;
+export type GetOneUserWithPostQueryResult = ApolloReactCommon.QueryResult<GetOneUserWithPostQuery, GetOneUserWithPostQueryVariables>;
+export const GetPostLikeCountDocument = gql`
+    query GetPostLikeCount($postId: uuid!) {
+  post_likes(where: {post_id: {_eq: $postId}}) {
+    id
+    post_id
+    user_id
+  }
+}
+    `;
+
+/**
+ * __useGetPostLikeCountQuery__
+ *
+ * To run a query within a React component, call `useGetPostLikeCountQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPostLikeCountQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPostLikeCountQuery({
+ *   variables: {
+ *      postId: // value for 'postId'
+ *   },
+ * });
+ */
+export function useGetPostLikeCountQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetPostLikeCountQuery, GetPostLikeCountQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetPostLikeCountQuery, GetPostLikeCountQueryVariables>(GetPostLikeCountDocument, options);
+      }
+export function useGetPostLikeCountLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetPostLikeCountQuery, GetPostLikeCountQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetPostLikeCountQuery, GetPostLikeCountQueryVariables>(GetPostLikeCountDocument, options);
+        }
+export type GetPostLikeCountQueryHookResult = ReturnType<typeof useGetPostLikeCountQuery>;
+export type GetPostLikeCountLazyQueryHookResult = ReturnType<typeof useGetPostLikeCountLazyQuery>;
+export type GetPostLikeCountQueryResult = ApolloReactCommon.QueryResult<GetPostLikeCountQuery, GetPostLikeCountQueryVariables>;
+export const AddPostLikeDocument = gql`
+    mutation AddPostLike($userId: uuid!, $postId: uuid!) {
+  insert_post_likes_one(object: {user_id: $userId, post_id: $postId}) {
+    id
+    user_id
+    post_id
+  }
+}
+    `;
+export type AddPostLikeMutationFn = ApolloReactCommon.MutationFunction<AddPostLikeMutation, AddPostLikeMutationVariables>;
+
+/**
+ * __useAddPostLikeMutation__
+ *
+ * To run a mutation, you first call `useAddPostLikeMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAddPostLikeMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [addPostLikeMutation, { data, loading, error }] = useAddPostLikeMutation({
+ *   variables: {
+ *      userId: // value for 'userId'
+ *      postId: // value for 'postId'
+ *   },
+ * });
+ */
+export function useAddPostLikeMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<AddPostLikeMutation, AddPostLikeMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<AddPostLikeMutation, AddPostLikeMutationVariables>(AddPostLikeDocument, options);
+      }
+export type AddPostLikeMutationHookResult = ReturnType<typeof useAddPostLikeMutation>;
+export type AddPostLikeMutationResult = ApolloReactCommon.MutationResult<AddPostLikeMutation>;
+export type AddPostLikeMutationOptions = ApolloReactCommon.BaseMutationOptions<AddPostLikeMutation, AddPostLikeMutationVariables>;
+export const RemovePostLikeDocument = gql`
+    mutation RemovePostLike($userId: uuid!, $postId: uuid!) {
+  delete_post_likes(
+    where: {_and: {user_id: {_eq: $userId}, post_id: {_eq: $postId}}}
+  ) {
+    affected_rows
+  }
+}
+    `;
+export type RemovePostLikeMutationFn = ApolloReactCommon.MutationFunction<RemovePostLikeMutation, RemovePostLikeMutationVariables>;
+
+/**
+ * __useRemovePostLikeMutation__
+ *
+ * To run a mutation, you first call `useRemovePostLikeMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRemovePostLikeMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [removePostLikeMutation, { data, loading, error }] = useRemovePostLikeMutation({
+ *   variables: {
+ *      userId: // value for 'userId'
+ *      postId: // value for 'postId'
+ *   },
+ * });
+ */
+export function useRemovePostLikeMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<RemovePostLikeMutation, RemovePostLikeMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<RemovePostLikeMutation, RemovePostLikeMutationVariables>(RemovePostLikeDocument, options);
+      }
+export type RemovePostLikeMutationHookResult = ReturnType<typeof useRemovePostLikeMutation>;
+export type RemovePostLikeMutationResult = ApolloReactCommon.MutationResult<RemovePostLikeMutation>;
+export type RemovePostLikeMutationOptions = ApolloReactCommon.BaseMutationOptions<RemovePostLikeMutation, RemovePostLikeMutationVariables>;
+export const AddPostCommentDocument = gql`
+    mutation AddPostComment($userId: uuid!, $postId: uuid!, $comment: String!) {
+  insert_post_comments_one(
+    object: {user_id: $userId, post_id: $postId, comment: $comment}
+  ) {
+    id
+    comment
+    created_at
+    user {
+      image
+      name
+      display_id
+    }
+  }
+}
+    `;
+export type AddPostCommentMutationFn = ApolloReactCommon.MutationFunction<AddPostCommentMutation, AddPostCommentMutationVariables>;
+
+/**
+ * __useAddPostCommentMutation__
+ *
+ * To run a mutation, you first call `useAddPostCommentMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAddPostCommentMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [addPostCommentMutation, { data, loading, error }] = useAddPostCommentMutation({
+ *   variables: {
+ *      userId: // value for 'userId'
+ *      postId: // value for 'postId'
+ *      comment: // value for 'comment'
+ *   },
+ * });
+ */
+export function useAddPostCommentMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<AddPostCommentMutation, AddPostCommentMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<AddPostCommentMutation, AddPostCommentMutationVariables>(AddPostCommentDocument, options);
+      }
+export type AddPostCommentMutationHookResult = ReturnType<typeof useAddPostCommentMutation>;
+export type AddPostCommentMutationResult = ApolloReactCommon.MutationResult<AddPostCommentMutation>;
+export type AddPostCommentMutationOptions = ApolloReactCommon.BaseMutationOptions<AddPostCommentMutation, AddPostCommentMutationVariables>;
+export const SubscriptionPostCommentDocument = gql`
+    subscription SubscriptionPostComment($postId: uuid!) {
+  post_comments(where: {post_id: {_eq: $postId}}) {
+    id
+    comment
+    created_at
+    user {
+      image
+      name
+      display_id
+    }
+  }
+}
+    `;
+
+/**
+ * __useSubscriptionPostCommentSubscription__
+ *
+ * To run a query within a React component, call `useSubscriptionPostCommentSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useSubscriptionPostCommentSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSubscriptionPostCommentSubscription({
+ *   variables: {
+ *      postId: // value for 'postId'
+ *   },
+ * });
+ */
+export function useSubscriptionPostCommentSubscription(baseOptions: ApolloReactHooks.SubscriptionHookOptions<SubscriptionPostCommentSubscription, SubscriptionPostCommentSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useSubscription<SubscriptionPostCommentSubscription, SubscriptionPostCommentSubscriptionVariables>(SubscriptionPostCommentDocument, options);
+      }
+export type SubscriptionPostCommentSubscriptionHookResult = ReturnType<typeof useSubscriptionPostCommentSubscription>;
+export type SubscriptionPostCommentSubscriptionResult = ApolloReactCommon.SubscriptionResult<SubscriptionPostCommentSubscription>;
+export const InsertPostOneDocument = gql`
+    mutation InsertPostOne($user_id: uuid!, $content: String!, $image: String, $imageUrl: String, $petName: String!, $petGender: String!, $post_tag_size: String!, $post_tag_recommend: String!) {
+  insert_posts_one(
+    object: {user_id: $user_id, content: $content, image: $image, imageUrl: $imageUrl, petName: $petName, petGender: $petGender, post_tag_size: {data: {size: $post_tag_size}}, post_tag_recommend: {data: {recommend: $post_tag_recommend}}}
+  ) {
+    id
+    user_id
+    content
+    image
+    imageUrl
+    petName
+    petGender
+    created_at
+  }
+}
+    `;
+export type InsertPostOneMutationFn = ApolloReactCommon.MutationFunction<InsertPostOneMutation, InsertPostOneMutationVariables>;
+
+/**
+ * __useInsertPostOneMutation__
+ *
+ * To run a mutation, you first call `useInsertPostOneMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useInsertPostOneMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [insertPostOneMutation, { data, loading, error }] = useInsertPostOneMutation({
+ *   variables: {
+ *      user_id: // value for 'user_id'
+ *      content: // value for 'content'
+ *      image: // value for 'image'
+ *      imageUrl: // value for 'imageUrl'
+ *      petName: // value for 'petName'
+ *      petGender: // value for 'petGender'
+ *      post_tag_size: // value for 'post_tag_size'
+ *      post_tag_recommend: // value for 'post_tag_recommend'
+ *   },
+ * });
+ */
+export function useInsertPostOneMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<InsertPostOneMutation, InsertPostOneMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<InsertPostOneMutation, InsertPostOneMutationVariables>(InsertPostOneDocument, options);
+      }
+export type InsertPostOneMutationHookResult = ReturnType<typeof useInsertPostOneMutation>;
+export type InsertPostOneMutationResult = ApolloReactCommon.MutationResult<InsertPostOneMutation>;
+export type InsertPostOneMutationOptions = ApolloReactCommon.BaseMutationOptions<InsertPostOneMutation, InsertPostOneMutationVariables>;
+export const EditPostOneDocument = gql`
+    mutation EditPostOne($id: uuid!, $user_id: uuid!, $content: String!, $image: String!, $imageUrl: String!, $petName: String!, $petGender: String!) {
+  insert_posts_one(
+    object: {id: $id, user_id: $user_id, content: $content, image: $image, imageUrl: $imageUrl, petName: $petName, petGender: $petGender}
+    on_conflict: {constraint: posts_pkey, update_columns: [content, image, imageUrl, petName, petGender, updated_at]}
+  ) {
+    id
+    user_id
+    content
+    image
+    imageUrl
+    petName
+    petGender
+    created_at
+  }
+}
+    `;
+export type EditPostOneMutationFn = ApolloReactCommon.MutationFunction<EditPostOneMutation, EditPostOneMutationVariables>;
+
+/**
+ * __useEditPostOneMutation__
+ *
+ * To run a mutation, you first call `useEditPostOneMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useEditPostOneMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [editPostOneMutation, { data, loading, error }] = useEditPostOneMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      user_id: // value for 'user_id'
+ *      content: // value for 'content'
+ *      image: // value for 'image'
+ *      imageUrl: // value for 'imageUrl'
+ *      petName: // value for 'petName'
+ *      petGender: // value for 'petGender'
+ *   },
+ * });
+ */
+export function useEditPostOneMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<EditPostOneMutation, EditPostOneMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<EditPostOneMutation, EditPostOneMutationVariables>(EditPostOneDocument, options);
+      }
+export type EditPostOneMutationHookResult = ReturnType<typeof useEditPostOneMutation>;
+export type EditPostOneMutationResult = ApolloReactCommon.MutationResult<EditPostOneMutation>;
+export type EditPostOneMutationOptions = ApolloReactCommon.BaseMutationOptions<EditPostOneMutation, EditPostOneMutationVariables>;
+export const EditPostOneWithoutImageDocument = gql`
+    mutation EditPostOneWithoutImage($id: uuid!, $user_id: uuid!, $content: String!, $petName: String!, $petGender: String!) {
+  insert_posts_one(
+    object: {id: $id, user_id: $user_id, content: $content, petName: $petName, petGender: $petGender}
+    on_conflict: {constraint: posts_pkey, update_columns: [content, petName, petGender, updated_at]}
+  ) {
+    id
+    user_id
+    content
+    image
+    imageUrl
+    petName
+    petGender
+    created_at
+  }
+}
+    `;
+export type EditPostOneWithoutImageMutationFn = ApolloReactCommon.MutationFunction<EditPostOneWithoutImageMutation, EditPostOneWithoutImageMutationVariables>;
+
+/**
+ * __useEditPostOneWithoutImageMutation__
+ *
+ * To run a mutation, you first call `useEditPostOneWithoutImageMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useEditPostOneWithoutImageMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [editPostOneWithoutImageMutation, { data, loading, error }] = useEditPostOneWithoutImageMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      user_id: // value for 'user_id'
+ *      content: // value for 'content'
+ *      petName: // value for 'petName'
+ *      petGender: // value for 'petGender'
+ *   },
+ * });
+ */
+export function useEditPostOneWithoutImageMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<EditPostOneWithoutImageMutation, EditPostOneWithoutImageMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<EditPostOneWithoutImageMutation, EditPostOneWithoutImageMutationVariables>(EditPostOneWithoutImageDocument, options);
+      }
+export type EditPostOneWithoutImageMutationHookResult = ReturnType<typeof useEditPostOneWithoutImageMutation>;
+export type EditPostOneWithoutImageMutationResult = ApolloReactCommon.MutationResult<EditPostOneWithoutImageMutation>;
+export type EditPostOneWithoutImageMutationOptions = ApolloReactCommon.BaseMutationOptions<EditPostOneWithoutImageMutation, EditPostOneWithoutImageMutationVariables>;
+export const DelatePostOneDocument = gql`
+    mutation DelatePostOne($postId: uuid!) {
+  delete_posts_by_pk(id: $postId) {
+    id
+    image
+    imageUrl
+    user_id
+  }
+}
+    `;
+export type DelatePostOneMutationFn = ApolloReactCommon.MutationFunction<DelatePostOneMutation, DelatePostOneMutationVariables>;
+
+/**
+ * __useDelatePostOneMutation__
+ *
+ * To run a mutation, you first call `useDelatePostOneMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDelatePostOneMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [delatePostOneMutation, { data, loading, error }] = useDelatePostOneMutation({
+ *   variables: {
+ *      postId: // value for 'postId'
+ *   },
+ * });
+ */
+export function useDelatePostOneMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<DelatePostOneMutation, DelatePostOneMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<DelatePostOneMutation, DelatePostOneMutationVariables>(DelatePostOneDocument, options);
+      }
+export type DelatePostOneMutationHookResult = ReturnType<typeof useDelatePostOneMutation>;
+export type DelatePostOneMutationResult = ApolloReactCommon.MutationResult<DelatePostOneMutation>;
+export type DelatePostOneMutationOptions = ApolloReactCommon.BaseMutationOptions<DelatePostOneMutation, DelatePostOneMutationVariables>;
+export const UpdateUserProfileDocument = gql`
+    mutation UpdateUserProfile($id: uuid!, $name: String!, $displayId: String!, $profile: String, $image: String) {
+  insert_users_one(
+    object: {id: $id, name: $name, display_id: $displayId, profile: $profile, image: $image}
+    on_conflict: {constraint: users_pkey, update_columns: [name, display_id, profile, image, updated_at]}
+  ) {
+    id
+    name
+    display_id
+    profile
+    image
+  }
+}
+    `;
+export type UpdateUserProfileMutationFn = ApolloReactCommon.MutationFunction<UpdateUserProfileMutation, UpdateUserProfileMutationVariables>;
+
+/**
+ * __useUpdateUserProfileMutation__
+ *
+ * To run a mutation, you first call `useUpdateUserProfileMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateUserProfileMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateUserProfileMutation, { data, loading, error }] = useUpdateUserProfileMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      name: // value for 'name'
+ *      displayId: // value for 'displayId'
+ *      profile: // value for 'profile'
+ *      image: // value for 'image'
+ *   },
+ * });
+ */
+export function useUpdateUserProfileMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<UpdateUserProfileMutation, UpdateUserProfileMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<UpdateUserProfileMutation, UpdateUserProfileMutationVariables>(UpdateUserProfileDocument, options);
+      }
+export type UpdateUserProfileMutationHookResult = ReturnType<typeof useUpdateUserProfileMutation>;
+export type UpdateUserProfileMutationResult = ApolloReactCommon.MutationResult<UpdateUserProfileMutation>;
+export type UpdateUserProfileMutationOptions = ApolloReactCommon.BaseMutationOptions<UpdateUserProfileMutation, UpdateUserProfileMutationVariables>;
+export const GetUserInfomationDocument = gql`
+    query GetUserInfomation($display_id: String!) {
+  users(where: {display_id: {_eq: $display_id}}) {
+    posts_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
+    following_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
+    followed_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetUserInfomationQuery__
+ *
+ * To run a query within a React component, call `useGetUserInfomationQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserInfomationQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserInfomationQuery({
+ *   variables: {
+ *      display_id: // value for 'display_id'
+ *   },
+ * });
+ */
+export function useGetUserInfomationQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetUserInfomationQuery, GetUserInfomationQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetUserInfomationQuery, GetUserInfomationQueryVariables>(GetUserInfomationDocument, options);
+      }
+export function useGetUserInfomationLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetUserInfomationQuery, GetUserInfomationQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetUserInfomationQuery, GetUserInfomationQueryVariables>(GetUserInfomationDocument, options);
+        }
+export type GetUserInfomationQueryHookResult = ReturnType<typeof useGetUserInfomationQuery>;
+export type GetUserInfomationLazyQueryHookResult = ReturnType<typeof useGetUserInfomationLazyQuery>;
+export type GetUserInfomationQueryResult = ApolloReactCommon.QueryResult<GetUserInfomationQuery, GetUserInfomationQueryVariables>;
+export const GetOneUserAllPostDocument = gql`
+    query GetOneUserAllPost($display_id: String!) {
+  users(where: {display_id: {_eq: $display_id}}) {
+    id
+    display_id
+    name
+    profile
+    image
+    created_at
+    posts {
+      id
+      image
+      content
+      updated_at
+      post_comments_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+      post_likes_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetOneUserAllPostQuery__
+ *
+ * To run a query within a React component, call `useGetOneUserAllPostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetOneUserAllPostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetOneUserAllPostQuery({
+ *   variables: {
+ *      display_id: // value for 'display_id'
+ *   },
+ * });
+ */
+export function useGetOneUserAllPostQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetOneUserAllPostQuery, GetOneUserAllPostQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetOneUserAllPostQuery, GetOneUserAllPostQueryVariables>(GetOneUserAllPostDocument, options);
+      }
+export function useGetOneUserAllPostLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetOneUserAllPostQuery, GetOneUserAllPostQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetOneUserAllPostQuery, GetOneUserAllPostQueryVariables>(GetOneUserAllPostDocument, options);
+        }
+export type GetOneUserAllPostQueryHookResult = ReturnType<typeof useGetOneUserAllPostQuery>;
+export type GetOneUserAllPostLazyQueryHookResult = ReturnType<typeof useGetOneUserAllPostLazyQuery>;
+export type GetOneUserAllPostQueryResult = ApolloReactCommon.QueryResult<GetOneUserAllPostQuery, GetOneUserAllPostQueryVariables>;
+export const GetAllUsersDocument = gql`
+    query GetAllUsers {
+  users {
+    id
+    display_id
+  }
+}
+    `;
+
+/**
+ * __useGetAllUsersQuery__
+ *
+ * To run a query within a React component, call `useGetAllUsersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllUsersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllUsersQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetAllUsersQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<GetAllUsersQuery, GetAllUsersQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetAllUsersQuery, GetAllUsersQueryVariables>(GetAllUsersDocument, options);
+      }
+export function useGetAllUsersLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetAllUsersQuery, GetAllUsersQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetAllUsersQuery, GetAllUsersQueryVariables>(GetAllUsersDocument, options);
+        }
+export type GetAllUsersQueryHookResult = ReturnType<typeof useGetAllUsersQuery>;
+export type GetAllUsersLazyQueryHookResult = ReturnType<typeof useGetAllUsersLazyQuery>;
+export type GetAllUsersQueryResult = ApolloReactCommon.QueryResult<GetAllUsersQuery, GetAllUsersQueryVariables>;
+export const GetOneUserLikePostDocument = gql`
+    query GetOneUserLikePost($display_id: String!) {
+  users(where: {display_id: {_eq: $display_id}}) {
+    id
+    display_id
+    name
+    profile
+    image
+    created_at
+    post_likes {
+      post {
+        id
+        content
+        image
+        updated_at
+        user {
+          id
+          image
+          name
+          created_at
+          post_comments_aggregate {
+            aggregate {
+              count(columns: id)
+            }
+          }
+          post_likes_aggregate {
+            aggregate {
+              count(columns: id)
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetOneUserLikePostQuery__
+ *
+ * To run a query within a React component, call `useGetOneUserLikePostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetOneUserLikePostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetOneUserLikePostQuery({
+ *   variables: {
+ *      display_id: // value for 'display_id'
+ *   },
+ * });
+ */
+export function useGetOneUserLikePostQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>(GetOneUserLikePostDocument, options);
+      }
+export function useGetOneUserLikePostLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>(GetOneUserLikePostDocument, options);
+        }
+export type GetOneUserLikePostQueryHookResult = ReturnType<typeof useGetOneUserLikePostQuery>;
+export type GetOneUserLikePostLazyQueryHookResult = ReturnType<typeof useGetOneUserLikePostLazyQuery>;
+export type GetOneUserLikePostQueryResult = ApolloReactCommon.QueryResult<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>;
+export const GetFollowUserPostDocument = gql`
+    query GetFollowUserPost($user_id: uuid!) {
+  posts(where: {user: {followed: {user_id: {_eq: $user_id}}}}) {
+    id
+    user_id
+    image
+    content
+    petName
+    petGender
+    created_at
+    user {
+      id
+      image
+      name
+      created_at
+      post_comments_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+      post_likes_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+    }
+  }
+  users(where: {followed: {user_id: {_eq: $user_id}}}) {
+    id
+    display_id
+    name
+    profile
+    image
+    created_at
+  }
+}
+    `;
+
+/**
+ * __useGetFollowUserPostQuery__
+ *
+ * To run a query within a React component, call `useGetFollowUserPostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetFollowUserPostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetFollowUserPostQuery({
+ *   variables: {
+ *      user_id: // value for 'user_id'
+ *   },
+ * });
+ */
+export function useGetFollowUserPostQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetFollowUserPostQuery, GetFollowUserPostQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetFollowUserPostQuery, GetFollowUserPostQueryVariables>(GetFollowUserPostDocument, options);
+      }
+export function useGetFollowUserPostLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetFollowUserPostQuery, GetFollowUserPostQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetFollowUserPostQuery, GetFollowUserPostQueryVariables>(GetFollowUserPostDocument, options);
+        }
+export type GetFollowUserPostQueryHookResult = ReturnType<typeof useGetFollowUserPostQuery>;
+export type GetFollowUserPostLazyQueryHookResult = ReturnType<typeof useGetFollowUserPostLazyQuery>;
+export type GetFollowUserPostQueryResult = ApolloReactCommon.QueryResult<GetFollowUserPostQuery, GetFollowUserPostQueryVariables>;
+export const GetOneUserFollowingDocument = gql`
+    query GetOneUserFollowing($display_id: String!) {
+  users(where: {display_id: {_eq: $display_id}}) {
+    id
+    display_id
+    name
+    profile
+    image
+    created_at
+    following {
+      follow {
+        id
+        display_id
+        name
+        image
+        created_at
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetOneUserFollowingQuery__
+ *
+ * To run a query within a React component, call `useGetOneUserFollowingQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetOneUserFollowingQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetOneUserFollowingQuery({
+ *   variables: {
+ *      display_id: // value for 'display_id'
+ *   },
+ * });
+ */
+export function useGetOneUserFollowingQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetOneUserFollowingQuery, GetOneUserFollowingQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetOneUserFollowingQuery, GetOneUserFollowingQueryVariables>(GetOneUserFollowingDocument, options);
+      }
+export function useGetOneUserFollowingLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetOneUserFollowingQuery, GetOneUserFollowingQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetOneUserFollowingQuery, GetOneUserFollowingQueryVariables>(GetOneUserFollowingDocument, options);
+        }
+export type GetOneUserFollowingQueryHookResult = ReturnType<typeof useGetOneUserFollowingQuery>;
+export type GetOneUserFollowingLazyQueryHookResult = ReturnType<typeof useGetOneUserFollowingLazyQuery>;
+export type GetOneUserFollowingQueryResult = ApolloReactCommon.QueryResult<GetOneUserFollowingQuery, GetOneUserFollowingQueryVariables>;
+export const GetOneUserFollowerDocument = gql`
+    query GetOneUserFollower($display_id: String!) {
+  users(where: {display_id: {_eq: $display_id}}) {
+    id
+    display_id
+    name
+    profile
+    image
+    created_at
+    followed {
+      user {
+        id
+        display_id
+        name
+        image
+        created_at
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetOneUserFollowerQuery__
+ *
+ * To run a query within a React component, call `useGetOneUserFollowerQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetOneUserFollowerQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetOneUserFollowerQuery({
+ *   variables: {
+ *      display_id: // value for 'display_id'
+ *   },
+ * });
+ */
+export function useGetOneUserFollowerQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetOneUserFollowerQuery, GetOneUserFollowerQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetOneUserFollowerQuery, GetOneUserFollowerQueryVariables>(GetOneUserFollowerDocument, options);
+      }
+export function useGetOneUserFollowerLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetOneUserFollowerQuery, GetOneUserFollowerQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetOneUserFollowerQuery, GetOneUserFollowerQueryVariables>(GetOneUserFollowerDocument, options);
+        }
+export type GetOneUserFollowerQueryHookResult = ReturnType<typeof useGetOneUserFollowerQuery>;
+export type GetOneUserFollowerLazyQueryHookResult = ReturnType<typeof useGetOneUserFollowerLazyQuery>;
+export type GetOneUserFollowerQueryResult = ApolloReactCommon.QueryResult<GetOneUserFollowerQuery, GetOneUserFollowerQueryVariables>;
+export const IsFollowUserDocument = gql`
+    query IsFollowUser($fromUserId: uuid!, $toUserId: uuid!) {
+  relationships(where: {user_id: {_eq: $fromUserId}, follow_id: {_eq: $toUserId}}) {
+    id
+    user_id
+    follow_id
+  }
+}
+    `;
+
+/**
+ * __useIsFollowUserQuery__
+ *
+ * To run a query within a React component, call `useIsFollowUserQuery` and pass it any options that fit your needs.
+ * When your component renders, `useIsFollowUserQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useIsFollowUserQuery({
+ *   variables: {
+ *      fromUserId: // value for 'fromUserId'
+ *      toUserId: // value for 'toUserId'
+ *   },
+ * });
+ */
+export function useIsFollowUserQuery(baseOptions: ApolloReactHooks.QueryHookOptions<IsFollowUserQuery, IsFollowUserQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<IsFollowUserQuery, IsFollowUserQueryVariables>(IsFollowUserDocument, options);
+      }
+export function useIsFollowUserLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<IsFollowUserQuery, IsFollowUserQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<IsFollowUserQuery, IsFollowUserQueryVariables>(IsFollowUserDocument, options);
+        }
+export type IsFollowUserQueryHookResult = ReturnType<typeof useIsFollowUserQuery>;
+export type IsFollowUserLazyQueryHookResult = ReturnType<typeof useIsFollowUserLazyQuery>;
+export type IsFollowUserQueryResult = ApolloReactCommon.QueryResult<IsFollowUserQuery, IsFollowUserQueryVariables>;
+export const AddFollowDocument = gql`
+    mutation AddFollow($fromUserId: uuid!, $toUserId: uuid!) {
+  insert_relationships_one(object: {user_id: $fromUserId, follow_id: $toUserId}) {
+    id
+    user_id
+    follow_id
+  }
+}
+    `;
+export type AddFollowMutationFn = ApolloReactCommon.MutationFunction<AddFollowMutation, AddFollowMutationVariables>;
+
+/**
+ * __useAddFollowMutation__
+ *
+ * To run a mutation, you first call `useAddFollowMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAddFollowMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [addFollowMutation, { data, loading, error }] = useAddFollowMutation({
+ *   variables: {
+ *      fromUserId: // value for 'fromUserId'
+ *      toUserId: // value for 'toUserId'
+ *   },
+ * });
+ */
+export function useAddFollowMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<AddFollowMutation, AddFollowMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<AddFollowMutation, AddFollowMutationVariables>(AddFollowDocument, options);
+      }
+export type AddFollowMutationHookResult = ReturnType<typeof useAddFollowMutation>;
+export type AddFollowMutationResult = ApolloReactCommon.MutationResult<AddFollowMutation>;
+export type AddFollowMutationOptions = ApolloReactCommon.BaseMutationOptions<AddFollowMutation, AddFollowMutationVariables>;
+export const RemoveFollowDocument = gql`
+    mutation RemoveFollow($fromUserId: uuid!, $toUserId: uuid!) {
+  delete_relationships(
+    where: {user_id: {_eq: $fromUserId}, follow_id: {_eq: $toUserId}}
+  ) {
+    affected_rows
+  }
+}
+    `;
+export type RemoveFollowMutationFn = ApolloReactCommon.MutationFunction<RemoveFollowMutation, RemoveFollowMutationVariables>;
+
+/**
+ * __useRemoveFollowMutation__
+ *
+ * To run a mutation, you first call `useRemoveFollowMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRemoveFollowMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [removeFollowMutation, { data, loading, error }] = useRemoveFollowMutation({
+ *   variables: {
+ *      fromUserId: // value for 'fromUserId'
+ *      toUserId: // value for 'toUserId'
+ *   },
+ * });
+ */
+export function useRemoveFollowMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<RemoveFollowMutation, RemoveFollowMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<RemoveFollowMutation, RemoveFollowMutationVariables>(RemoveFollowDocument, options);
+      }
+export type RemoveFollowMutationHookResult = ReturnType<typeof useRemoveFollowMutation>;
+export type RemoveFollowMutationResult = ApolloReactCommon.MutationResult<RemoveFollowMutation>;
+export type RemoveFollowMutationOptions = ApolloReactCommon.BaseMutationOptions<RemoveFollowMutation, RemoveFollowMutationVariables>;
+export const GetSearchResultDocument = gql`
+    query GetSearchResult($word: String!) {
+  users(where: {name: {_ilike: $word}}) {
+    id
+    display_id
+    name
+    profile
+    image
+    created_at
+  }
+  posts(where: {content: {_ilike: $word}}) {
+    id
+    user_id
+    image
+    content
+    petName
+    petGender
+    created_at
+    user {
+      id
+      display_id
+      image
+      name
+    }
+    post_comments_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
+    post_likes_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetSearchResultQuery__
+ *
+ * To run a query within a React component, call `useGetSearchResultQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSearchResultQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSearchResultQuery({
+ *   variables: {
+ *      word: // value for 'word'
+ *   },
+ * });
+ */
+export function useGetSearchResultQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetSearchResultQuery, GetSearchResultQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetSearchResultQuery, GetSearchResultQueryVariables>(GetSearchResultDocument, options);
+      }
+export function useGetSearchResultLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetSearchResultQuery, GetSearchResultQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetSearchResultQuery, GetSearchResultQueryVariables>(GetSearchResultDocument, options);
+        }
+export type GetSearchResultQueryHookResult = ReturnType<typeof useGetSearchResultQuery>;
+export type GetSearchResultLazyQueryHookResult = ReturnType<typeof useGetSearchResultLazyQuery>;
+export type GetSearchResultQueryResult = ApolloReactCommon.QueryResult<GetSearchResultQuery, GetSearchResultQueryVariables>;
