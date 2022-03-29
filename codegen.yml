@@ -17,6 +17,11 @@ generates:
       withHOC: false
       withComponent: false
       preResolveTypes: false
+      scalars: 
+        uuid: string
+        timestamptz: string
+        bigint: number
+        _text: string[]
       reactApolloVersion: 3
       namingConvention:
         typeNames: 'pascal-case#pascalCase'
