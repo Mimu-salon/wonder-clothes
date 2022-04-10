@@ -165,102 +165,85 @@ export type MutationRoot = {
   update_users_by_pk?: Maybe<Users>;
 };
 
-
 /** mutation root */
 export type MutationRootDeleteNotificationArgs = {
   where: NotificationBoolExp;
 };
-
 
 /** mutation root */
 export type MutationRootDeleteNotificationByPkArgs = {
   id: Scalars['uuid'];
 };
 
-
 /** mutation root */
 export type MutationRootDeletePostCommentsArgs = {
   where: PostCommentsBoolExp;
 };
-
 
 /** mutation root */
 export type MutationRootDeletePostCommentsByPkArgs = {
   id: Scalars['uuid'];
 };
 
-
 /** mutation root */
 export type MutationRootDeletePostLikesArgs = {
   where: PostLikesBoolExp;
 };
-
 
 /** mutation root */
 export type MutationRootDeletePostLikesByPkArgs = {
   id: Scalars['uuid'];
 };
 
-
 /** mutation root */
 export type MutationRootDeletePostTagRecommendArgs = {
   where: PostTagRecommendBoolExp;
 };
-
 
 /** mutation root */
 export type MutationRootDeletePostTagRecommendByPkArgs = {
   id: Scalars['uuid'];
 };
 
-
 /** mutation root */
 export type MutationRootDeletePostTagSizeArgs = {
   where: PostTagSizeBoolExp;
 };
-
 
 /** mutation root */
 export type MutationRootDeletePostTagSizeByPkArgs = {
   id: Scalars['uuid'];
 };
 
-
 /** mutation root */
 export type MutationRootDeletePostsArgs = {
   where: PostsBoolExp;
 };
-
 
 /** mutation root */
 export type MutationRootDeletePostsByPkArgs = {
   id: Scalars['uuid'];
 };
 
-
 /** mutation root */
 export type MutationRootDeleteRelationshipsArgs = {
   where: RelationshipsBoolExp;
 };
-
 
 /** mutation root */
 export type MutationRootDeleteRelationshipsByPkArgs = {
   id: Scalars['uuid'];
 };
 
-
 /** mutation root */
 export type MutationRootDeleteUsersArgs = {
   where: UsersBoolExp;
 };
 
-
 /** mutation root */
 export type MutationRootDeleteUsersByPkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars['String'];
 };
-
 
 /** mutation root */
 export type MutationRootInsertNotificationArgs = {
@@ -268,13 +251,11 @@ export type MutationRootInsertNotificationArgs = {
   on_conflict?: InputMaybe<NotificationOnConflict>;
 };
 
-
 /** mutation root */
 export type MutationRootInsertNotificationOneArgs = {
   object: NotificationInsertInput;
   on_conflict?: InputMaybe<NotificationOnConflict>;
 };
-
 
 /** mutation root */
 export type MutationRootInsertPostCommentsArgs = {
@@ -282,13 +263,11 @@ export type MutationRootInsertPostCommentsArgs = {
   on_conflict?: InputMaybe<PostCommentsOnConflict>;
 };
 
-
 /** mutation root */
 export type MutationRootInsertPostCommentsOneArgs = {
   object: PostCommentsInsertInput;
   on_conflict?: InputMaybe<PostCommentsOnConflict>;
 };
-
 
 /** mutation root */
 export type MutationRootInsertPostLikesArgs = {
@@ -296,13 +275,11 @@ export type MutationRootInsertPostLikesArgs = {
   on_conflict?: InputMaybe<PostLikesOnConflict>;
 };
 
-
 /** mutation root */
 export type MutationRootInsertPostLikesOneArgs = {
   object: PostLikesInsertInput;
   on_conflict?: InputMaybe<PostLikesOnConflict>;
 };
-
 
 /** mutation root */
 export type MutationRootInsertPostTagRecommendArgs = {
@@ -310,13 +287,11 @@ export type MutationRootInsertPostTagRecommendArgs = {
   on_conflict?: InputMaybe<PostTagRecommendOnConflict>;
 };
 
-
 /** mutation root */
 export type MutationRootInsertPostTagRecommendOneArgs = {
   object: PostTagRecommendInsertInput;
   on_conflict?: InputMaybe<PostTagRecommendOnConflict>;
 };
-
 
 /** mutation root */
 export type MutationRootInsertPostTagSizeArgs = {
@@ -324,13 +299,11 @@ export type MutationRootInsertPostTagSizeArgs = {
   on_conflict?: InputMaybe<PostTagSizeOnConflict>;
 };
 
-
 /** mutation root */
 export type MutationRootInsertPostTagSizeOneArgs = {
   object: PostTagSizeInsertInput;
   on_conflict?: InputMaybe<PostTagSizeOnConflict>;
 };
-
 
 /** mutation root */
 export type MutationRootInsertPostsArgs = {
@@ -338,13 +311,11 @@ export type MutationRootInsertPostsArgs = {
   on_conflict?: InputMaybe<PostsOnConflict>;
 };
 
-
 /** mutation root */
 export type MutationRootInsertPostsOneArgs = {
   object: PostsInsertInput;
   on_conflict?: InputMaybe<PostsOnConflict>;
 };
-
 
 /** mutation root */
 export type MutationRootInsertRelationshipsArgs = {
@@ -352,13 +323,11 @@ export type MutationRootInsertRelationshipsArgs = {
   on_conflict?: InputMaybe<RelationshipsOnConflict>;
 };
 
-
 /** mutation root */
 export type MutationRootInsertRelationshipsOneArgs = {
   object: RelationshipsInsertInput;
   on_conflict?: InputMaybe<RelationshipsOnConflict>;
 };
-
 
 /** mutation root */
 export type MutationRootInsertUsersArgs = {
@@ -366,13 +335,11 @@ export type MutationRootInsertUsersArgs = {
   on_conflict?: InputMaybe<UsersOnConflict>;
 };
 
-
 /** mutation root */
 export type MutationRootInsertUsersOneArgs = {
   object: UsersInsertInput;
   on_conflict?: InputMaybe<UsersOnConflict>;
 };
-
 
 /** mutation root */
 export type MutationRootUpdateNotificationArgs = {
@@ -380,13 +347,11 @@ export type MutationRootUpdateNotificationArgs = {
   where: NotificationBoolExp;
 };
 
-
 /** mutation root */
 export type MutationRootUpdateNotificationByPkArgs = {
   _set?: InputMaybe<NotificationSetInput>;
   pk_columns: NotificationPkColumnsInput;
 };
-
 
 /** mutation root */
 export type MutationRootUpdatePostCommentsArgs = {
@@ -394,13 +359,11 @@ export type MutationRootUpdatePostCommentsArgs = {
   where: PostCommentsBoolExp;
 };
 
-
 /** mutation root */
 export type MutationRootUpdatePostCommentsByPkArgs = {
   _set?: InputMaybe<PostCommentsSetInput>;
   pk_columns: PostCommentsPkColumnsInput;
 };
-
 
 /** mutation root */
 export type MutationRootUpdatePostLikesArgs = {
@@ -408,13 +371,11 @@ export type MutationRootUpdatePostLikesArgs = {
   where: PostLikesBoolExp;
 };
 
-
 /** mutation root */
 export type MutationRootUpdatePostLikesByPkArgs = {
   _set?: InputMaybe<PostLikesSetInput>;
   pk_columns: PostLikesPkColumnsInput;
 };
-
 
 /** mutation root */
 export type MutationRootUpdatePostTagRecommendArgs = {
@@ -422,13 +383,11 @@ export type MutationRootUpdatePostTagRecommendArgs = {
   where: PostTagRecommendBoolExp;
 };
 
-
 /** mutation root */
 export type MutationRootUpdatePostTagRecommendByPkArgs = {
   _set?: InputMaybe<PostTagRecommendSetInput>;
   pk_columns: PostTagRecommendPkColumnsInput;
 };
-
 
 /** mutation root */
 export type MutationRootUpdatePostTagSizeArgs = {
@@ -436,13 +395,11 @@ export type MutationRootUpdatePostTagSizeArgs = {
   where: PostTagSizeBoolExp;
 };
 
-
 /** mutation root */
 export type MutationRootUpdatePostTagSizeByPkArgs = {
   _set?: InputMaybe<PostTagSizeSetInput>;
   pk_columns: PostTagSizePkColumnsInput;
 };
-
 
 /** mutation root */
 export type MutationRootUpdatePostsArgs = {
@@ -450,13 +407,11 @@ export type MutationRootUpdatePostsArgs = {
   where: PostsBoolExp;
 };
 
-
 /** mutation root */
 export type MutationRootUpdatePostsByPkArgs = {
   _set?: InputMaybe<PostsSetInput>;
   pk_columns: PostsPkColumnsInput;
 };
-
 
 /** mutation root */
 export type MutationRootUpdateRelationshipsArgs = {
@@ -464,20 +419,17 @@ export type MutationRootUpdateRelationshipsArgs = {
   where: RelationshipsBoolExp;
 };
 
-
 /** mutation root */
 export type MutationRootUpdateRelationshipsByPkArgs = {
   _set?: InputMaybe<RelationshipsSetInput>;
   pk_columns: RelationshipsPkColumnsInput;
 };
 
-
 /** mutation root */
 export type MutationRootUpdateUsersArgs = {
   _set?: InputMaybe<UsersSetInput>;
   where: UsersBoolExp;
 };
-
 
 /** mutation root */
 export type MutationRootUpdateUsersByPkArgs = {
@@ -491,9 +443,7 @@ export type Notification = {
   id: Scalars['uuid'];
   text: Scalars['String'];
   type: Scalars['String'];
-  /** An object relationship */
-  user: Users;
-  user_id: Scalars['uuid'];
+  user_id: Scalars['String'];
 };
 
 /** aggregated selection of "notification" */
@@ -510,7 +460,6 @@ export type NotificationAggregateFields = {
   max?: Maybe<NotificationMaxFields>;
   min?: Maybe<NotificationMinFields>;
 };
-
 
 /** aggregate fields of "notification" */
 export type NotificationAggregateFieldsCountArgs = {
@@ -540,14 +489,13 @@ export type NotificationBoolExp = {
   id?: InputMaybe<UuidComparisonExp>;
   text?: InputMaybe<StringComparisonExp>;
   type?: InputMaybe<StringComparisonExp>;
-  user?: InputMaybe<UsersBoolExp>;
-  user_id?: InputMaybe<UuidComparisonExp>;
+  user_id?: InputMaybe<StringComparisonExp>;
 };
 
 /** unique or primary key constraints on table "notification" */
 export enum NotificationConstraint {
   /** unique or primary key constraint */
-  NOTIFICATION_PKEY = 'notification_pkey'
+  NOTIFICATION_PKEY = 'notification_pkey',
 }
 
 /** input type for inserting data into table "notification" */
@@ -555,8 +503,7 @@ export type NotificationInsertInput = {
   id?: InputMaybe<Scalars['uuid']>;
   text?: InputMaybe<Scalars['String']>;
   type?: InputMaybe<Scalars['String']>;
-  user?: InputMaybe<UsersObjRelInsertInput>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  user_id?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregate max on columns */
@@ -565,7 +512,7 @@ export type NotificationMaxFields = {
   id?: Maybe<Scalars['uuid']>;
   text?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  user_id?: Maybe<Scalars['String']>;
 };
 
 /** order by max() on columns of table "notification" */
@@ -582,7 +529,7 @@ export type NotificationMinFields = {
   id?: Maybe<Scalars['uuid']>;
   text?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  user_id?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "notification" */
@@ -614,7 +561,6 @@ export type NotificationOrderBy = {
   id?: InputMaybe<OrderBy>;
   text?: InputMaybe<OrderBy>;
   type?: InputMaybe<OrderBy>;
-  user?: InputMaybe<UsersOrderBy>;
   user_id?: InputMaybe<OrderBy>;
 };
 
@@ -632,7 +578,7 @@ export enum NotificationSelectColumn {
   /** column name */
   TYPE = 'type',
   /** column name */
-  USER_ID = 'user_id'
+  USER_ID = 'user_id',
 }
 
 /** input type for updating data in table "notification" */
@@ -640,7 +586,7 @@ export type NotificationSetInput = {
   id?: InputMaybe<Scalars['uuid']>;
   text?: InputMaybe<Scalars['String']>;
   type?: InputMaybe<Scalars['String']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  user_id?: InputMaybe<Scalars['String']>;
 };
 
 /** update columns of table "notification" */
@@ -652,7 +598,7 @@ export enum NotificationUpdateColumn {
   /** column name */
   TYPE = 'type',
   /** column name */
-  USER_ID = 'user_id'
+  USER_ID = 'user_id',
 }
 
 /** column ordering options */
@@ -668,7 +614,7 @@ export enum OrderBy {
   /** in descending order, nulls first */
   DESC_NULLS_FIRST = 'desc_nulls_first',
   /** in descending order, nulls last */
-  DESC_NULLS_LAST = 'desc_nulls_last'
+  DESC_NULLS_LAST = 'desc_nulls_last',
 }
 
 /** columns and relationships of "post_comments" */
@@ -682,7 +628,7 @@ export type PostComments = {
   post_id: Scalars['uuid'];
   /** An object relationship */
   user: Users;
-  user_id: Scalars['uuid'];
+  user_id: Scalars['String'];
 };
 
 /** aggregated selection of "post_comments" */
@@ -699,7 +645,6 @@ export type PostCommentsAggregateFields = {
   max?: Maybe<PostCommentsMaxFields>;
   min?: Maybe<PostCommentsMinFields>;
 };
-
 
 /** aggregate fields of "post_comments" */
 export type PostCommentsAggregateFieldsCountArgs = {
@@ -732,13 +677,13 @@ export type PostCommentsBoolExp = {
   post?: InputMaybe<PostsBoolExp>;
   post_id?: InputMaybe<UuidComparisonExp>;
   user?: InputMaybe<UsersBoolExp>;
-  user_id?: InputMaybe<UuidComparisonExp>;
+  user_id?: InputMaybe<StringComparisonExp>;
 };
 
 /** unique or primary key constraints on table "post_comments" */
 export enum PostCommentsConstraint {
   /** unique or primary key constraint */
-  POST_COMMENTS_PKEY = 'post_comments_pkey'
+  POST_COMMENTS_PKEY = 'post_comments_pkey',
 }
 
 /** input type for inserting data into table "post_comments" */
@@ -749,7 +694,7 @@ export type PostCommentsInsertInput = {
   post?: InputMaybe<PostsObjRelInsertInput>;
   post_id?: InputMaybe<Scalars['uuid']>;
   user?: InputMaybe<UsersObjRelInsertInput>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  user_id?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregate max on columns */
@@ -759,7 +704,7 @@ export type PostCommentsMaxFields = {
   created_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['uuid']>;
   post_id?: Maybe<Scalars['uuid']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  user_id?: Maybe<Scalars['String']>;
 };
 
 /** order by max() on columns of table "post_comments" */
@@ -778,7 +723,7 @@ export type PostCommentsMinFields = {
   created_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['uuid']>;
   post_id?: Maybe<Scalars['uuid']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  user_id?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "post_comments" */
@@ -833,7 +778,7 @@ export enum PostCommentsSelectColumn {
   /** column name */
   POST_ID = 'post_id',
   /** column name */
-  USER_ID = 'user_id'
+  USER_ID = 'user_id',
 }
 
 /** input type for updating data in table "post_comments" */
@@ -842,7 +787,7 @@ export type PostCommentsSetInput = {
   created_at?: InputMaybe<Scalars['timestamptz']>;
   id?: InputMaybe<Scalars['uuid']>;
   post_id?: InputMaybe<Scalars['uuid']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  user_id?: InputMaybe<Scalars['String']>;
 };
 
 /** update columns of table "post_comments" */
@@ -856,7 +801,7 @@ export enum PostCommentsUpdateColumn {
   /** column name */
   POST_ID = 'post_id',
   /** column name */
-  USER_ID = 'user_id'
+  USER_ID = 'user_id',
 }
 
 /** columns and relationships of "post_likes" */
@@ -868,7 +813,7 @@ export type PostLikes = {
   post_id: Scalars['uuid'];
   /** An object relationship */
   user: Users;
-  user_id: Scalars['uuid'];
+  user_id: Scalars['String'];
 };
 
 /** aggregated selection of "post_likes" */
@@ -885,7 +830,6 @@ export type PostLikesAggregateFields = {
   max?: Maybe<PostLikesMaxFields>;
   min?: Maybe<PostLikesMinFields>;
 };
-
 
 /** aggregate fields of "post_likes" */
 export type PostLikesAggregateFieldsCountArgs = {
@@ -916,13 +860,13 @@ export type PostLikesBoolExp = {
   post?: InputMaybe<PostsBoolExp>;
   post_id?: InputMaybe<UuidComparisonExp>;
   user?: InputMaybe<UsersBoolExp>;
-  user_id?: InputMaybe<UuidComparisonExp>;
+  user_id?: InputMaybe<StringComparisonExp>;
 };
 
 /** unique or primary key constraints on table "post_likes" */
 export enum PostLikesConstraint {
   /** unique or primary key constraint */
-  POST_LIKES_PKEY = 'post_likes_pkey'
+  POST_LIKES_PKEY = 'post_likes_pkey',
 }
 
 /** input type for inserting data into table "post_likes" */
@@ -931,7 +875,7 @@ export type PostLikesInsertInput = {
   post?: InputMaybe<PostsObjRelInsertInput>;
   post_id?: InputMaybe<Scalars['uuid']>;
   user?: InputMaybe<UsersObjRelInsertInput>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  user_id?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregate max on columns */
@@ -939,7 +883,7 @@ export type PostLikesMaxFields = {
   __typename?: 'post_likes_max_fields';
   id?: Maybe<Scalars['uuid']>;
   post_id?: Maybe<Scalars['uuid']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  user_id?: Maybe<Scalars['String']>;
 };
 
 /** order by max() on columns of table "post_likes" */
@@ -954,7 +898,7 @@ export type PostLikesMinFields = {
   __typename?: 'post_likes_min_fields';
   id?: Maybe<Scalars['uuid']>;
   post_id?: Maybe<Scalars['uuid']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  user_id?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "post_likes" */
@@ -1001,14 +945,14 @@ export enum PostLikesSelectColumn {
   /** column name */
   POST_ID = 'post_id',
   /** column name */
-  USER_ID = 'user_id'
+  USER_ID = 'user_id',
 }
 
 /** input type for updating data in table "post_likes" */
 export type PostLikesSetInput = {
   id?: InputMaybe<Scalars['uuid']>;
   post_id?: InputMaybe<Scalars['uuid']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  user_id?: InputMaybe<Scalars['String']>;
 };
 
 /** update columns of table "post_likes" */
@@ -1018,7 +962,7 @@ export enum PostLikesUpdateColumn {
   /** column name */
   POST_ID = 'post_id',
   /** column name */
-  USER_ID = 'user_id'
+  USER_ID = 'user_id',
 }
 
 /** columns and relationships of "post_tag_recommend" */
@@ -1046,7 +990,6 @@ export type PostTagRecommendAggregateFields = {
   min?: Maybe<PostTagRecommendMinFields>;
 };
 
-
 /** aggregate fields of "post_tag_recommend" */
 export type PostTagRecommendAggregateFieldsCountArgs = {
   columns?: InputMaybe<Array<PostTagRecommendSelectColumn>>;
@@ -1069,7 +1012,7 @@ export enum PostTagRecommendConstraint {
   /** unique or primary key constraint */
   POST_TAG_RECOMMEND_PKEY = 'post_tag_recommend_pkey',
   /** unique or primary key constraint */
-  POST_TAG_RECOMMEND_POST_ID_KEY = 'post_tag_recommend_post_id_key'
+  POST_TAG_RECOMMEND_POST_ID_KEY = 'post_tag_recommend_post_id_key',
 }
 
 /** input type for inserting data into table "post_tag_recommend" */
@@ -1139,7 +1082,7 @@ export enum PostTagRecommendSelectColumn {
   /** column name */
   POST_ID = 'post_id',
   /** column name */
-  RECOMMEND = 'recommend'
+  RECOMMEND = 'recommend',
 }
 
 /** input type for updating data in table "post_tag_recommend" */
@@ -1156,7 +1099,7 @@ export enum PostTagRecommendUpdateColumn {
   /** column name */
   POST_ID = 'post_id',
   /** column name */
-  RECOMMEND = 'recommend'
+  RECOMMEND = 'recommend',
 }
 
 /** columns and relationships of "post_tag_size" */
@@ -1184,7 +1127,6 @@ export type PostTagSizeAggregateFields = {
   min?: Maybe<PostTagSizeMinFields>;
 };
 
-
 /** aggregate fields of "post_tag_size" */
 export type PostTagSizeAggregateFieldsCountArgs = {
   columns?: InputMaybe<Array<PostTagSizeSelectColumn>>;
@@ -1207,7 +1149,7 @@ export enum PostTagSizeConstraint {
   /** unique or primary key constraint */
   POST_TAG_SIZE_PKEY = 'post_tag_size_pkey',
   /** unique or primary key constraint */
-  POST_TAG_SIZE_POST_ID_KEY = 'post_tag_size_post_id_key'
+  POST_TAG_SIZE_POST_ID_KEY = 'post_tag_size_post_id_key',
 }
 
 /** input type for inserting data into table "post_tag_size" */
@@ -1277,7 +1219,7 @@ export enum PostTagSizeSelectColumn {
   /** column name */
   POST_ID = 'post_id',
   /** column name */
-  SIZE = 'size'
+  SIZE = 'size',
 }
 
 /** input type for updating data in table "post_tag_size" */
@@ -1294,7 +1236,7 @@ export enum PostTagSizeUpdateColumn {
   /** column name */
   POST_ID = 'post_id',
   /** column name */
-  SIZE = 'size'
+  SIZE = 'size',
 }
 
 /** columns and relationships of "posts" */
@@ -1322,9 +1264,8 @@ export type Posts = {
   updated_at: Scalars['timestamptz'];
   /** An object relationship */
   user: Users;
-  user_id: Scalars['uuid'];
+  user_id: Scalars['String'];
 };
-
 
 /** columns and relationships of "posts" */
 export type PostsPostCommentsArgs = {
@@ -1335,7 +1276,6 @@ export type PostsPostCommentsArgs = {
   where?: InputMaybe<PostCommentsBoolExp>;
 };
 
-
 /** columns and relationships of "posts" */
 export type PostsPostCommentsAggregateArgs = {
   distinct_on?: InputMaybe<Array<PostCommentsSelectColumn>>;
@@ -1345,7 +1285,6 @@ export type PostsPostCommentsAggregateArgs = {
   where?: InputMaybe<PostCommentsBoolExp>;
 };
 
-
 /** columns and relationships of "posts" */
 export type PostsPostLikesArgs = {
   distinct_on?: InputMaybe<Array<PostLikesSelectColumn>>;
@@ -1354,7 +1293,6 @@ export type PostsPostLikesArgs = {
   order_by?: InputMaybe<Array<PostLikesOrderBy>>;
   where?: InputMaybe<PostLikesBoolExp>;
 };
-
 
 /** columns and relationships of "posts" */
 export type PostsPostLikesAggregateArgs = {
@@ -1379,7 +1317,6 @@ export type PostsAggregateFields = {
   max?: Maybe<PostsMaxFields>;
   min?: Maybe<PostsMinFields>;
 };
-
 
 /** aggregate fields of "posts" */
 export type PostsAggregateFieldsCountArgs = {
@@ -1419,13 +1356,13 @@ export type PostsBoolExp = {
   post_tag_size?: InputMaybe<PostTagSizeBoolExp>;
   updated_at?: InputMaybe<TimestamptzComparisonExp>;
   user?: InputMaybe<UsersBoolExp>;
-  user_id?: InputMaybe<UuidComparisonExp>;
+  user_id?: InputMaybe<StringComparisonExp>;
 };
 
 /** unique or primary key constraints on table "posts" */
 export enum PostsConstraint {
   /** unique or primary key constraint */
-  POSTS_PKEY = 'posts_pkey'
+  POSTS_PKEY = 'posts_pkey',
 }
 
 /** input type for inserting data into table "posts" */
@@ -1443,7 +1380,7 @@ export type PostsInsertInput = {
   post_tag_size?: InputMaybe<PostTagSizeObjRelInsertInput>;
   updated_at?: InputMaybe<Scalars['timestamptz']>;
   user?: InputMaybe<UsersObjRelInsertInput>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  user_id?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregate max on columns */
@@ -1457,7 +1394,7 @@ export type PostsMaxFields = {
   petGender?: Maybe<Scalars['String']>;
   petName?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  user_id?: Maybe<Scalars['String']>;
 };
 
 /** order by max() on columns of table "posts" */
@@ -1484,7 +1421,7 @@ export type PostsMinFields = {
   petGender?: Maybe<Scalars['String']>;
   petName?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  user_id?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "posts" */
@@ -1565,7 +1502,7 @@ export enum PostsSelectColumn {
   /** column name */
   UPDATED_AT = 'updated_at',
   /** column name */
-  USER_ID = 'user_id'
+  USER_ID = 'user_id',
 }
 
 /** input type for updating data in table "posts" */
@@ -1578,7 +1515,7 @@ export type PostsSetInput = {
   petGender?: InputMaybe<Scalars['String']>;
   petName?: InputMaybe<Scalars['String']>;
   updated_at?: InputMaybe<Scalars['timestamptz']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  user_id?: InputMaybe<Scalars['String']>;
 };
 
 /** update columns of table "posts" */
@@ -1600,7 +1537,7 @@ export enum PostsUpdateColumn {
   /** column name */
   UPDATED_AT = 'updated_at',
   /** column name */
-  USER_ID = 'user_id'
+  USER_ID = 'user_id',
 }
 
 export type QueryRoot = {
@@ -1655,7 +1592,6 @@ export type QueryRoot = {
   users_by_pk?: Maybe<Users>;
 };
 
-
 export type QueryRootNotificationArgs = {
   distinct_on?: InputMaybe<Array<NotificationSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1663,7 +1599,6 @@ export type QueryRootNotificationArgs = {
   order_by?: InputMaybe<Array<NotificationOrderBy>>;
   where?: InputMaybe<NotificationBoolExp>;
 };
-
 
 export type QueryRootNotificationAggregateArgs = {
   distinct_on?: InputMaybe<Array<NotificationSelectColumn>>;
@@ -1673,11 +1608,9 @@ export type QueryRootNotificationAggregateArgs = {
   where?: InputMaybe<NotificationBoolExp>;
 };
 
-
 export type QueryRootNotificationByPkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type QueryRootPostCommentsArgs = {
   distinct_on?: InputMaybe<Array<PostCommentsSelectColumn>>;
@@ -1687,7 +1620,6 @@ export type QueryRootPostCommentsArgs = {
   where?: InputMaybe<PostCommentsBoolExp>;
 };
 
-
 export type QueryRootPostCommentsAggregateArgs = {
   distinct_on?: InputMaybe<Array<PostCommentsSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1696,11 +1628,9 @@ export type QueryRootPostCommentsAggregateArgs = {
   where?: InputMaybe<PostCommentsBoolExp>;
 };
 
-
 export type QueryRootPostCommentsByPkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type QueryRootPostLikesArgs = {
   distinct_on?: InputMaybe<Array<PostLikesSelectColumn>>;
@@ -1710,7 +1640,6 @@ export type QueryRootPostLikesArgs = {
   where?: InputMaybe<PostLikesBoolExp>;
 };
 
-
 export type QueryRootPostLikesAggregateArgs = {
   distinct_on?: InputMaybe<Array<PostLikesSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1719,11 +1648,9 @@ export type QueryRootPostLikesAggregateArgs = {
   where?: InputMaybe<PostLikesBoolExp>;
 };
 
-
 export type QueryRootPostLikesByPkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type QueryRootPostTagRecommendArgs = {
   distinct_on?: InputMaybe<Array<PostTagRecommendSelectColumn>>;
@@ -1733,7 +1660,6 @@ export type QueryRootPostTagRecommendArgs = {
   where?: InputMaybe<PostTagRecommendBoolExp>;
 };
 
-
 export type QueryRootPostTagRecommendAggregateArgs = {
   distinct_on?: InputMaybe<Array<PostTagRecommendSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1742,11 +1668,9 @@ export type QueryRootPostTagRecommendAggregateArgs = {
   where?: InputMaybe<PostTagRecommendBoolExp>;
 };
 
-
 export type QueryRootPostTagRecommendByPkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type QueryRootPostTagSizeArgs = {
   distinct_on?: InputMaybe<Array<PostTagSizeSelectColumn>>;
@@ -1756,7 +1680,6 @@ export type QueryRootPostTagSizeArgs = {
   where?: InputMaybe<PostTagSizeBoolExp>;
 };
 
-
 export type QueryRootPostTagSizeAggregateArgs = {
   distinct_on?: InputMaybe<Array<PostTagSizeSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1765,11 +1688,9 @@ export type QueryRootPostTagSizeAggregateArgs = {
   where?: InputMaybe<PostTagSizeBoolExp>;
 };
 
-
 export type QueryRootPostTagSizeByPkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type QueryRootPostsArgs = {
   distinct_on?: InputMaybe<Array<PostsSelectColumn>>;
@@ -1779,7 +1700,6 @@ export type QueryRootPostsArgs = {
   where?: InputMaybe<PostsBoolExp>;
 };
 
-
 export type QueryRootPostsAggregateArgs = {
   distinct_on?: InputMaybe<Array<PostsSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1788,11 +1708,9 @@ export type QueryRootPostsAggregateArgs = {
   where?: InputMaybe<PostsBoolExp>;
 };
 
-
 export type QueryRootPostsByPkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type QueryRootRelationshipsArgs = {
   distinct_on?: InputMaybe<Array<RelationshipsSelectColumn>>;
@@ -1802,7 +1720,6 @@ export type QueryRootRelationshipsArgs = {
   where?: InputMaybe<RelationshipsBoolExp>;
 };
 
-
 export type QueryRootRelationshipsAggregateArgs = {
   distinct_on?: InputMaybe<Array<RelationshipsSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1811,11 +1728,9 @@ export type QueryRootRelationshipsAggregateArgs = {
   where?: InputMaybe<RelationshipsBoolExp>;
 };
 
-
 export type QueryRootRelationshipsByPkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type QueryRootUsersArgs = {
   distinct_on?: InputMaybe<Array<UsersSelectColumn>>;
@@ -1825,7 +1740,6 @@ export type QueryRootUsersArgs = {
   where?: InputMaybe<UsersBoolExp>;
 };
 
-
 export type QueryRootUsersAggregateArgs = {
   distinct_on?: InputMaybe<Array<UsersSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1834,9 +1748,8 @@ export type QueryRootUsersAggregateArgs = {
   where?: InputMaybe<UsersBoolExp>;
 };
 
-
 export type QueryRootUsersByPkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars['String'];
 };
 
 /** columns and relationships of "relationships" */
@@ -1844,11 +1757,11 @@ export type Relationships = {
   __typename?: 'relationships';
   /** An object relationship */
   follow?: Maybe<Users>;
-  follow_id?: Maybe<Scalars['uuid']>;
+  follow_id?: Maybe<Scalars['String']>;
   id: Scalars['uuid'];
   /** An object relationship */
   user?: Maybe<Users>;
-  user_id?: Maybe<Scalars['uuid']>;
+  user_id?: Maybe<Scalars['String']>;
 };
 
 /** aggregated selection of "relationships" */
@@ -1865,7 +1778,6 @@ export type RelationshipsAggregateFields = {
   max?: Maybe<RelationshipsMaxFields>;
   min?: Maybe<RelationshipsMinFields>;
 };
-
 
 /** aggregate fields of "relationships" */
 export type RelationshipsAggregateFieldsCountArgs = {
@@ -1893,33 +1805,33 @@ export type RelationshipsBoolExp = {
   _not?: InputMaybe<RelationshipsBoolExp>;
   _or?: InputMaybe<Array<RelationshipsBoolExp>>;
   follow?: InputMaybe<UsersBoolExp>;
-  follow_id?: InputMaybe<UuidComparisonExp>;
+  follow_id?: InputMaybe<StringComparisonExp>;
   id?: InputMaybe<UuidComparisonExp>;
   user?: InputMaybe<UsersBoolExp>;
-  user_id?: InputMaybe<UuidComparisonExp>;
+  user_id?: InputMaybe<StringComparisonExp>;
 };
 
 /** unique or primary key constraints on table "relationships" */
 export enum RelationshipsConstraint {
   /** unique or primary key constraint */
-  RELATIONSHIPS_PKEY = 'relationships_pkey'
+  RELATIONSHIPS_PKEY = 'relationships_pkey',
 }
 
 /** input type for inserting data into table "relationships" */
 export type RelationshipsInsertInput = {
   follow?: InputMaybe<UsersObjRelInsertInput>;
-  follow_id?: InputMaybe<Scalars['uuid']>;
+  follow_id?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['uuid']>;
   user?: InputMaybe<UsersObjRelInsertInput>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  user_id?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregate max on columns */
 export type RelationshipsMaxFields = {
   __typename?: 'relationships_max_fields';
-  follow_id?: Maybe<Scalars['uuid']>;
+  follow_id?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  user_id?: Maybe<Scalars['String']>;
 };
 
 /** order by max() on columns of table "relationships" */
@@ -1932,9 +1844,9 @@ export type RelationshipsMaxOrderBy = {
 /** aggregate min on columns */
 export type RelationshipsMinFields = {
   __typename?: 'relationships_min_fields';
-  follow_id?: Maybe<Scalars['uuid']>;
+  follow_id?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  user_id?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "relationships" */
@@ -1981,14 +1893,14 @@ export enum RelationshipsSelectColumn {
   /** column name */
   ID = 'id',
   /** column name */
-  USER_ID = 'user_id'
+  USER_ID = 'user_id',
 }
 
 /** input type for updating data in table "relationships" */
 export type RelationshipsSetInput = {
-  follow_id?: InputMaybe<Scalars['uuid']>;
+  follow_id?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['uuid']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  user_id?: InputMaybe<Scalars['String']>;
 };
 
 /** update columns of table "relationships" */
@@ -1998,7 +1910,7 @@ export enum RelationshipsUpdateColumn {
   /** column name */
   ID = 'id',
   /** column name */
-  USER_ID = 'user_id'
+  USER_ID = 'user_id',
 }
 
 export type SubscriptionRoot = {
@@ -2053,7 +1965,6 @@ export type SubscriptionRoot = {
   users_by_pk?: Maybe<Users>;
 };
 
-
 export type SubscriptionRootNotificationArgs = {
   distinct_on?: InputMaybe<Array<NotificationSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2061,7 +1972,6 @@ export type SubscriptionRootNotificationArgs = {
   order_by?: InputMaybe<Array<NotificationOrderBy>>;
   where?: InputMaybe<NotificationBoolExp>;
 };
-
 
 export type SubscriptionRootNotificationAggregateArgs = {
   distinct_on?: InputMaybe<Array<NotificationSelectColumn>>;
@@ -2071,11 +1981,9 @@ export type SubscriptionRootNotificationAggregateArgs = {
   where?: InputMaybe<NotificationBoolExp>;
 };
 
-
 export type SubscriptionRootNotificationByPkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type SubscriptionRootPostCommentsArgs = {
   distinct_on?: InputMaybe<Array<PostCommentsSelectColumn>>;
@@ -2085,7 +1993,6 @@ export type SubscriptionRootPostCommentsArgs = {
   where?: InputMaybe<PostCommentsBoolExp>;
 };
 
-
 export type SubscriptionRootPostCommentsAggregateArgs = {
   distinct_on?: InputMaybe<Array<PostCommentsSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2094,11 +2001,9 @@ export type SubscriptionRootPostCommentsAggregateArgs = {
   where?: InputMaybe<PostCommentsBoolExp>;
 };
 
-
 export type SubscriptionRootPostCommentsByPkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type SubscriptionRootPostLikesArgs = {
   distinct_on?: InputMaybe<Array<PostLikesSelectColumn>>;
@@ -2108,7 +2013,6 @@ export type SubscriptionRootPostLikesArgs = {
   where?: InputMaybe<PostLikesBoolExp>;
 };
 
-
 export type SubscriptionRootPostLikesAggregateArgs = {
   distinct_on?: InputMaybe<Array<PostLikesSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2117,11 +2021,9 @@ export type SubscriptionRootPostLikesAggregateArgs = {
   where?: InputMaybe<PostLikesBoolExp>;
 };
 
-
 export type SubscriptionRootPostLikesByPkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type SubscriptionRootPostTagRecommendArgs = {
   distinct_on?: InputMaybe<Array<PostTagRecommendSelectColumn>>;
@@ -2131,7 +2033,6 @@ export type SubscriptionRootPostTagRecommendArgs = {
   where?: InputMaybe<PostTagRecommendBoolExp>;
 };
 
-
 export type SubscriptionRootPostTagRecommendAggregateArgs = {
   distinct_on?: InputMaybe<Array<PostTagRecommendSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2140,11 +2041,9 @@ export type SubscriptionRootPostTagRecommendAggregateArgs = {
   where?: InputMaybe<PostTagRecommendBoolExp>;
 };
 
-
 export type SubscriptionRootPostTagRecommendByPkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type SubscriptionRootPostTagSizeArgs = {
   distinct_on?: InputMaybe<Array<PostTagSizeSelectColumn>>;
@@ -2154,7 +2053,6 @@ export type SubscriptionRootPostTagSizeArgs = {
   where?: InputMaybe<PostTagSizeBoolExp>;
 };
 
-
 export type SubscriptionRootPostTagSizeAggregateArgs = {
   distinct_on?: InputMaybe<Array<PostTagSizeSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2163,11 +2061,9 @@ export type SubscriptionRootPostTagSizeAggregateArgs = {
   where?: InputMaybe<PostTagSizeBoolExp>;
 };
 
-
 export type SubscriptionRootPostTagSizeByPkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type SubscriptionRootPostsArgs = {
   distinct_on?: InputMaybe<Array<PostsSelectColumn>>;
@@ -2177,7 +2073,6 @@ export type SubscriptionRootPostsArgs = {
   where?: InputMaybe<PostsBoolExp>;
 };
 
-
 export type SubscriptionRootPostsAggregateArgs = {
   distinct_on?: InputMaybe<Array<PostsSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2186,11 +2081,9 @@ export type SubscriptionRootPostsAggregateArgs = {
   where?: InputMaybe<PostsBoolExp>;
 };
 
-
 export type SubscriptionRootPostsByPkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type SubscriptionRootRelationshipsArgs = {
   distinct_on?: InputMaybe<Array<RelationshipsSelectColumn>>;
@@ -2200,7 +2093,6 @@ export type SubscriptionRootRelationshipsArgs = {
   where?: InputMaybe<RelationshipsBoolExp>;
 };
 
-
 export type SubscriptionRootRelationshipsAggregateArgs = {
   distinct_on?: InputMaybe<Array<RelationshipsSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2209,11 +2101,9 @@ export type SubscriptionRootRelationshipsAggregateArgs = {
   where?: InputMaybe<RelationshipsBoolExp>;
 };
 
-
 export type SubscriptionRootRelationshipsByPkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type SubscriptionRootUsersArgs = {
   distinct_on?: InputMaybe<Array<UsersSelectColumn>>;
@@ -2223,7 +2113,6 @@ export type SubscriptionRootUsersArgs = {
   where?: InputMaybe<UsersBoolExp>;
 };
 
-
 export type SubscriptionRootUsersAggregateArgs = {
   distinct_on?: InputMaybe<Array<UsersSelectColumn>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2232,9 +2121,8 @@ export type SubscriptionRootUsersAggregateArgs = {
   where?: InputMaybe<UsersBoolExp>;
 };
 
-
 export type SubscriptionRootUsersByPkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars['String'];
 };
 
 /** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
@@ -2264,7 +2152,7 @@ export type Users = {
   following: Array<Relationships>;
   /** An aggregate relationship */
   following_aggregate: RelationshipsAggregate;
-  id: Scalars['uuid'];
+  id: Scalars['String'];
   image?: Maybe<Scalars['String']>;
   imageUrl?: Maybe<Scalars['String']>;
   isDarkMode?: Maybe<Scalars['Boolean']>;
@@ -2289,7 +2177,6 @@ export type Users = {
   updated_at: Scalars['timestamptz'];
 };
 
-
 /** columns and relationships of "users" */
 export type UsersFollowedArgs = {
   distinct_on?: InputMaybe<Array<RelationshipsSelectColumn>>;
@@ -2298,7 +2185,6 @@ export type UsersFollowedArgs = {
   order_by?: InputMaybe<Array<RelationshipsOrderBy>>;
   where?: InputMaybe<RelationshipsBoolExp>;
 };
-
 
 /** columns and relationships of "users" */
 export type UsersFollowedAggregateArgs = {
@@ -2309,7 +2195,6 @@ export type UsersFollowedAggregateArgs = {
   where?: InputMaybe<RelationshipsBoolExp>;
 };
 
-
 /** columns and relationships of "users" */
 export type UsersFollowingArgs = {
   distinct_on?: InputMaybe<Array<RelationshipsSelectColumn>>;
@@ -2318,7 +2203,6 @@ export type UsersFollowingArgs = {
   order_by?: InputMaybe<Array<RelationshipsOrderBy>>;
   where?: InputMaybe<RelationshipsBoolExp>;
 };
-
 
 /** columns and relationships of "users" */
 export type UsersFollowingAggregateArgs = {
@@ -2329,7 +2213,6 @@ export type UsersFollowingAggregateArgs = {
   where?: InputMaybe<RelationshipsBoolExp>;
 };
 
-
 /** columns and relationships of "users" */
 export type UsersNotificationsArgs = {
   distinct_on?: InputMaybe<Array<NotificationSelectColumn>>;
@@ -2338,7 +2221,6 @@ export type UsersNotificationsArgs = {
   order_by?: InputMaybe<Array<NotificationOrderBy>>;
   where?: InputMaybe<NotificationBoolExp>;
 };
-
 
 /** columns and relationships of "users" */
 export type UsersNotificationsAggregateArgs = {
@@ -2349,7 +2231,6 @@ export type UsersNotificationsAggregateArgs = {
   where?: InputMaybe<NotificationBoolExp>;
 };
 
-
 /** columns and relationships of "users" */
 export type UsersPostCommentsArgs = {
   distinct_on?: InputMaybe<Array<PostCommentsSelectColumn>>;
@@ -2358,7 +2239,6 @@ export type UsersPostCommentsArgs = {
   order_by?: InputMaybe<Array<PostCommentsOrderBy>>;
   where?: InputMaybe<PostCommentsBoolExp>;
 };
-
 
 /** columns and relationships of "users" */
 export type UsersPostCommentsAggregateArgs = {
@@ -2369,7 +2249,6 @@ export type UsersPostCommentsAggregateArgs = {
   where?: InputMaybe<PostCommentsBoolExp>;
 };
 
-
 /** columns and relationships of "users" */
 export type UsersPostLikesArgs = {
   distinct_on?: InputMaybe<Array<PostLikesSelectColumn>>;
@@ -2378,7 +2257,6 @@ export type UsersPostLikesArgs = {
   order_by?: InputMaybe<Array<PostLikesOrderBy>>;
   where?: InputMaybe<PostLikesBoolExp>;
 };
-
 
 /** columns and relationships of "users" */
 export type UsersPostLikesAggregateArgs = {
@@ -2389,7 +2267,6 @@ export type UsersPostLikesAggregateArgs = {
   where?: InputMaybe<PostLikesBoolExp>;
 };
 
-
 /** columns and relationships of "users" */
 export type UsersPostsArgs = {
   distinct_on?: InputMaybe<Array<PostsSelectColumn>>;
@@ -2398,7 +2275,6 @@ export type UsersPostsArgs = {
   order_by?: InputMaybe<Array<PostsOrderBy>>;
   where?: InputMaybe<PostsBoolExp>;
 };
-
 
 /** columns and relationships of "users" */
 export type UsersPostsAggregateArgs = {
@@ -2424,7 +2300,6 @@ export type UsersAggregateFields = {
   min?: Maybe<UsersMinFields>;
 };
 
-
 /** aggregate fields of "users" */
 export type UsersAggregateFieldsCountArgs = {
   columns?: InputMaybe<Array<UsersSelectColumn>>;
@@ -2441,7 +2316,7 @@ export type UsersBoolExp = {
   email?: InputMaybe<StringComparisonExp>;
   followed?: InputMaybe<RelationshipsBoolExp>;
   following?: InputMaybe<RelationshipsBoolExp>;
-  id?: InputMaybe<UuidComparisonExp>;
+  id?: InputMaybe<StringComparisonExp>;
   image?: InputMaybe<StringComparisonExp>;
   imageUrl?: InputMaybe<StringComparisonExp>;
   isDarkMode?: InputMaybe<BooleanComparisonExp>;
@@ -2457,7 +2332,7 @@ export type UsersBoolExp = {
 /** unique or primary key constraints on table "users" */
 export enum UsersConstraint {
   /** unique or primary key constraint */
-  USERS_PKEY = 'users_pkey'
+  USERS_PKEY = 'users_pkey',
 }
 
 /** input type for inserting data into table "users" */
@@ -2467,7 +2342,7 @@ export type UsersInsertInput = {
   email?: InputMaybe<Scalars['String']>;
   followed?: InputMaybe<RelationshipsArrRelInsertInput>;
   following?: InputMaybe<RelationshipsArrRelInsertInput>;
-  id?: InputMaybe<Scalars['uuid']>;
+  id?: InputMaybe<Scalars['String']>;
   image?: InputMaybe<Scalars['String']>;
   imageUrl?: InputMaybe<Scalars['String']>;
   isDarkMode?: InputMaybe<Scalars['Boolean']>;
@@ -2486,7 +2361,7 @@ export type UsersMaxFields = {
   created_at?: Maybe<Scalars['timestamptz']>;
   display_id?: Maybe<Scalars['String']>;
   email?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['uuid']>;
+  id?: Maybe<Scalars['String']>;
   image?: Maybe<Scalars['String']>;
   imageUrl?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
@@ -2500,7 +2375,7 @@ export type UsersMinFields = {
   created_at?: Maybe<Scalars['timestamptz']>;
   display_id?: Maybe<Scalars['String']>;
   email?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['uuid']>;
+  id?: Maybe<Scalars['String']>;
   image?: Maybe<Scalars['String']>;
   imageUrl?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
@@ -2553,7 +2428,7 @@ export type UsersOrderBy = {
 
 /** primary key columns input for table: users */
 export type UsersPkColumnsInput = {
-  id: Scalars['uuid'];
+  id: Scalars['String'];
 };
 
 /** select columns of table "users" */
@@ -2577,7 +2452,7 @@ export enum UsersSelectColumn {
   /** column name */
   PROFILE = 'profile',
   /** column name */
-  UPDATED_AT = 'updated_at'
+  UPDATED_AT = 'updated_at',
 }
 
 /** input type for updating data in table "users" */
@@ -2585,7 +2460,7 @@ export type UsersSetInput = {
   created_at?: InputMaybe<Scalars['timestamptz']>;
   display_id?: InputMaybe<Scalars['String']>;
   email?: InputMaybe<Scalars['String']>;
-  id?: InputMaybe<Scalars['uuid']>;
+  id?: InputMaybe<Scalars['String']>;
   image?: InputMaybe<Scalars['String']>;
   imageUrl?: InputMaybe<Scalars['String']>;
   isDarkMode?: InputMaybe<Scalars['Boolean']>;
@@ -2615,7 +2490,7 @@ export enum UsersUpdateColumn {
   /** column name */
   PROFILE = 'profile',
   /** column name */
-  UPDATED_AT = 'updated_at'
+  UPDATED_AT = 'updated_at',
 }
 
 /** Boolean expression to compare columns of type "uuid". All fields are combined with logical 'AND'. */
@@ -2632,192 +2507,147 @@ export type UuidComparisonExp = {
 };
 
 export type CreateUserMutationVariables = Exact<{
-  id: Scalars['uuid'];
+  id: Scalars['String'];
   display_id: Scalars['String'];
   email: Scalars['String'];
   name: Scalars['String'];
   image?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type CreateUserMutation = (
-  { __typename?: 'mutation_root' }
-  & { insert_users_one?: Maybe<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'display_id' | 'email' | 'name' | 'image' | 'created_at'>
-  )> }
-);
+export type CreateUserMutation = { __typename?: 'mutation_root' } & {
+  insert_users_one?: Maybe<
+    { __typename?: 'users' } & Pick<Users, 'id' | 'display_id' | 'email' | 'name' | 'image' | 'created_at'>
+  >;
+};
 
 export type ReactiveVarGetUserQueryVariables = Exact<{
-  id: Scalars['uuid'];
+  id: Scalars['String'];
 }>;
 
-
-export type ReactiveVarGetUserQuery = (
-  { __typename?: 'query_root' }
-  & { users_by_pk?: Maybe<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'email' | 'image' | 'created_at'>
-  )> }
-);
+export type ReactiveVarGetUserQuery = { __typename?: 'query_root' } & {
+  users_by_pk?: Maybe<
+    { __typename?: 'users' } & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'email' | 'image' | 'created_at'>
+  >;
+};
 
 export type GetAllPostQueryVariables = Exact<{
   limit: Scalars['Int'];
   offset: Scalars['Int'];
 }>;
 
+export type GetAllPostQuery = { __typename?: 'query_root' } & {
+  posts: Array<
+    { __typename?: 'posts' } & Pick<Posts, 'id' | 'image' | 'content' | 'created_at'> & {
+        user: { __typename?: 'users' } & Pick<Users, 'id' | 'image' | 'name'> & {
+            post_comments_aggregate: { __typename?: 'post_comments_aggregate' } & {
+              aggregate?: Maybe<
+                { __typename?: 'post_comments_aggregate_fields' } & Pick<PostCommentsAggregateFields, 'count'>
+              >;
+            };
+            post_likes_aggregate: { __typename?: 'post_likes_aggregate' } & {
+              aggregate?: Maybe<
+                { __typename?: 'post_likes_aggregate_fields' } & Pick<PostLikesAggregateFields, 'count'>
+              >;
+            };
+          };
+      }
+  >;
+};
 
-export type GetAllPostQuery = (
-  { __typename?: 'query_root' }
-  & { posts: Array<(
-    { __typename?: 'posts' }
-    & Pick<Posts, 'id' | 'image' | 'content' | 'created_at'>
-    & { user: (
-      { __typename?: 'users' }
-      & Pick<Users, 'id' | 'image' | 'name'>
-      & { post_comments_aggregate: (
-        { __typename?: 'post_comments_aggregate' }
-        & { aggregate?: Maybe<(
-          { __typename?: 'post_comments_aggregate_fields' }
-          & Pick<PostCommentsAggregateFields, 'count'>
-        )> }
-      ), post_likes_aggregate: (
-        { __typename?: 'post_likes_aggregate' }
-        & { aggregate?: Maybe<(
-          { __typename?: 'post_likes_aggregate_fields' }
-          & Pick<PostLikesAggregateFields, 'count'>
-        )> }
-      ) }
-    ) }
-  )> }
-);
+export type GetAllUsersWithPostsQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetAllUsersWithPostsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetAllUsersWithPostsQuery = (
-  { __typename?: 'query_root' }
-  & { users: Array<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'display_id'>
-    & { posts: Array<(
-      { __typename?: 'posts' }
-      & Pick<Posts, 'id'>
-    )> }
-  )> }
-);
+export type GetAllUsersWithPostsQuery = { __typename?: 'query_root' } & {
+  users: Array<
+    { __typename?: 'users' } & Pick<Users, 'id' | 'display_id'> & {
+        posts: Array<{ __typename?: 'posts' } & Pick<Posts, 'id'>>;
+      }
+  >;
+};
 
 export type GetOneUserWithPostQueryVariables = Exact<{
   userId: Scalars['String'];
   postId: Scalars['uuid'];
 }>;
 
-
-export type GetOneUserWithPostQuery = (
-  { __typename?: 'query_root' }
-  & { users: Array<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'display_id' | 'name' | 'image'>
-    & { posts: Array<(
-      { __typename?: 'posts' }
-      & Pick<Posts, 'id' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'content' | 'created_at'>
-      & { post_tag_size?: Maybe<(
-        { __typename?: 'post_tag_size' }
-        & Pick<PostTagSize, 'id' | 'size'>
-      )>, post_tag_recommend?: Maybe<(
-        { __typename?: 'post_tag_recommend' }
-        & Pick<PostTagRecommend, 'id' | 'recommend'>
-      )>, post_comments: Array<(
-        { __typename?: 'post_comments' }
-        & Pick<PostComments, 'id' | 'comment' | 'created_at'>
-        & { user: (
-          { __typename?: 'users' }
-          & Pick<Users, 'image' | 'name' | 'display_id'>
-        ) }
-      )> }
-    )> }
-  )> }
-);
+export type GetOneUserWithPostQuery = { __typename?: 'query_root' } & {
+  users: Array<
+    { __typename?: 'users' } & Pick<Users, 'id' | 'display_id' | 'name' | 'image'> & {
+        posts: Array<
+          { __typename?: 'posts' } & Pick<
+            Posts,
+            'id' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'content' | 'created_at'
+          > & {
+              post_tag_size?: Maybe<{ __typename?: 'post_tag_size' } & Pick<PostTagSize, 'id' | 'size'>>;
+              post_tag_recommend?: Maybe<
+                { __typename?: 'post_tag_recommend' } & Pick<PostTagRecommend, 'id' | 'recommend'>
+              >;
+              post_comments: Array<
+                { __typename?: 'post_comments' } & Pick<PostComments, 'id' | 'comment' | 'created_at'> & {
+                    user: { __typename?: 'users' } & Pick<Users, 'image' | 'name' | 'display_id'>;
+                  }
+              >;
+            }
+        >;
+      }
+  >;
+};
 
 export type GetPostLikeCountQueryVariables = Exact<{
   postId: Scalars['uuid'];
 }>;
 
-
-export type GetPostLikeCountQuery = (
-  { __typename?: 'query_root' }
-  & { post_likes: Array<(
-    { __typename?: 'post_likes' }
-    & Pick<PostLikes, 'id' | 'post_id' | 'user_id'>
-  )> }
-);
+export type GetPostLikeCountQuery = { __typename?: 'query_root' } & {
+  post_likes: Array<{ __typename?: 'post_likes' } & Pick<PostLikes, 'id' | 'post_id' | 'user_id'>>;
+};
 
 export type AddPostLikeMutationVariables = Exact<{
-  userId: Scalars['uuid'];
+  userId: Scalars['String'];
   postId: Scalars['uuid'];
 }>;
 
-
-export type AddPostLikeMutation = (
-  { __typename?: 'mutation_root' }
-  & { insert_post_likes_one?: Maybe<(
-    { __typename?: 'post_likes' }
-    & Pick<PostLikes, 'id' | 'user_id' | 'post_id'>
-  )> }
-);
+export type AddPostLikeMutation = { __typename?: 'mutation_root' } & {
+  insert_post_likes_one?: Maybe<{ __typename?: 'post_likes' } & Pick<PostLikes, 'id' | 'user_id' | 'post_id'>>;
+};
 
 export type RemovePostLikeMutationVariables = Exact<{
-  userId: Scalars['uuid'];
+  userId: Scalars['String'];
   postId: Scalars['uuid'];
 }>;
 
-
-export type RemovePostLikeMutation = (
-  { __typename?: 'mutation_root' }
-  & { delete_post_likes?: Maybe<(
-    { __typename?: 'post_likes_mutation_response' }
-    & Pick<PostLikesMutationResponse, 'affected_rows'>
-  )> }
-);
+export type RemovePostLikeMutation = { __typename?: 'mutation_root' } & {
+  delete_post_likes?: Maybe<
+    { __typename?: 'post_likes_mutation_response' } & Pick<PostLikesMutationResponse, 'affected_rows'>
+  >;
+};
 
 export type AddPostCommentMutationVariables = Exact<{
-  userId: Scalars['uuid'];
+  userId: Scalars['String'];
   postId: Scalars['uuid'];
   comment: Scalars['String'];
 }>;
 
-
-export type AddPostCommentMutation = (
-  { __typename?: 'mutation_root' }
-  & { insert_post_comments_one?: Maybe<(
-    { __typename?: 'post_comments' }
-    & Pick<PostComments, 'id' | 'comment' | 'created_at'>
-    & { user: (
-      { __typename?: 'users' }
-      & Pick<Users, 'image' | 'name' | 'display_id'>
-    ) }
-  )> }
-);
+export type AddPostCommentMutation = { __typename?: 'mutation_root' } & {
+  insert_post_comments_one?: Maybe<
+    { __typename?: 'post_comments' } & Pick<PostComments, 'id' | 'comment' | 'created_at'> & {
+        user: { __typename?: 'users' } & Pick<Users, 'image' | 'name' | 'display_id'>;
+      }
+  >;
+};
 
 export type SubscriptionPostCommentSubscriptionVariables = Exact<{
   postId: Scalars['uuid'];
 }>;
 
-
-export type SubscriptionPostCommentSubscription = (
-  { __typename?: 'subscription_root' }
-  & { post_comments: Array<(
-    { __typename?: 'post_comments' }
-    & Pick<PostComments, 'id' | 'comment' | 'created_at'>
-    & { user: (
-      { __typename?: 'users' }
-      & Pick<Users, 'image' | 'name' | 'display_id'>
-    ) }
-  )> }
-);
+export type SubscriptionPostCommentSubscription = { __typename?: 'subscription_root' } & {
+  post_comments: Array<
+    { __typename?: 'post_comments' } & Pick<PostComments, 'id' | 'comment' | 'created_at'> & {
+        user: { __typename?: 'users' } & Pick<Users, 'image' | 'name' | 'display_id'>;
+      }
+  >;
+};
 
 export type InsertPostOneMutationVariables = Exact<{
-  user_id: Scalars['uuid'];
+  user_id: Scalars['String'];
   content: Scalars['String'];
   image?: InputMaybe<Scalars['String']>;
   imageUrl?: InputMaybe<Scalars['String']>;
@@ -2827,18 +2657,18 @@ export type InsertPostOneMutationVariables = Exact<{
   post_tag_recommend: Scalars['String'];
 }>;
 
-
-export type InsertPostOneMutation = (
-  { __typename?: 'mutation_root' }
-  & { insert_posts_one?: Maybe<(
-    { __typename?: 'posts' }
-    & Pick<Posts, 'id' | 'user_id' | 'content' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'created_at'>
-  )> }
-);
+export type InsertPostOneMutation = { __typename?: 'mutation_root' } & {
+  insert_posts_one?: Maybe<
+    { __typename?: 'posts' } & Pick<
+      Posts,
+      'id' | 'user_id' | 'content' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'created_at'
+    >
+  >;
+};
 
 export type EditPostOneMutationVariables = Exact<{
   id: Scalars['uuid'];
-  user_id: Scalars['uuid'];
+  user_id: Scalars['String'];
   content: Scalars['String'];
   image: Scalars['String'];
   imageUrl: Scalars['String'];
@@ -2846,333 +2676,268 @@ export type EditPostOneMutationVariables = Exact<{
   petGender: Scalars['String'];
 }>;
 
-
-export type EditPostOneMutation = (
-  { __typename?: 'mutation_root' }
-  & { insert_posts_one?: Maybe<(
-    { __typename?: 'posts' }
-    & Pick<Posts, 'id' | 'user_id' | 'content' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'created_at'>
-  )> }
-);
+export type EditPostOneMutation = { __typename?: 'mutation_root' } & {
+  insert_posts_one?: Maybe<
+    { __typename?: 'posts' } & Pick<
+      Posts,
+      'id' | 'user_id' | 'content' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'created_at'
+    >
+  >;
+};
 
 export type EditPostOneWithoutImageMutationVariables = Exact<{
   id: Scalars['uuid'];
-  user_id: Scalars['uuid'];
+  user_id: Scalars['String'];
   content: Scalars['String'];
   petName: Scalars['String'];
   petGender: Scalars['String'];
 }>;
 
-
-export type EditPostOneWithoutImageMutation = (
-  { __typename?: 'mutation_root' }
-  & { insert_posts_one?: Maybe<(
-    { __typename?: 'posts' }
-    & Pick<Posts, 'id' | 'user_id' | 'content' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'created_at'>
-  )> }
-);
+export type EditPostOneWithoutImageMutation = { __typename?: 'mutation_root' } & {
+  insert_posts_one?: Maybe<
+    { __typename?: 'posts' } & Pick<
+      Posts,
+      'id' | 'user_id' | 'content' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'created_at'
+    >
+  >;
+};
 
 export type DelatePostOneMutationVariables = Exact<{
   postId: Scalars['uuid'];
 }>;
 
-
-export type DelatePostOneMutation = (
-  { __typename?: 'mutation_root' }
-  & { delete_posts_by_pk?: Maybe<(
-    { __typename?: 'posts' }
-    & Pick<Posts, 'id' | 'image' | 'imageUrl' | 'user_id'>
-  )> }
-);
+export type DelatePostOneMutation = { __typename?: 'mutation_root' } & {
+  delete_posts_by_pk?: Maybe<{ __typename?: 'posts' } & Pick<Posts, 'id' | 'image' | 'imageUrl' | 'user_id'>>;
+};
 
 export type UpdateUserProfileMutationVariables = Exact<{
-  id: Scalars['uuid'];
+  id: Scalars['String'];
   name: Scalars['String'];
   displayId: Scalars['String'];
   profile?: InputMaybe<Scalars['String']>;
   image?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type UpdateUserProfileMutation = (
-  { __typename?: 'mutation_root' }
-  & { insert_users_one?: Maybe<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'name' | 'display_id' | 'profile' | 'image'>
-  )> }
-);
+export type UpdateUserProfileMutation = { __typename?: 'mutation_root' } & {
+  insert_users_one?: Maybe<{ __typename?: 'users' } & Pick<Users, 'id' | 'name' | 'display_id' | 'profile' | 'image'>>;
+};
 
 export type GetUserInfomationQueryVariables = Exact<{
   display_id: Scalars['String'];
 }>;
 
-
-export type GetUserInfomationQuery = (
-  { __typename?: 'query_root' }
-  & { users: Array<(
-    { __typename?: 'users' }
-    & { posts_aggregate: (
-      { __typename?: 'posts_aggregate' }
-      & { aggregate?: Maybe<(
-        { __typename?: 'posts_aggregate_fields' }
-        & Pick<PostsAggregateFields, 'count'>
-      )> }
-    ), following_aggregate: (
-      { __typename?: 'relationships_aggregate' }
-      & { aggregate?: Maybe<(
-        { __typename?: 'relationships_aggregate_fields' }
-        & Pick<RelationshipsAggregateFields, 'count'>
-      )> }
-    ), followed_aggregate: (
-      { __typename?: 'relationships_aggregate' }
-      & { aggregate?: Maybe<(
-        { __typename?: 'relationships_aggregate_fields' }
-        & Pick<RelationshipsAggregateFields, 'count'>
-      )> }
-    ) }
-  )> }
-);
+export type GetUserInfomationQuery = { __typename?: 'query_root' } & {
+  users: Array<
+    { __typename?: 'users' } & {
+      posts_aggregate: { __typename?: 'posts_aggregate' } & {
+        aggregate?: Maybe<{ __typename?: 'posts_aggregate_fields' } & Pick<PostsAggregateFields, 'count'>>;
+      };
+      following_aggregate: { __typename?: 'relationships_aggregate' } & {
+        aggregate?: Maybe<
+          { __typename?: 'relationships_aggregate_fields' } & Pick<RelationshipsAggregateFields, 'count'>
+        >;
+      };
+      followed_aggregate: { __typename?: 'relationships_aggregate' } & {
+        aggregate?: Maybe<
+          { __typename?: 'relationships_aggregate_fields' } & Pick<RelationshipsAggregateFields, 'count'>
+        >;
+      };
+    }
+  >;
+};
 
 export type GetOneUserAllPostQueryVariables = Exact<{
   display_id: Scalars['String'];
 }>;
 
+export type GetOneUserAllPostQuery = { __typename?: 'query_root' } & {
+  users: Array<
+    { __typename?: 'users' } & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'> & {
+        posts: Array<
+          { __typename?: 'posts' } & Pick<Posts, 'id' | 'image' | 'content' | 'updated_at'> & {
+              post_comments_aggregate: { __typename?: 'post_comments_aggregate' } & {
+                aggregate?: Maybe<
+                  { __typename?: 'post_comments_aggregate_fields' } & Pick<PostCommentsAggregateFields, 'count'>
+                >;
+              };
+              post_likes_aggregate: { __typename?: 'post_likes_aggregate' } & {
+                aggregate?: Maybe<
+                  { __typename?: 'post_likes_aggregate_fields' } & Pick<PostLikesAggregateFields, 'count'>
+                >;
+              };
+            }
+        >;
+      }
+  >;
+};
 
-export type GetOneUserAllPostQuery = (
-  { __typename?: 'query_root' }
-  & { users: Array<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
-    & { posts: Array<(
-      { __typename?: 'posts' }
-      & Pick<Posts, 'id' | 'image' | 'content' | 'updated_at'>
-      & { post_comments_aggregate: (
-        { __typename?: 'post_comments_aggregate' }
-        & { aggregate?: Maybe<(
-          { __typename?: 'post_comments_aggregate_fields' }
-          & Pick<PostCommentsAggregateFields, 'count'>
-        )> }
-      ), post_likes_aggregate: (
-        { __typename?: 'post_likes_aggregate' }
-        & { aggregate?: Maybe<(
-          { __typename?: 'post_likes_aggregate_fields' }
-          & Pick<PostLikesAggregateFields, 'count'>
-        )> }
-      ) }
-    )> }
-  )> }
-);
+export type GetAllUsersQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetAllUsersQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetAllUsersQuery = (
-  { __typename?: 'query_root' }
-  & { users: Array<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'display_id'>
-  )> }
-);
+export type GetAllUsersQuery = { __typename?: 'query_root' } & {
+  users: Array<{ __typename?: 'users' } & Pick<Users, 'id' | 'display_id'>>;
+};
 
 export type GetOneUserLikePostQueryVariables = Exact<{
   display_id: Scalars['String'];
 }>;
 
-
-export type GetOneUserLikePostQuery = (
-  { __typename?: 'query_root' }
-  & { users: Array<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
-    & { post_likes: Array<(
-      { __typename?: 'post_likes' }
-      & { post: (
-        { __typename?: 'posts' }
-        & Pick<Posts, 'id' | 'content' | 'image' | 'updated_at'>
-        & { user: (
-          { __typename?: 'users' }
-          & Pick<Users, 'id' | 'image' | 'name' | 'created_at'>
-          & { post_comments_aggregate: (
-            { __typename?: 'post_comments_aggregate' }
-            & { aggregate?: Maybe<(
-              { __typename?: 'post_comments_aggregate_fields' }
-              & Pick<PostCommentsAggregateFields, 'count'>
-            )> }
-          ), post_likes_aggregate: (
-            { __typename?: 'post_likes_aggregate' }
-            & { aggregate?: Maybe<(
-              { __typename?: 'post_likes_aggregate_fields' }
-              & Pick<PostLikesAggregateFields, 'count'>
-            )> }
-          ) }
-        ) }
-      ) }
-    )> }
-  )> }
-);
+export type GetOneUserLikePostQuery = { __typename?: 'query_root' } & {
+  users: Array<
+    { __typename?: 'users' } & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'> & {
+        post_likes: Array<
+          { __typename?: 'post_likes' } & {
+            post: { __typename?: 'posts' } & Pick<Posts, 'id' | 'content' | 'image' | 'updated_at'> & {
+                user: { __typename?: 'users' } & Pick<Users, 'id' | 'image' | 'name' | 'created_at'> & {
+                    post_comments_aggregate: { __typename?: 'post_comments_aggregate' } & {
+                      aggregate?: Maybe<
+                        { __typename?: 'post_comments_aggregate_fields' } & Pick<PostCommentsAggregateFields, 'count'>
+                      >;
+                    };
+                    post_likes_aggregate: { __typename?: 'post_likes_aggregate' } & {
+                      aggregate?: Maybe<
+                        { __typename?: 'post_likes_aggregate_fields' } & Pick<PostLikesAggregateFields, 'count'>
+                      >;
+                    };
+                  };
+              };
+          }
+        >;
+      }
+  >;
+};
 
 export type GetFollowUserPostQueryVariables = Exact<{
-  user_id: Scalars['uuid'];
+  user_id: Scalars['String'];
 }>;
 
-
-export type GetFollowUserPostQuery = (
-  { __typename?: 'query_root' }
-  & { posts: Array<(
-    { __typename?: 'posts' }
-    & Pick<Posts, 'id' | 'user_id' | 'image' | 'content' | 'petName' | 'petGender' | 'created_at'>
-    & { user: (
-      { __typename?: 'users' }
-      & Pick<Users, 'id' | 'image' | 'name' | 'created_at'>
-      & { post_comments_aggregate: (
-        { __typename?: 'post_comments_aggregate' }
-        & { aggregate?: Maybe<(
-          { __typename?: 'post_comments_aggregate_fields' }
-          & Pick<PostCommentsAggregateFields, 'count'>
-        )> }
-      ), post_likes_aggregate: (
-        { __typename?: 'post_likes_aggregate' }
-        & { aggregate?: Maybe<(
-          { __typename?: 'post_likes_aggregate_fields' }
-          & Pick<PostLikesAggregateFields, 'count'>
-        )> }
-      ) }
-    ) }
-  )>, users: Array<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
-  )> }
-);
+export type GetFollowUserPostQuery = { __typename?: 'query_root' } & {
+  posts: Array<
+    { __typename?: 'posts' } & Pick<
+      Posts,
+      'id' | 'user_id' | 'image' | 'content' | 'petName' | 'petGender' | 'created_at'
+    > & {
+        user: { __typename?: 'users' } & Pick<Users, 'id' | 'image' | 'name' | 'created_at'> & {
+            post_comments_aggregate: { __typename?: 'post_comments_aggregate' } & {
+              aggregate?: Maybe<
+                { __typename?: 'post_comments_aggregate_fields' } & Pick<PostCommentsAggregateFields, 'count'>
+              >;
+            };
+            post_likes_aggregate: { __typename?: 'post_likes_aggregate' } & {
+              aggregate?: Maybe<
+                { __typename?: 'post_likes_aggregate_fields' } & Pick<PostLikesAggregateFields, 'count'>
+              >;
+            };
+          };
+      }
+  >;
+  users: Array<
+    { __typename?: 'users' } & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
+  >;
+};
 
 export type GetOneUserFollowingQueryVariables = Exact<{
   display_id: Scalars['String'];
 }>;
 
-
-export type GetOneUserFollowingQuery = (
-  { __typename?: 'query_root' }
-  & { users: Array<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
-    & { following: Array<(
-      { __typename?: 'relationships' }
-      & { follow?: Maybe<(
-        { __typename?: 'users' }
-        & Pick<Users, 'id' | 'display_id' | 'name' | 'image' | 'created_at'>
-      )> }
-    )> }
-  )> }
-);
+export type GetOneUserFollowingQuery = { __typename?: 'query_root' } & {
+  users: Array<
+    { __typename?: 'users' } & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'> & {
+        following: Array<
+          { __typename?: 'relationships' } & {
+            follow?: Maybe<
+              { __typename?: 'users' } & Pick<Users, 'id' | 'display_id' | 'name' | 'image' | 'created_at'>
+            >;
+          }
+        >;
+      }
+  >;
+};
 
 export type GetOneUserFollowerQueryVariables = Exact<{
   display_id: Scalars['String'];
 }>;
 
-
-export type GetOneUserFollowerQuery = (
-  { __typename?: 'query_root' }
-  & { users: Array<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
-    & { followed: Array<(
-      { __typename?: 'relationships' }
-      & { user?: Maybe<(
-        { __typename?: 'users' }
-        & Pick<Users, 'id' | 'display_id' | 'name' | 'image' | 'created_at'>
-      )> }
-    )> }
-  )> }
-);
+export type GetOneUserFollowerQuery = { __typename?: 'query_root' } & {
+  users: Array<
+    { __typename?: 'users' } & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'> & {
+        followed: Array<
+          { __typename?: 'relationships' } & {
+            user?: Maybe<{ __typename?: 'users' } & Pick<Users, 'id' | 'display_id' | 'name' | 'image' | 'created_at'>>;
+          }
+        >;
+      }
+  >;
+};
 
 export type IsFollowUserQueryVariables = Exact<{
-  fromUserId: Scalars['uuid'];
-  toUserId: Scalars['uuid'];
+  fromUserId: Scalars['String'];
+  toUserId: Scalars['String'];
 }>;
 
-
-export type IsFollowUserQuery = (
-  { __typename?: 'query_root' }
-  & { relationships: Array<(
-    { __typename?: 'relationships' }
-    & Pick<Relationships, 'id' | 'user_id' | 'follow_id'>
-  )> }
-);
+export type IsFollowUserQuery = { __typename?: 'query_root' } & {
+  relationships: Array<{ __typename?: 'relationships' } & Pick<Relationships, 'id' | 'user_id' | 'follow_id'>>;
+};
 
 export type AddFollowMutationVariables = Exact<{
-  fromUserId: Scalars['uuid'];
-  toUserId: Scalars['uuid'];
+  fromUserId: Scalars['String'];
+  toUserId: Scalars['String'];
 }>;
 
-
-export type AddFollowMutation = (
-  { __typename?: 'mutation_root' }
-  & { insert_relationships_one?: Maybe<(
-    { __typename?: 'relationships' }
-    & Pick<Relationships, 'id' | 'user_id' | 'follow_id'>
-  )> }
-);
+export type AddFollowMutation = { __typename?: 'mutation_root' } & {
+  insert_relationships_one?: Maybe<
+    { __typename?: 'relationships' } & Pick<Relationships, 'id' | 'user_id' | 'follow_id'>
+  >;
+};
 
 export type RemoveFollowMutationVariables = Exact<{
-  fromUserId: Scalars['uuid'];
-  toUserId: Scalars['uuid'];
+  fromUserId: Scalars['String'];
+  toUserId: Scalars['String'];
 }>;
 
-
-export type RemoveFollowMutation = (
-  { __typename?: 'mutation_root' }
-  & { delete_relationships?: Maybe<(
-    { __typename?: 'relationships_mutation_response' }
-    & Pick<RelationshipsMutationResponse, 'affected_rows'>
-  )> }
-);
+export type RemoveFollowMutation = { __typename?: 'mutation_root' } & {
+  delete_relationships?: Maybe<
+    { __typename?: 'relationships_mutation_response' } & Pick<RelationshipsMutationResponse, 'affected_rows'>
+  >;
+};
 
 export type GetSearchResultQueryVariables = Exact<{
   word: Scalars['String'];
 }>;
 
-
-export type GetSearchResultQuery = (
-  { __typename?: 'query_root' }
-  & { users: Array<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
-  )>, posts: Array<(
-    { __typename?: 'posts' }
-    & Pick<Posts, 'id' | 'user_id' | 'image' | 'content' | 'petName' | 'petGender' | 'created_at'>
-    & { user: (
-      { __typename?: 'users' }
-      & Pick<Users, 'id' | 'display_id' | 'image' | 'name'>
-    ), post_comments_aggregate: (
-      { __typename?: 'post_comments_aggregate' }
-      & { aggregate?: Maybe<(
-        { __typename?: 'post_comments_aggregate_fields' }
-        & Pick<PostCommentsAggregateFields, 'count'>
-      )> }
-    ), post_likes_aggregate: (
-      { __typename?: 'post_likes_aggregate' }
-      & { aggregate?: Maybe<(
-        { __typename?: 'post_likes_aggregate_fields' }
-        & Pick<PostLikesAggregateFields, 'count'>
-      )> }
-    ) }
-  )> }
-);
-
+export type GetSearchResultQuery = { __typename?: 'query_root' } & {
+  users: Array<
+    { __typename?: 'users' } & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
+  >;
+  posts: Array<
+    { __typename?: 'posts' } & Pick<
+      Posts,
+      'id' | 'user_id' | 'image' | 'content' | 'petName' | 'petGender' | 'created_at'
+    > & {
+        user: { __typename?: 'users' } & Pick<Users, 'id' | 'display_id' | 'image' | 'name'>;
+        post_comments_aggregate: { __typename?: 'post_comments_aggregate' } & {
+          aggregate?: Maybe<
+            { __typename?: 'post_comments_aggregate_fields' } & Pick<PostCommentsAggregateFields, 'count'>
+          >;
+        };
+        post_likes_aggregate: { __typename?: 'post_likes_aggregate' } & {
+          aggregate?: Maybe<{ __typename?: 'post_likes_aggregate_fields' } & Pick<PostLikesAggregateFields, 'count'>>;
+        };
+      }
+  >;
+};
 
 export const CreateUserDocument = gql`
-    mutation CreateUser($id: uuid!, $display_id: String!, $email: String!, $name: String!, $image: String) {
-  insert_users_one(
-    object: {id: $id, display_id: $display_id, name: $name, email: $email, image: $image}
-  ) {
-    id
-    display_id
-    email
-    name
-    image
-    created_at
+  mutation CreateUser($id: String!, $display_id: String!, $email: String!, $name: String!, $image: String) {
+    insert_users_one(object: { id: $id, display_id: $display_id, name: $name, email: $email, image: $image }) {
+      id
+      display_id
+      email
+      name
+      image
+      created_at
+    }
   }
-}
-    `;
+`;
 export type CreateUserMutationFn = ApolloReactCommon.MutationFunction<CreateUserMutation, CreateUserMutationVariables>;
 
 /**
@@ -3196,26 +2961,31 @@ export type CreateUserMutationFn = ApolloReactCommon.MutationFunction<CreateUser
  *   },
  * });
  */
-export function useCreateUserMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<CreateUserMutation, CreateUserMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useMutation<CreateUserMutation, CreateUserMutationVariables>(CreateUserDocument, options);
-      }
+export function useCreateUserMutation(
+  baseOptions?: ApolloReactHooks.MutationHookOptions<CreateUserMutation, CreateUserMutationVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useMutation<CreateUserMutation, CreateUserMutationVariables>(CreateUserDocument, options);
+}
 export type CreateUserMutationHookResult = ReturnType<typeof useCreateUserMutation>;
 export type CreateUserMutationResult = ApolloReactCommon.MutationResult<CreateUserMutation>;
-export type CreateUserMutationOptions = ApolloReactCommon.BaseMutationOptions<CreateUserMutation, CreateUserMutationVariables>;
+export type CreateUserMutationOptions = ApolloReactCommon.BaseMutationOptions<
+  CreateUserMutation,
+  CreateUserMutationVariables
+>;
 export const ReactiveVarGetUserDocument = gql`
-    query ReactiveVarGetUser($id: uuid!) {
-  users_by_pk(id: $id) {
-    id
-    display_id
-    name
-    profile
-    email
-    image
-    created_at
+  query ReactiveVarGetUser($id: String!) {
+    users_by_pk(id: $id) {
+      id
+      display_id
+      name
+      profile
+      email
+      image
+      created_at
+    }
   }
-}
-    `;
+`;
 
 /**
  * __useReactiveVarGetUserQuery__
@@ -3233,42 +3003,55 @@ export const ReactiveVarGetUserDocument = gql`
  *   },
  * });
  */
-export function useReactiveVarGetUserQuery(baseOptions: ApolloReactHooks.QueryHookOptions<ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useQuery<ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables>(ReactiveVarGetUserDocument, options);
-      }
-export function useReactiveVarGetUserLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useLazyQuery<ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables>(ReactiveVarGetUserDocument, options);
-        }
+export function useReactiveVarGetUserQuery(
+  baseOptions: ApolloReactHooks.QueryHookOptions<ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useQuery<ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables>(
+    ReactiveVarGetUserDocument,
+    options,
+  );
+}
+export function useReactiveVarGetUserLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useLazyQuery<ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables>(
+    ReactiveVarGetUserDocument,
+    options,
+  );
+}
 export type ReactiveVarGetUserQueryHookResult = ReturnType<typeof useReactiveVarGetUserQuery>;
 export type ReactiveVarGetUserLazyQueryHookResult = ReturnType<typeof useReactiveVarGetUserLazyQuery>;
-export type ReactiveVarGetUserQueryResult = ApolloReactCommon.QueryResult<ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables>;
+export type ReactiveVarGetUserQueryResult = ApolloReactCommon.QueryResult<
+  ReactiveVarGetUserQuery,
+  ReactiveVarGetUserQueryVariables
+>;
 export const GetAllPostDocument = gql`
-    query GetAllPost($limit: Int!, $offset: Int!) {
-  posts(limit: $limit, order_by: {id: asc}, offset: $offset) {
-    id
-    image
-    content
-    created_at
-    user {
+  query GetAllPost($limit: Int!, $offset: Int!) {
+    posts(limit: $limit, order_by: { id: asc }, offset: $offset) {
       id
       image
-      name
-      post_comments_aggregate {
-        aggregate {
-          count(columns: id)
+      content
+      created_at
+      user {
+        id
+        image
+        name
+        post_comments_aggregate {
+          aggregate {
+            count(columns: id)
+          }
         }
-      }
-      post_likes_aggregate {
-        aggregate {
-          count(columns: id)
+        post_likes_aggregate {
+          aggregate {
+            count(columns: id)
+          }
         }
       }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetAllPostQuery__
@@ -3287,28 +3070,32 @@ export const GetAllPostDocument = gql`
  *   },
  * });
  */
-export function useGetAllPostQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetAllPostQuery, GetAllPostQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useQuery<GetAllPostQuery, GetAllPostQueryVariables>(GetAllPostDocument, options);
-      }
-export function useGetAllPostLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetAllPostQuery, GetAllPostQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useLazyQuery<GetAllPostQuery, GetAllPostQueryVariables>(GetAllPostDocument, options);
-        }
+export function useGetAllPostQuery(
+  baseOptions: ApolloReactHooks.QueryHookOptions<GetAllPostQuery, GetAllPostQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useQuery<GetAllPostQuery, GetAllPostQueryVariables>(GetAllPostDocument, options);
+}
+export function useGetAllPostLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetAllPostQuery, GetAllPostQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useLazyQuery<GetAllPostQuery, GetAllPostQueryVariables>(GetAllPostDocument, options);
+}
 export type GetAllPostQueryHookResult = ReturnType<typeof useGetAllPostQuery>;
 export type GetAllPostLazyQueryHookResult = ReturnType<typeof useGetAllPostLazyQuery>;
 export type GetAllPostQueryResult = ApolloReactCommon.QueryResult<GetAllPostQuery, GetAllPostQueryVariables>;
 export const GetAllUsersWithPostsDocument = gql`
-    query GetAllUsersWithPosts {
-  users {
-    id
-    display_id
-    posts {
+  query GetAllUsersWithPosts {
+    users {
       id
+      display_id
+      posts {
+        id
+      }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetAllUsersWithPostsQuery__
@@ -3325,54 +3112,67 @@ export const GetAllUsersWithPostsDocument = gql`
  *   },
  * });
  */
-export function useGetAllUsersWithPostsQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<GetAllUsersWithPostsQuery, GetAllUsersWithPostsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useQuery<GetAllUsersWithPostsQuery, GetAllUsersWithPostsQueryVariables>(GetAllUsersWithPostsDocument, options);
-      }
-export function useGetAllUsersWithPostsLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetAllUsersWithPostsQuery, GetAllUsersWithPostsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useLazyQuery<GetAllUsersWithPostsQuery, GetAllUsersWithPostsQueryVariables>(GetAllUsersWithPostsDocument, options);
-        }
+export function useGetAllUsersWithPostsQuery(
+  baseOptions?: ApolloReactHooks.QueryHookOptions<GetAllUsersWithPostsQuery, GetAllUsersWithPostsQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useQuery<GetAllUsersWithPostsQuery, GetAllUsersWithPostsQueryVariables>(
+    GetAllUsersWithPostsDocument,
+    options,
+  );
+}
+export function useGetAllUsersWithPostsLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetAllUsersWithPostsQuery, GetAllUsersWithPostsQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useLazyQuery<GetAllUsersWithPostsQuery, GetAllUsersWithPostsQueryVariables>(
+    GetAllUsersWithPostsDocument,
+    options,
+  );
+}
 export type GetAllUsersWithPostsQueryHookResult = ReturnType<typeof useGetAllUsersWithPostsQuery>;
 export type GetAllUsersWithPostsLazyQueryHookResult = ReturnType<typeof useGetAllUsersWithPostsLazyQuery>;
-export type GetAllUsersWithPostsQueryResult = ApolloReactCommon.QueryResult<GetAllUsersWithPostsQuery, GetAllUsersWithPostsQueryVariables>;
+export type GetAllUsersWithPostsQueryResult = ApolloReactCommon.QueryResult<
+  GetAllUsersWithPostsQuery,
+  GetAllUsersWithPostsQueryVariables
+>;
 export const GetOneUserWithPostDocument = gql`
-    query GetOneUserWithPost($userId: String!, $postId: uuid!) {
-  users(where: {display_id: {_eq: $userId}}) {
-    id
-    display_id
-    name
-    image
-    posts(where: {id: {_eq: $postId}}) {
+  query GetOneUserWithPost($userId: String!, $postId: uuid!) {
+    users(where: { display_id: { _eq: $userId } }) {
       id
+      display_id
+      name
       image
-      imageUrl
-      petName
-      petGender
-      content
-      created_at
-      post_tag_size {
+      posts(where: { id: { _eq: $postId } }) {
         id
-        size
-      }
-      post_tag_recommend {
-        id
-        recommend
-      }
-      post_comments {
-        id
-        comment
+        image
+        imageUrl
+        petName
+        petGender
+        content
         created_at
-        user {
-          image
-          name
-          display_id
+        post_tag_size {
+          id
+          size
+        }
+        post_tag_recommend {
+          id
+          recommend
+        }
+        post_comments {
+          id
+          comment
+          created_at
+          user {
+            image
+            name
+            display_id
+          }
         }
       }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetOneUserWithPostQuery__
@@ -3391,26 +3191,39 @@ export const GetOneUserWithPostDocument = gql`
  *   },
  * });
  */
-export function useGetOneUserWithPostQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetOneUserWithPostQuery, GetOneUserWithPostQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useQuery<GetOneUserWithPostQuery, GetOneUserWithPostQueryVariables>(GetOneUserWithPostDocument, options);
-      }
-export function useGetOneUserWithPostLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetOneUserWithPostQuery, GetOneUserWithPostQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useLazyQuery<GetOneUserWithPostQuery, GetOneUserWithPostQueryVariables>(GetOneUserWithPostDocument, options);
-        }
+export function useGetOneUserWithPostQuery(
+  baseOptions: ApolloReactHooks.QueryHookOptions<GetOneUserWithPostQuery, GetOneUserWithPostQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useQuery<GetOneUserWithPostQuery, GetOneUserWithPostQueryVariables>(
+    GetOneUserWithPostDocument,
+    options,
+  );
+}
+export function useGetOneUserWithPostLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetOneUserWithPostQuery, GetOneUserWithPostQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useLazyQuery<GetOneUserWithPostQuery, GetOneUserWithPostQueryVariables>(
+    GetOneUserWithPostDocument,
+    options,
+  );
+}
 export type GetOneUserWithPostQueryHookResult = ReturnType<typeof useGetOneUserWithPostQuery>;
 export type GetOneUserWithPostLazyQueryHookResult = ReturnType<typeof useGetOneUserWithPostLazyQuery>;
-export type GetOneUserWithPostQueryResult = ApolloReactCommon.QueryResult<GetOneUserWithPostQuery, GetOneUserWithPostQueryVariables>;
+export type GetOneUserWithPostQueryResult = ApolloReactCommon.QueryResult<
+  GetOneUserWithPostQuery,
+  GetOneUserWithPostQueryVariables
+>;
 export const GetPostLikeCountDocument = gql`
-    query GetPostLikeCount($postId: uuid!) {
-  post_likes(where: {post_id: {_eq: $postId}}) {
-    id
-    post_id
-    user_id
+  query GetPostLikeCount($postId: uuid!) {
+    post_likes(where: { post_id: { _eq: $postId } }) {
+      id
+      post_id
+      user_id
+    }
   }
-}
-    `;
+`;
 
 /**
  * __useGetPostLikeCountQuery__
@@ -3428,27 +3241,43 @@ export const GetPostLikeCountDocument = gql`
  *   },
  * });
  */
-export function useGetPostLikeCountQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetPostLikeCountQuery, GetPostLikeCountQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useQuery<GetPostLikeCountQuery, GetPostLikeCountQueryVariables>(GetPostLikeCountDocument, options);
-      }
-export function useGetPostLikeCountLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetPostLikeCountQuery, GetPostLikeCountQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useLazyQuery<GetPostLikeCountQuery, GetPostLikeCountQueryVariables>(GetPostLikeCountDocument, options);
-        }
+export function useGetPostLikeCountQuery(
+  baseOptions: ApolloReactHooks.QueryHookOptions<GetPostLikeCountQuery, GetPostLikeCountQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useQuery<GetPostLikeCountQuery, GetPostLikeCountQueryVariables>(
+    GetPostLikeCountDocument,
+    options,
+  );
+}
+export function useGetPostLikeCountLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetPostLikeCountQuery, GetPostLikeCountQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useLazyQuery<GetPostLikeCountQuery, GetPostLikeCountQueryVariables>(
+    GetPostLikeCountDocument,
+    options,
+  );
+}
 export type GetPostLikeCountQueryHookResult = ReturnType<typeof useGetPostLikeCountQuery>;
 export type GetPostLikeCountLazyQueryHookResult = ReturnType<typeof useGetPostLikeCountLazyQuery>;
-export type GetPostLikeCountQueryResult = ApolloReactCommon.QueryResult<GetPostLikeCountQuery, GetPostLikeCountQueryVariables>;
+export type GetPostLikeCountQueryResult = ApolloReactCommon.QueryResult<
+  GetPostLikeCountQuery,
+  GetPostLikeCountQueryVariables
+>;
 export const AddPostLikeDocument = gql`
-    mutation AddPostLike($userId: uuid!, $postId: uuid!) {
-  insert_post_likes_one(object: {user_id: $userId, post_id: $postId}) {
-    id
-    user_id
-    post_id
+  mutation AddPostLike($userId: String!, $postId: uuid!) {
+    insert_post_likes_one(object: { user_id: $userId, post_id: $postId }) {
+      id
+      user_id
+      post_id
+    }
   }
-}
-    `;
-export type AddPostLikeMutationFn = ApolloReactCommon.MutationFunction<AddPostLikeMutation, AddPostLikeMutationVariables>;
+`;
+export type AddPostLikeMutationFn = ApolloReactCommon.MutationFunction<
+  AddPostLikeMutation,
+  AddPostLikeMutationVariables
+>;
 
 /**
  * __useAddPostLikeMutation__
@@ -3468,23 +3297,29 @@ export type AddPostLikeMutationFn = ApolloReactCommon.MutationFunction<AddPostLi
  *   },
  * });
  */
-export function useAddPostLikeMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<AddPostLikeMutation, AddPostLikeMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useMutation<AddPostLikeMutation, AddPostLikeMutationVariables>(AddPostLikeDocument, options);
-      }
+export function useAddPostLikeMutation(
+  baseOptions?: ApolloReactHooks.MutationHookOptions<AddPostLikeMutation, AddPostLikeMutationVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useMutation<AddPostLikeMutation, AddPostLikeMutationVariables>(AddPostLikeDocument, options);
+}
 export type AddPostLikeMutationHookResult = ReturnType<typeof useAddPostLikeMutation>;
 export type AddPostLikeMutationResult = ApolloReactCommon.MutationResult<AddPostLikeMutation>;
-export type AddPostLikeMutationOptions = ApolloReactCommon.BaseMutationOptions<AddPostLikeMutation, AddPostLikeMutationVariables>;
+export type AddPostLikeMutationOptions = ApolloReactCommon.BaseMutationOptions<
+  AddPostLikeMutation,
+  AddPostLikeMutationVariables
+>;
 export const RemovePostLikeDocument = gql`
-    mutation RemovePostLike($userId: uuid!, $postId: uuid!) {
-  delete_post_likes(
-    where: {_and: {user_id: {_eq: $userId}, post_id: {_eq: $postId}}}
-  ) {
-    affected_rows
+  mutation RemovePostLike($userId: String!, $postId: uuid!) {
+    delete_post_likes(where: { _and: { user_id: { _eq: $userId }, post_id: { _eq: $postId } } }) {
+      affected_rows
+    }
   }
-}
-    `;
-export type RemovePostLikeMutationFn = ApolloReactCommon.MutationFunction<RemovePostLikeMutation, RemovePostLikeMutationVariables>;
+`;
+export type RemovePostLikeMutationFn = ApolloReactCommon.MutationFunction<
+  RemovePostLikeMutation,
+  RemovePostLikeMutationVariables
+>;
 
 /**
  * __useRemovePostLikeMutation__
@@ -3504,30 +3339,39 @@ export type RemovePostLikeMutationFn = ApolloReactCommon.MutationFunction<Remove
  *   },
  * });
  */
-export function useRemovePostLikeMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<RemovePostLikeMutation, RemovePostLikeMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useMutation<RemovePostLikeMutation, RemovePostLikeMutationVariables>(RemovePostLikeDocument, options);
-      }
+export function useRemovePostLikeMutation(
+  baseOptions?: ApolloReactHooks.MutationHookOptions<RemovePostLikeMutation, RemovePostLikeMutationVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useMutation<RemovePostLikeMutation, RemovePostLikeMutationVariables>(
+    RemovePostLikeDocument,
+    options,
+  );
+}
 export type RemovePostLikeMutationHookResult = ReturnType<typeof useRemovePostLikeMutation>;
 export type RemovePostLikeMutationResult = ApolloReactCommon.MutationResult<RemovePostLikeMutation>;
-export type RemovePostLikeMutationOptions = ApolloReactCommon.BaseMutationOptions<RemovePostLikeMutation, RemovePostLikeMutationVariables>;
+export type RemovePostLikeMutationOptions = ApolloReactCommon.BaseMutationOptions<
+  RemovePostLikeMutation,
+  RemovePostLikeMutationVariables
+>;
 export const AddPostCommentDocument = gql`
-    mutation AddPostComment($userId: uuid!, $postId: uuid!, $comment: String!) {
-  insert_post_comments_one(
-    object: {user_id: $userId, post_id: $postId, comment: $comment}
-  ) {
-    id
-    comment
-    created_at
-    user {
-      image
-      name
-      display_id
+  mutation AddPostComment($userId: String!, $postId: uuid!, $comment: String!) {
+    insert_post_comments_one(object: { user_id: $userId, post_id: $postId, comment: $comment }) {
+      id
+      comment
+      created_at
+      user {
+        image
+        name
+        display_id
+      }
     }
   }
-}
-    `;
-export type AddPostCommentMutationFn = ApolloReactCommon.MutationFunction<AddPostCommentMutation, AddPostCommentMutationVariables>;
+`;
+export type AddPostCommentMutationFn = ApolloReactCommon.MutationFunction<
+  AddPostCommentMutation,
+  AddPostCommentMutationVariables
+>;
 
 /**
  * __useAddPostCommentMutation__
@@ -3548,27 +3392,35 @@ export type AddPostCommentMutationFn = ApolloReactCommon.MutationFunction<AddPos
  *   },
  * });
  */
-export function useAddPostCommentMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<AddPostCommentMutation, AddPostCommentMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useMutation<AddPostCommentMutation, AddPostCommentMutationVariables>(AddPostCommentDocument, options);
-      }
+export function useAddPostCommentMutation(
+  baseOptions?: ApolloReactHooks.MutationHookOptions<AddPostCommentMutation, AddPostCommentMutationVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useMutation<AddPostCommentMutation, AddPostCommentMutationVariables>(
+    AddPostCommentDocument,
+    options,
+  );
+}
 export type AddPostCommentMutationHookResult = ReturnType<typeof useAddPostCommentMutation>;
 export type AddPostCommentMutationResult = ApolloReactCommon.MutationResult<AddPostCommentMutation>;
-export type AddPostCommentMutationOptions = ApolloReactCommon.BaseMutationOptions<AddPostCommentMutation, AddPostCommentMutationVariables>;
+export type AddPostCommentMutationOptions = ApolloReactCommon.BaseMutationOptions<
+  AddPostCommentMutation,
+  AddPostCommentMutationVariables
+>;
 export const SubscriptionPostCommentDocument = gql`
-    subscription SubscriptionPostComment($postId: uuid!) {
-  post_comments(where: {post_id: {_eq: $postId}}) {
-    id
-    comment
-    created_at
-    user {
-      image
-      name
-      display_id
+  subscription SubscriptionPostComment($postId: uuid!) {
+    post_comments(where: { post_id: { _eq: $postId } }) {
+      id
+      comment
+      created_at
+      user {
+        image
+        name
+        display_id
+      }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useSubscriptionPostCommentSubscription__
@@ -3586,29 +3438,59 @@ export const SubscriptionPostCommentDocument = gql`
  *   },
  * });
  */
-export function useSubscriptionPostCommentSubscription(baseOptions: ApolloReactHooks.SubscriptionHookOptions<SubscriptionPostCommentSubscription, SubscriptionPostCommentSubscriptionVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useSubscription<SubscriptionPostCommentSubscription, SubscriptionPostCommentSubscriptionVariables>(SubscriptionPostCommentDocument, options);
-      }
-export type SubscriptionPostCommentSubscriptionHookResult = ReturnType<typeof useSubscriptionPostCommentSubscription>;
-export type SubscriptionPostCommentSubscriptionResult = ApolloReactCommon.SubscriptionResult<SubscriptionPostCommentSubscription>;
-export const InsertPostOneDocument = gql`
-    mutation InsertPostOne($user_id: uuid!, $content: String!, $image: String, $imageUrl: String, $petName: String!, $petGender: String!, $post_tag_size: String!, $post_tag_recommend: String!) {
-  insert_posts_one(
-    object: {user_id: $user_id, content: $content, image: $image, imageUrl: $imageUrl, petName: $petName, petGender: $petGender, post_tag_size: {data: {size: $post_tag_size}}, post_tag_recommend: {data: {recommend: $post_tag_recommend}}}
-  ) {
-    id
-    user_id
-    content
-    image
-    imageUrl
-    petName
-    petGender
-    created_at
-  }
+export function useSubscriptionPostCommentSubscription(
+  baseOptions: ApolloReactHooks.SubscriptionHookOptions<
+    SubscriptionPostCommentSubscription,
+    SubscriptionPostCommentSubscriptionVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useSubscription<
+    SubscriptionPostCommentSubscription,
+    SubscriptionPostCommentSubscriptionVariables
+  >(SubscriptionPostCommentDocument, options);
 }
-    `;
-export type InsertPostOneMutationFn = ApolloReactCommon.MutationFunction<InsertPostOneMutation, InsertPostOneMutationVariables>;
+export type SubscriptionPostCommentSubscriptionHookResult = ReturnType<typeof useSubscriptionPostCommentSubscription>;
+export type SubscriptionPostCommentSubscriptionResult =
+  ApolloReactCommon.SubscriptionResult<SubscriptionPostCommentSubscription>;
+export const InsertPostOneDocument = gql`
+  mutation InsertPostOne(
+    $user_id: String!
+    $content: String!
+    $image: String
+    $imageUrl: String
+    $petName: String!
+    $petGender: String!
+    $post_tag_size: String!
+    $post_tag_recommend: String!
+  ) {
+    insert_posts_one(
+      object: {
+        user_id: $user_id
+        content: $content
+        image: $image
+        imageUrl: $imageUrl
+        petName: $petName
+        petGender: $petGender
+        post_tag_size: { data: { size: $post_tag_size } }
+        post_tag_recommend: { data: { recommend: $post_tag_recommend } }
+      }
+    ) {
+      id
+      user_id
+      content
+      image
+      imageUrl
+      petName
+      petGender
+      created_at
+    }
+  }
+`;
+export type InsertPostOneMutationFn = ApolloReactCommon.MutationFunction<
+  InsertPostOneMutation,
+  InsertPostOneMutationVariables
+>;
 
 /**
  * __useInsertPostOneMutation__
@@ -3634,31 +3516,61 @@ export type InsertPostOneMutationFn = ApolloReactCommon.MutationFunction<InsertP
  *   },
  * });
  */
-export function useInsertPostOneMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<InsertPostOneMutation, InsertPostOneMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useMutation<InsertPostOneMutation, InsertPostOneMutationVariables>(InsertPostOneDocument, options);
-      }
+export function useInsertPostOneMutation(
+  baseOptions?: ApolloReactHooks.MutationHookOptions<InsertPostOneMutation, InsertPostOneMutationVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useMutation<InsertPostOneMutation, InsertPostOneMutationVariables>(
+    InsertPostOneDocument,
+    options,
+  );
+}
 export type InsertPostOneMutationHookResult = ReturnType<typeof useInsertPostOneMutation>;
 export type InsertPostOneMutationResult = ApolloReactCommon.MutationResult<InsertPostOneMutation>;
-export type InsertPostOneMutationOptions = ApolloReactCommon.BaseMutationOptions<InsertPostOneMutation, InsertPostOneMutationVariables>;
+export type InsertPostOneMutationOptions = ApolloReactCommon.BaseMutationOptions<
+  InsertPostOneMutation,
+  InsertPostOneMutationVariables
+>;
 export const EditPostOneDocument = gql`
-    mutation EditPostOne($id: uuid!, $user_id: uuid!, $content: String!, $image: String!, $imageUrl: String!, $petName: String!, $petGender: String!) {
-  insert_posts_one(
-    object: {id: $id, user_id: $user_id, content: $content, image: $image, imageUrl: $imageUrl, petName: $petName, petGender: $petGender}
-    on_conflict: {constraint: posts_pkey, update_columns: [content, image, imageUrl, petName, petGender, updated_at]}
+  mutation EditPostOne(
+    $id: uuid!
+    $user_id: String!
+    $content: String!
+    $image: String!
+    $imageUrl: String!
+    $petName: String!
+    $petGender: String!
   ) {
-    id
-    user_id
-    content
-    image
-    imageUrl
-    petName
-    petGender
-    created_at
+    insert_posts_one(
+      object: {
+        id: $id
+        user_id: $user_id
+        content: $content
+        image: $image
+        imageUrl: $imageUrl
+        petName: $petName
+        petGender: $petGender
+      }
+      on_conflict: {
+        constraint: posts_pkey
+        update_columns: [content, image, imageUrl, petName, petGender, updated_at]
+      }
+    ) {
+      id
+      user_id
+      content
+      image
+      imageUrl
+      petName
+      petGender
+      created_at
+    }
   }
-}
-    `;
-export type EditPostOneMutationFn = ApolloReactCommon.MutationFunction<EditPostOneMutation, EditPostOneMutationVariables>;
+`;
+export type EditPostOneMutationFn = ApolloReactCommon.MutationFunction<
+  EditPostOneMutation,
+  EditPostOneMutationVariables
+>;
 
 /**
  * __useEditPostOneMutation__
@@ -3683,31 +3595,45 @@ export type EditPostOneMutationFn = ApolloReactCommon.MutationFunction<EditPostO
  *   },
  * });
  */
-export function useEditPostOneMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<EditPostOneMutation, EditPostOneMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useMutation<EditPostOneMutation, EditPostOneMutationVariables>(EditPostOneDocument, options);
-      }
+export function useEditPostOneMutation(
+  baseOptions?: ApolloReactHooks.MutationHookOptions<EditPostOneMutation, EditPostOneMutationVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useMutation<EditPostOneMutation, EditPostOneMutationVariables>(EditPostOneDocument, options);
+}
 export type EditPostOneMutationHookResult = ReturnType<typeof useEditPostOneMutation>;
 export type EditPostOneMutationResult = ApolloReactCommon.MutationResult<EditPostOneMutation>;
-export type EditPostOneMutationOptions = ApolloReactCommon.BaseMutationOptions<EditPostOneMutation, EditPostOneMutationVariables>;
+export type EditPostOneMutationOptions = ApolloReactCommon.BaseMutationOptions<
+  EditPostOneMutation,
+  EditPostOneMutationVariables
+>;
 export const EditPostOneWithoutImageDocument = gql`
-    mutation EditPostOneWithoutImage($id: uuid!, $user_id: uuid!, $content: String!, $petName: String!, $petGender: String!) {
-  insert_posts_one(
-    object: {id: $id, user_id: $user_id, content: $content, petName: $petName, petGender: $petGender}
-    on_conflict: {constraint: posts_pkey, update_columns: [content, petName, petGender, updated_at]}
+  mutation EditPostOneWithoutImage(
+    $id: uuid!
+    $user_id: String!
+    $content: String!
+    $petName: String!
+    $petGender: String!
   ) {
-    id
-    user_id
-    content
-    image
-    imageUrl
-    petName
-    petGender
-    created_at
+    insert_posts_one(
+      object: { id: $id, user_id: $user_id, content: $content, petName: $petName, petGender: $petGender }
+      on_conflict: { constraint: posts_pkey, update_columns: [content, petName, petGender, updated_at] }
+    ) {
+      id
+      user_id
+      content
+      image
+      imageUrl
+      petName
+      petGender
+      created_at
+    }
   }
-}
-    `;
-export type EditPostOneWithoutImageMutationFn = ApolloReactCommon.MutationFunction<EditPostOneWithoutImageMutation, EditPostOneWithoutImageMutationVariables>;
+`;
+export type EditPostOneWithoutImageMutationFn = ApolloReactCommon.MutationFunction<
+  EditPostOneWithoutImageMutation,
+  EditPostOneWithoutImageMutationVariables
+>;
 
 /**
  * __useEditPostOneWithoutImageMutation__
@@ -3730,24 +3656,38 @@ export type EditPostOneWithoutImageMutationFn = ApolloReactCommon.MutationFuncti
  *   },
  * });
  */
-export function useEditPostOneWithoutImageMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<EditPostOneWithoutImageMutation, EditPostOneWithoutImageMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useMutation<EditPostOneWithoutImageMutation, EditPostOneWithoutImageMutationVariables>(EditPostOneWithoutImageDocument, options);
-      }
+export function useEditPostOneWithoutImageMutation(
+  baseOptions?: ApolloReactHooks.MutationHookOptions<
+    EditPostOneWithoutImageMutation,
+    EditPostOneWithoutImageMutationVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useMutation<EditPostOneWithoutImageMutation, EditPostOneWithoutImageMutationVariables>(
+    EditPostOneWithoutImageDocument,
+    options,
+  );
+}
 export type EditPostOneWithoutImageMutationHookResult = ReturnType<typeof useEditPostOneWithoutImageMutation>;
 export type EditPostOneWithoutImageMutationResult = ApolloReactCommon.MutationResult<EditPostOneWithoutImageMutation>;
-export type EditPostOneWithoutImageMutationOptions = ApolloReactCommon.BaseMutationOptions<EditPostOneWithoutImageMutation, EditPostOneWithoutImageMutationVariables>;
+export type EditPostOneWithoutImageMutationOptions = ApolloReactCommon.BaseMutationOptions<
+  EditPostOneWithoutImageMutation,
+  EditPostOneWithoutImageMutationVariables
+>;
 export const DelatePostOneDocument = gql`
-    mutation DelatePostOne($postId: uuid!) {
-  delete_posts_by_pk(id: $postId) {
-    id
-    image
-    imageUrl
-    user_id
+  mutation DelatePostOne($postId: uuid!) {
+    delete_posts_by_pk(id: $postId) {
+      id
+      image
+      imageUrl
+      user_id
+    }
   }
-}
-    `;
-export type DelatePostOneMutationFn = ApolloReactCommon.MutationFunction<DelatePostOneMutation, DelatePostOneMutationVariables>;
+`;
+export type DelatePostOneMutationFn = ApolloReactCommon.MutationFunction<
+  DelatePostOneMutation,
+  DelatePostOneMutationVariables
+>;
 
 /**
  * __useDelatePostOneMutation__
@@ -3766,28 +3706,39 @@ export type DelatePostOneMutationFn = ApolloReactCommon.MutationFunction<DelateP
  *   },
  * });
  */
-export function useDelatePostOneMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<DelatePostOneMutation, DelatePostOneMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useMutation<DelatePostOneMutation, DelatePostOneMutationVariables>(DelatePostOneDocument, options);
-      }
+export function useDelatePostOneMutation(
+  baseOptions?: ApolloReactHooks.MutationHookOptions<DelatePostOneMutation, DelatePostOneMutationVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useMutation<DelatePostOneMutation, DelatePostOneMutationVariables>(
+    DelatePostOneDocument,
+    options,
+  );
+}
 export type DelatePostOneMutationHookResult = ReturnType<typeof useDelatePostOneMutation>;
 export type DelatePostOneMutationResult = ApolloReactCommon.MutationResult<DelatePostOneMutation>;
-export type DelatePostOneMutationOptions = ApolloReactCommon.BaseMutationOptions<DelatePostOneMutation, DelatePostOneMutationVariables>;
+export type DelatePostOneMutationOptions = ApolloReactCommon.BaseMutationOptions<
+  DelatePostOneMutation,
+  DelatePostOneMutationVariables
+>;
 export const UpdateUserProfileDocument = gql`
-    mutation UpdateUserProfile($id: uuid!, $name: String!, $displayId: String!, $profile: String, $image: String) {
-  insert_users_one(
-    object: {id: $id, name: $name, display_id: $displayId, profile: $profile, image: $image}
-    on_conflict: {constraint: users_pkey, update_columns: [name, display_id, profile, image, updated_at]}
-  ) {
-    id
-    name
-    display_id
-    profile
-    image
+  mutation UpdateUserProfile($id: String!, $name: String!, $displayId: String!, $profile: String, $image: String) {
+    insert_users_one(
+      object: { id: $id, name: $name, display_id: $displayId, profile: $profile, image: $image }
+      on_conflict: { constraint: users_pkey, update_columns: [name, display_id, profile, image, updated_at] }
+    ) {
+      id
+      name
+      display_id
+      profile
+      image
+    }
   }
-}
-    `;
-export type UpdateUserProfileMutationFn = ApolloReactCommon.MutationFunction<UpdateUserProfileMutation, UpdateUserProfileMutationVariables>;
+`;
+export type UpdateUserProfileMutationFn = ApolloReactCommon.MutationFunction<
+  UpdateUserProfileMutation,
+  UpdateUserProfileMutationVariables
+>;
 
 /**
  * __useUpdateUserProfileMutation__
@@ -3810,34 +3761,42 @@ export type UpdateUserProfileMutationFn = ApolloReactCommon.MutationFunction<Upd
  *   },
  * });
  */
-export function useUpdateUserProfileMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<UpdateUserProfileMutation, UpdateUserProfileMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useMutation<UpdateUserProfileMutation, UpdateUserProfileMutationVariables>(UpdateUserProfileDocument, options);
-      }
+export function useUpdateUserProfileMutation(
+  baseOptions?: ApolloReactHooks.MutationHookOptions<UpdateUserProfileMutation, UpdateUserProfileMutationVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useMutation<UpdateUserProfileMutation, UpdateUserProfileMutationVariables>(
+    UpdateUserProfileDocument,
+    options,
+  );
+}
 export type UpdateUserProfileMutationHookResult = ReturnType<typeof useUpdateUserProfileMutation>;
 export type UpdateUserProfileMutationResult = ApolloReactCommon.MutationResult<UpdateUserProfileMutation>;
-export type UpdateUserProfileMutationOptions = ApolloReactCommon.BaseMutationOptions<UpdateUserProfileMutation, UpdateUserProfileMutationVariables>;
+export type UpdateUserProfileMutationOptions = ApolloReactCommon.BaseMutationOptions<
+  UpdateUserProfileMutation,
+  UpdateUserProfileMutationVariables
+>;
 export const GetUserInfomationDocument = gql`
-    query GetUserInfomation($display_id: String!) {
-  users(where: {display_id: {_eq: $display_id}}) {
-    posts_aggregate {
-      aggregate {
-        count(columns: id)
+  query GetUserInfomation($display_id: String!) {
+    users(where: { display_id: { _eq: $display_id } }) {
+      posts_aggregate {
+        aggregate {
+          count(columns: id)
+        }
       }
-    }
-    following_aggregate {
-      aggregate {
-        count(columns: id)
+      following_aggregate {
+        aggregate {
+          count(columns: id)
+        }
       }
-    }
-    followed_aggregate {
-      aggregate {
-        count(columns: id)
+      followed_aggregate {
+        aggregate {
+          count(columns: id)
+        }
       }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetUserInfomationQuery__
@@ -3855,45 +3814,58 @@ export const GetUserInfomationDocument = gql`
  *   },
  * });
  */
-export function useGetUserInfomationQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetUserInfomationQuery, GetUserInfomationQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useQuery<GetUserInfomationQuery, GetUserInfomationQueryVariables>(GetUserInfomationDocument, options);
-      }
-export function useGetUserInfomationLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetUserInfomationQuery, GetUserInfomationQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useLazyQuery<GetUserInfomationQuery, GetUserInfomationQueryVariables>(GetUserInfomationDocument, options);
-        }
+export function useGetUserInfomationQuery(
+  baseOptions: ApolloReactHooks.QueryHookOptions<GetUserInfomationQuery, GetUserInfomationQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useQuery<GetUserInfomationQuery, GetUserInfomationQueryVariables>(
+    GetUserInfomationDocument,
+    options,
+  );
+}
+export function useGetUserInfomationLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetUserInfomationQuery, GetUserInfomationQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useLazyQuery<GetUserInfomationQuery, GetUserInfomationQueryVariables>(
+    GetUserInfomationDocument,
+    options,
+  );
+}
 export type GetUserInfomationQueryHookResult = ReturnType<typeof useGetUserInfomationQuery>;
 export type GetUserInfomationLazyQueryHookResult = ReturnType<typeof useGetUserInfomationLazyQuery>;
-export type GetUserInfomationQueryResult = ApolloReactCommon.QueryResult<GetUserInfomationQuery, GetUserInfomationQueryVariables>;
+export type GetUserInfomationQueryResult = ApolloReactCommon.QueryResult<
+  GetUserInfomationQuery,
+  GetUserInfomationQueryVariables
+>;
 export const GetOneUserAllPostDocument = gql`
-    query GetOneUserAllPost($display_id: String!) {
-  users(where: {display_id: {_eq: $display_id}}) {
-    id
-    display_id
-    name
-    profile
-    image
-    created_at
-    posts {
+  query GetOneUserAllPost($display_id: String!) {
+    users(where: { display_id: { _eq: $display_id } }) {
       id
+      display_id
+      name
+      profile
       image
-      content
-      updated_at
-      post_comments_aggregate {
-        aggregate {
-          count(columns: id)
+      created_at
+      posts {
+        id
+        image
+        content
+        updated_at
+        post_comments_aggregate {
+          aggregate {
+            count(columns: id)
+          }
         }
-      }
-      post_likes_aggregate {
-        aggregate {
-          count(columns: id)
+        post_likes_aggregate {
+          aggregate {
+            count(columns: id)
+          }
         }
       }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetOneUserAllPostQuery__
@@ -3911,25 +3883,38 @@ export const GetOneUserAllPostDocument = gql`
  *   },
  * });
  */
-export function useGetOneUserAllPostQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetOneUserAllPostQuery, GetOneUserAllPostQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useQuery<GetOneUserAllPostQuery, GetOneUserAllPostQueryVariables>(GetOneUserAllPostDocument, options);
-      }
-export function useGetOneUserAllPostLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetOneUserAllPostQuery, GetOneUserAllPostQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useLazyQuery<GetOneUserAllPostQuery, GetOneUserAllPostQueryVariables>(GetOneUserAllPostDocument, options);
-        }
+export function useGetOneUserAllPostQuery(
+  baseOptions: ApolloReactHooks.QueryHookOptions<GetOneUserAllPostQuery, GetOneUserAllPostQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useQuery<GetOneUserAllPostQuery, GetOneUserAllPostQueryVariables>(
+    GetOneUserAllPostDocument,
+    options,
+  );
+}
+export function useGetOneUserAllPostLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetOneUserAllPostQuery, GetOneUserAllPostQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useLazyQuery<GetOneUserAllPostQuery, GetOneUserAllPostQueryVariables>(
+    GetOneUserAllPostDocument,
+    options,
+  );
+}
 export type GetOneUserAllPostQueryHookResult = ReturnType<typeof useGetOneUserAllPostQuery>;
 export type GetOneUserAllPostLazyQueryHookResult = ReturnType<typeof useGetOneUserAllPostLazyQuery>;
-export type GetOneUserAllPostQueryResult = ApolloReactCommon.QueryResult<GetOneUserAllPostQuery, GetOneUserAllPostQueryVariables>;
+export type GetOneUserAllPostQueryResult = ApolloReactCommon.QueryResult<
+  GetOneUserAllPostQuery,
+  GetOneUserAllPostQueryVariables
+>;
 export const GetAllUsersDocument = gql`
-    query GetAllUsers {
-  users {
-    id
-    display_id
+  query GetAllUsers {
+    users {
+      id
+      display_id
+    }
   }
-}
-    `;
+`;
 
 /**
  * __useGetAllUsersQuery__
@@ -3946,53 +3931,57 @@ export const GetAllUsersDocument = gql`
  *   },
  * });
  */
-export function useGetAllUsersQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<GetAllUsersQuery, GetAllUsersQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useQuery<GetAllUsersQuery, GetAllUsersQueryVariables>(GetAllUsersDocument, options);
-      }
-export function useGetAllUsersLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetAllUsersQuery, GetAllUsersQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useLazyQuery<GetAllUsersQuery, GetAllUsersQueryVariables>(GetAllUsersDocument, options);
-        }
+export function useGetAllUsersQuery(
+  baseOptions?: ApolloReactHooks.QueryHookOptions<GetAllUsersQuery, GetAllUsersQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useQuery<GetAllUsersQuery, GetAllUsersQueryVariables>(GetAllUsersDocument, options);
+}
+export function useGetAllUsersLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetAllUsersQuery, GetAllUsersQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useLazyQuery<GetAllUsersQuery, GetAllUsersQueryVariables>(GetAllUsersDocument, options);
+}
 export type GetAllUsersQueryHookResult = ReturnType<typeof useGetAllUsersQuery>;
 export type GetAllUsersLazyQueryHookResult = ReturnType<typeof useGetAllUsersLazyQuery>;
 export type GetAllUsersQueryResult = ApolloReactCommon.QueryResult<GetAllUsersQuery, GetAllUsersQueryVariables>;
 export const GetOneUserLikePostDocument = gql`
-    query GetOneUserLikePost($display_id: String!) {
-  users(where: {display_id: {_eq: $display_id}}) {
-    id
-    display_id
-    name
-    profile
-    image
-    created_at
-    post_likes {
-      post {
-        id
-        content
-        image
-        updated_at
-        user {
+  query GetOneUserLikePost($display_id: String!) {
+    users(where: { display_id: { _eq: $display_id } }) {
+      id
+      display_id
+      name
+      profile
+      image
+      created_at
+      post_likes {
+        post {
           id
+          content
           image
-          name
-          created_at
-          post_comments_aggregate {
-            aggregate {
-              count(columns: id)
+          updated_at
+          user {
+            id
+            image
+            name
+            created_at
+            post_comments_aggregate {
+              aggregate {
+                count(columns: id)
+              }
             }
-          }
-          post_likes_aggregate {
-            aggregate {
-              count(columns: id)
+            post_likes_aggregate {
+              aggregate {
+                count(columns: id)
+              }
             }
           }
         }
       }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetOneUserLikePostQuery__
@@ -4010,54 +3999,67 @@ export const GetOneUserLikePostDocument = gql`
  *   },
  * });
  */
-export function useGetOneUserLikePostQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useQuery<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>(GetOneUserLikePostDocument, options);
-      }
-export function useGetOneUserLikePostLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useLazyQuery<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>(GetOneUserLikePostDocument, options);
-        }
+export function useGetOneUserLikePostQuery(
+  baseOptions: ApolloReactHooks.QueryHookOptions<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useQuery<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>(
+    GetOneUserLikePostDocument,
+    options,
+  );
+}
+export function useGetOneUserLikePostLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useLazyQuery<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>(
+    GetOneUserLikePostDocument,
+    options,
+  );
+}
 export type GetOneUserLikePostQueryHookResult = ReturnType<typeof useGetOneUserLikePostQuery>;
 export type GetOneUserLikePostLazyQueryHookResult = ReturnType<typeof useGetOneUserLikePostLazyQuery>;
-export type GetOneUserLikePostQueryResult = ApolloReactCommon.QueryResult<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>;
+export type GetOneUserLikePostQueryResult = ApolloReactCommon.QueryResult<
+  GetOneUserLikePostQuery,
+  GetOneUserLikePostQueryVariables
+>;
 export const GetFollowUserPostDocument = gql`
-    query GetFollowUserPost($user_id: uuid!) {
-  posts(where: {user: {followed: {user_id: {_eq: $user_id}}}}) {
-    id
-    user_id
-    image
-    content
-    petName
-    petGender
-    created_at
-    user {
+  query GetFollowUserPost($user_id: String!) {
+    posts(where: { user: { followed: { user_id: { _eq: $user_id } } } }) {
       id
+      user_id
       image
-      name
+      content
+      petName
+      petGender
       created_at
-      post_comments_aggregate {
-        aggregate {
-          count(columns: id)
+      user {
+        id
+        image
+        name
+        created_at
+        post_comments_aggregate {
+          aggregate {
+            count(columns: id)
+          }
         }
-      }
-      post_likes_aggregate {
-        aggregate {
-          count(columns: id)
+        post_likes_aggregate {
+          aggregate {
+            count(columns: id)
+          }
         }
       }
     }
+    users(where: { followed: { user_id: { _eq: $user_id } } }) {
+      id
+      display_id
+      name
+      profile
+      image
+      created_at
+    }
   }
-  users(where: {followed: {user_id: {_eq: $user_id}}}) {
-    id
-    display_id
-    name
-    profile
-    image
-    created_at
-  }
-}
-    `;
+`;
 
 /**
  * __useGetFollowUserPostQuery__
@@ -4075,38 +4077,51 @@ export const GetFollowUserPostDocument = gql`
  *   },
  * });
  */
-export function useGetFollowUserPostQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetFollowUserPostQuery, GetFollowUserPostQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useQuery<GetFollowUserPostQuery, GetFollowUserPostQueryVariables>(GetFollowUserPostDocument, options);
-      }
-export function useGetFollowUserPostLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetFollowUserPostQuery, GetFollowUserPostQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useLazyQuery<GetFollowUserPostQuery, GetFollowUserPostQueryVariables>(GetFollowUserPostDocument, options);
-        }
+export function useGetFollowUserPostQuery(
+  baseOptions: ApolloReactHooks.QueryHookOptions<GetFollowUserPostQuery, GetFollowUserPostQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useQuery<GetFollowUserPostQuery, GetFollowUserPostQueryVariables>(
+    GetFollowUserPostDocument,
+    options,
+  );
+}
+export function useGetFollowUserPostLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetFollowUserPostQuery, GetFollowUserPostQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useLazyQuery<GetFollowUserPostQuery, GetFollowUserPostQueryVariables>(
+    GetFollowUserPostDocument,
+    options,
+  );
+}
 export type GetFollowUserPostQueryHookResult = ReturnType<typeof useGetFollowUserPostQuery>;
 export type GetFollowUserPostLazyQueryHookResult = ReturnType<typeof useGetFollowUserPostLazyQuery>;
-export type GetFollowUserPostQueryResult = ApolloReactCommon.QueryResult<GetFollowUserPostQuery, GetFollowUserPostQueryVariables>;
+export type GetFollowUserPostQueryResult = ApolloReactCommon.QueryResult<
+  GetFollowUserPostQuery,
+  GetFollowUserPostQueryVariables
+>;
 export const GetOneUserFollowingDocument = gql`
-    query GetOneUserFollowing($display_id: String!) {
-  users(where: {display_id: {_eq: $display_id}}) {
-    id
-    display_id
-    name
-    profile
-    image
-    created_at
-    following {
-      follow {
-        id
-        display_id
-        name
-        image
-        created_at
+  query GetOneUserFollowing($display_id: String!) {
+    users(where: { display_id: { _eq: $display_id } }) {
+      id
+      display_id
+      name
+      profile
+      image
+      created_at
+      following {
+        follow {
+          id
+          display_id
+          name
+          image
+          created_at
+        }
       }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetOneUserFollowingQuery__
@@ -4124,38 +4139,51 @@ export const GetOneUserFollowingDocument = gql`
  *   },
  * });
  */
-export function useGetOneUserFollowingQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetOneUserFollowingQuery, GetOneUserFollowingQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useQuery<GetOneUserFollowingQuery, GetOneUserFollowingQueryVariables>(GetOneUserFollowingDocument, options);
-      }
-export function useGetOneUserFollowingLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetOneUserFollowingQuery, GetOneUserFollowingQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useLazyQuery<GetOneUserFollowingQuery, GetOneUserFollowingQueryVariables>(GetOneUserFollowingDocument, options);
-        }
+export function useGetOneUserFollowingQuery(
+  baseOptions: ApolloReactHooks.QueryHookOptions<GetOneUserFollowingQuery, GetOneUserFollowingQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useQuery<GetOneUserFollowingQuery, GetOneUserFollowingQueryVariables>(
+    GetOneUserFollowingDocument,
+    options,
+  );
+}
+export function useGetOneUserFollowingLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetOneUserFollowingQuery, GetOneUserFollowingQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useLazyQuery<GetOneUserFollowingQuery, GetOneUserFollowingQueryVariables>(
+    GetOneUserFollowingDocument,
+    options,
+  );
+}
 export type GetOneUserFollowingQueryHookResult = ReturnType<typeof useGetOneUserFollowingQuery>;
 export type GetOneUserFollowingLazyQueryHookResult = ReturnType<typeof useGetOneUserFollowingLazyQuery>;
-export type GetOneUserFollowingQueryResult = ApolloReactCommon.QueryResult<GetOneUserFollowingQuery, GetOneUserFollowingQueryVariables>;
+export type GetOneUserFollowingQueryResult = ApolloReactCommon.QueryResult<
+  GetOneUserFollowingQuery,
+  GetOneUserFollowingQueryVariables
+>;
 export const GetOneUserFollowerDocument = gql`
-    query GetOneUserFollower($display_id: String!) {
-  users(where: {display_id: {_eq: $display_id}}) {
-    id
-    display_id
-    name
-    profile
-    image
-    created_at
-    followed {
-      user {
-        id
-        display_id
-        name
-        image
-        created_at
+  query GetOneUserFollower($display_id: String!) {
+    users(where: { display_id: { _eq: $display_id } }) {
+      id
+      display_id
+      name
+      profile
+      image
+      created_at
+      followed {
+        user {
+          id
+          display_id
+          name
+          image
+          created_at
+        }
       }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetOneUserFollowerQuery__
@@ -4173,26 +4201,39 @@ export const GetOneUserFollowerDocument = gql`
  *   },
  * });
  */
-export function useGetOneUserFollowerQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetOneUserFollowerQuery, GetOneUserFollowerQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useQuery<GetOneUserFollowerQuery, GetOneUserFollowerQueryVariables>(GetOneUserFollowerDocument, options);
-      }
-export function useGetOneUserFollowerLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetOneUserFollowerQuery, GetOneUserFollowerQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useLazyQuery<GetOneUserFollowerQuery, GetOneUserFollowerQueryVariables>(GetOneUserFollowerDocument, options);
-        }
+export function useGetOneUserFollowerQuery(
+  baseOptions: ApolloReactHooks.QueryHookOptions<GetOneUserFollowerQuery, GetOneUserFollowerQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useQuery<GetOneUserFollowerQuery, GetOneUserFollowerQueryVariables>(
+    GetOneUserFollowerDocument,
+    options,
+  );
+}
+export function useGetOneUserFollowerLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetOneUserFollowerQuery, GetOneUserFollowerQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useLazyQuery<GetOneUserFollowerQuery, GetOneUserFollowerQueryVariables>(
+    GetOneUserFollowerDocument,
+    options,
+  );
+}
 export type GetOneUserFollowerQueryHookResult = ReturnType<typeof useGetOneUserFollowerQuery>;
 export type GetOneUserFollowerLazyQueryHookResult = ReturnType<typeof useGetOneUserFollowerLazyQuery>;
-export type GetOneUserFollowerQueryResult = ApolloReactCommon.QueryResult<GetOneUserFollowerQuery, GetOneUserFollowerQueryVariables>;
+export type GetOneUserFollowerQueryResult = ApolloReactCommon.QueryResult<
+  GetOneUserFollowerQuery,
+  GetOneUserFollowerQueryVariables
+>;
 export const IsFollowUserDocument = gql`
-    query IsFollowUser($fromUserId: uuid!, $toUserId: uuid!) {
-  relationships(where: {user_id: {_eq: $fromUserId}, follow_id: {_eq: $toUserId}}) {
-    id
-    user_id
-    follow_id
+  query IsFollowUser($fromUserId: String!, $toUserId: String!) {
+    relationships(where: { user_id: { _eq: $fromUserId }, follow_id: { _eq: $toUserId } }) {
+      id
+      user_id
+      follow_id
+    }
   }
-}
-    `;
+`;
 
 /**
  * __useIsFollowUserQuery__
@@ -4211,26 +4252,30 @@ export const IsFollowUserDocument = gql`
  *   },
  * });
  */
-export function useIsFollowUserQuery(baseOptions: ApolloReactHooks.QueryHookOptions<IsFollowUserQuery, IsFollowUserQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useQuery<IsFollowUserQuery, IsFollowUserQueryVariables>(IsFollowUserDocument, options);
-      }
-export function useIsFollowUserLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<IsFollowUserQuery, IsFollowUserQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useLazyQuery<IsFollowUserQuery, IsFollowUserQueryVariables>(IsFollowUserDocument, options);
-        }
+export function useIsFollowUserQuery(
+  baseOptions: ApolloReactHooks.QueryHookOptions<IsFollowUserQuery, IsFollowUserQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useQuery<IsFollowUserQuery, IsFollowUserQueryVariables>(IsFollowUserDocument, options);
+}
+export function useIsFollowUserLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<IsFollowUserQuery, IsFollowUserQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useLazyQuery<IsFollowUserQuery, IsFollowUserQueryVariables>(IsFollowUserDocument, options);
+}
 export type IsFollowUserQueryHookResult = ReturnType<typeof useIsFollowUserQuery>;
 export type IsFollowUserLazyQueryHookResult = ReturnType<typeof useIsFollowUserLazyQuery>;
 export type IsFollowUserQueryResult = ApolloReactCommon.QueryResult<IsFollowUserQuery, IsFollowUserQueryVariables>;
 export const AddFollowDocument = gql`
-    mutation AddFollow($fromUserId: uuid!, $toUserId: uuid!) {
-  insert_relationships_one(object: {user_id: $fromUserId, follow_id: $toUserId}) {
-    id
-    user_id
-    follow_id
+  mutation AddFollow($fromUserId: String!, $toUserId: String!) {
+    insert_relationships_one(object: { user_id: $fromUserId, follow_id: $toUserId }) {
+      id
+      user_id
+      follow_id
+    }
   }
-}
-    `;
+`;
 export type AddFollowMutationFn = ApolloReactCommon.MutationFunction<AddFollowMutation, AddFollowMutationVariables>;
 
 /**
@@ -4251,23 +4296,29 @@ export type AddFollowMutationFn = ApolloReactCommon.MutationFunction<AddFollowMu
  *   },
  * });
  */
-export function useAddFollowMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<AddFollowMutation, AddFollowMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useMutation<AddFollowMutation, AddFollowMutationVariables>(AddFollowDocument, options);
-      }
+export function useAddFollowMutation(
+  baseOptions?: ApolloReactHooks.MutationHookOptions<AddFollowMutation, AddFollowMutationVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useMutation<AddFollowMutation, AddFollowMutationVariables>(AddFollowDocument, options);
+}
 export type AddFollowMutationHookResult = ReturnType<typeof useAddFollowMutation>;
 export type AddFollowMutationResult = ApolloReactCommon.MutationResult<AddFollowMutation>;
-export type AddFollowMutationOptions = ApolloReactCommon.BaseMutationOptions<AddFollowMutation, AddFollowMutationVariables>;
+export type AddFollowMutationOptions = ApolloReactCommon.BaseMutationOptions<
+  AddFollowMutation,
+  AddFollowMutationVariables
+>;
 export const RemoveFollowDocument = gql`
-    mutation RemoveFollow($fromUserId: uuid!, $toUserId: uuid!) {
-  delete_relationships(
-    where: {user_id: {_eq: $fromUserId}, follow_id: {_eq: $toUserId}}
-  ) {
-    affected_rows
+  mutation RemoveFollow($fromUserId: String!, $toUserId: String!) {
+    delete_relationships(where: { user_id: { _eq: $fromUserId }, follow_id: { _eq: $toUserId } }) {
+      affected_rows
+    }
   }
-}
-    `;
-export type RemoveFollowMutationFn = ApolloReactCommon.MutationFunction<RemoveFollowMutation, RemoveFollowMutationVariables>;
+`;
+export type RemoveFollowMutationFn = ApolloReactCommon.MutationFunction<
+  RemoveFollowMutation,
+  RemoveFollowMutationVariables
+>;
 
 /**
  * __useRemoveFollowMutation__
@@ -4287,50 +4338,58 @@ export type RemoveFollowMutationFn = ApolloReactCommon.MutationFunction<RemoveFo
  *   },
  * });
  */
-export function useRemoveFollowMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<RemoveFollowMutation, RemoveFollowMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useMutation<RemoveFollowMutation, RemoveFollowMutationVariables>(RemoveFollowDocument, options);
-      }
+export function useRemoveFollowMutation(
+  baseOptions?: ApolloReactHooks.MutationHookOptions<RemoveFollowMutation, RemoveFollowMutationVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useMutation<RemoveFollowMutation, RemoveFollowMutationVariables>(
+    RemoveFollowDocument,
+    options,
+  );
+}
 export type RemoveFollowMutationHookResult = ReturnType<typeof useRemoveFollowMutation>;
 export type RemoveFollowMutationResult = ApolloReactCommon.MutationResult<RemoveFollowMutation>;
-export type RemoveFollowMutationOptions = ApolloReactCommon.BaseMutationOptions<RemoveFollowMutation, RemoveFollowMutationVariables>;
+export type RemoveFollowMutationOptions = ApolloReactCommon.BaseMutationOptions<
+  RemoveFollowMutation,
+  RemoveFollowMutationVariables
+>;
 export const GetSearchResultDocument = gql`
-    query GetSearchResult($word: String!) {
-  users(where: {name: {_ilike: $word}}) {
-    id
-    display_id
-    name
-    profile
-    image
-    created_at
-  }
-  posts(where: {content: {_ilike: $word}}) {
-    id
-    user_id
-    image
-    content
-    petName
-    petGender
-    created_at
-    user {
+  query GetSearchResult($word: String!) {
+    users(where: { name: { _ilike: $word } }) {
       id
       display_id
-      image
       name
+      profile
+      image
+      created_at
     }
-    post_comments_aggregate {
-      aggregate {
-        count(columns: id)
+    posts(where: { content: { _ilike: $word } }) {
+      id
+      user_id
+      image
+      content
+      petName
+      petGender
+      created_at
+      user {
+        id
+        display_id
+        image
+        name
       }
-    }
-    post_likes_aggregate {
-      aggregate {
-        count(columns: id)
+      post_comments_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+      post_likes_aggregate {
+        aggregate {
+          count(columns: id)
+        }
       }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetSearchResultQuery__
@@ -4348,14 +4407,27 @@ export const GetSearchResultDocument = gql`
  *   },
  * });
  */
-export function useGetSearchResultQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetSearchResultQuery, GetSearchResultQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useQuery<GetSearchResultQuery, GetSearchResultQueryVariables>(GetSearchResultDocument, options);
-      }
-export function useGetSearchResultLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetSearchResultQuery, GetSearchResultQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useLazyQuery<GetSearchResultQuery, GetSearchResultQueryVariables>(GetSearchResultDocument, options);
-        }
+export function useGetSearchResultQuery(
+  baseOptions: ApolloReactHooks.QueryHookOptions<GetSearchResultQuery, GetSearchResultQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useQuery<GetSearchResultQuery, GetSearchResultQueryVariables>(
+    GetSearchResultDocument,
+    options,
+  );
+}
+export function useGetSearchResultLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetSearchResultQuery, GetSearchResultQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return ApolloReactHooks.useLazyQuery<GetSearchResultQuery, GetSearchResultQueryVariables>(
+    GetSearchResultDocument,
+    options,
+  );
+}
 export type GetSearchResultQueryHookResult = ReturnType<typeof useGetSearchResultQuery>;
 export type GetSearchResultLazyQueryHookResult = ReturnType<typeof useGetSearchResultLazyQuery>;
-export type GetSearchResultQueryResult = ApolloReactCommon.QueryResult<GetSearchResultQuery, GetSearchResultQueryVariables>;
+export type GetSearchResultQueryResult = ApolloReactCommon.QueryResult<
+  GetSearchResultQuery,
+  GetSearchResultQueryVariables
+>;
