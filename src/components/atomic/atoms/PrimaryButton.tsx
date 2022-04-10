@@ -2,15 +2,15 @@ import { Button } from '@chakra-ui/button';
 import type { ReactNode, VFC } from 'react';
 import { memo } from 'react';
 
-type Props = {
+export type PrimaryButtonProps = {
   children: ReactNode;
   disabled?: boolean;
   loading?: boolean;
   onClick?: () => void;
-  type?: "button" | "submit" | "reset" | undefined;
+  type?: 'button' | 'submit' | 'reset' | undefined;
 };
 
-export const PrimaryButton: VFC<Props> = memo((props) => {
+export const PrimaryButton: VFC<PrimaryButtonProps> = memo((props) => {
   const { children, disabled = false, loading = false, onClick, type } = props;
   return (
     <Button

@@ -1,6 +1,7 @@
 import type { NormalizedCacheObject } from '@apollo/client';
 import { ApolloClient, split } from '@apollo/client';
 import { createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 import { WebSocketLink } from '@apollo/client/link/ws';
 import { getMainDefinition } from '@apollo/client/utilities';
 import merge from 'deepmerge';
@@ -10,15 +11,22 @@ import { useMemo } from 'react';
 
 import { cache } from './cache';
 
+const AUTH_TOKEN = 'hasura-auth-token';
 export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__';
 
 let apolloClient: ApolloClient<NormalizedCacheObject>;
 
 const httpLink = createHttpLink({
   uri: process.env.NEXT_PUBLIC_HASURA_ENDPOINT,
-  headers: {
-    'x-hasura-admin-secret': process.env.NEXT_PUBLIC_HASURA_GRAPHQL_ADMIN_SECRET,
-  },
+});
+
+const authLink = setContext(async (_, { headers }) => {
+  return {
+    headers: {
+      ...headers,
+      authorization: `Bearer ${localStorage.getItem(AUTH_TOKEN)}`,
+    },
+  };
 });
 
 const wsLink = process.browser
@@ -38,9 +46,9 @@ const splitLink = process.browser
         return definition.kind === 'OperationDefinition' && definition.operation === 'subscription';
       },
       wsLink as WebSocketLink,
-      httpLink,
+      authLink.concat(httpLink),
     )
-  : httpLink;
+  : authLink.concat(httpLink);
 
 export const createApolloClient = () => {
   return new ApolloClient({
@@ -53,6 +61,13 @@ export const createApolloClient = () => {
       },
     },
   });
+};
+
+// ログイン処理
+export const onLogin = async (token: string) => {
+  if (localStorage.getItem(AUTH_TOKEN) !== token) {
+    localStorage.setItem(AUTH_TOKEN, token);
+  }
 };
 
 export const initializeApollo = (initialState: AppProps['pageProps'] = null) => {

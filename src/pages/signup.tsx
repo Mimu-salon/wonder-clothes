@@ -2,6 +2,7 @@ import { Box, Center, Divider, Flex, Heading, Stack } from '@chakra-ui/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import type { NextPage } from 'next';
 import Link from 'next/link';
+import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
@@ -10,6 +11,13 @@ import { InputForm } from '../components/atomic/molecules/InputForm';
 import { Layout } from '../components/atomic/template/Layout';
 import { useMessage } from '../components/hooks/useMessage';
 import { auth } from '../firebase/firebaseConfig';
+
+type FormType = {
+  email: string;
+  username: string;
+  password: string;
+  password_confirm: string;
+};
 
 const REQUIRE_MSG = '必須入力項目です';
 const VIOLATION_EMAIL = '正しい形式で入力してください';
@@ -33,37 +41,44 @@ const SignUp: NextPage = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormType>({
     resolver: yupResolver(SignupSchema),
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSubmit = (data: any) => {
-    auth.createUserWithEmailAndPassword(data.email, data.password).catch((error) => {
-      console.error(error.code, error.massage);
-      if (error.code === 'auth/email-already-in-use') {
-        showMessage({
-          title: '入力したメールアドレスは既に登録済みです',
-          status: 'error',
+  const onSubmit: SubmitHandler<FormType> = (data) => {
+    auth
+      .createUserWithEmailAndPassword(data.email, data.password)
+      .then(() => {
+        const user = auth.currentUser;
+        return user?.updateProfile({
+          displayName: data.username,
         });
-      } else {
-        showMessage({
-          title: 'エラーが発生しました',
-          status: 'error',
-        });
-      }
-    });
+      })
+      .catch((error) => {
+        console.error(error.code, error.massage);
+        if (error.code === 'auth/email-already-in-use') {
+          showMessage({
+            title: '入力したメールアドレスは既に登録済みです',
+            status: 'error',
+          });
+        } else {
+          showMessage({
+            title: 'エラーが発生しました',
+            status: 'error',
+          });
+        }
+      });
   };
 
   return (
     <Layout title="アカウント登録 | わんだーくろーす">
-      <Flex align="center" justify="center" h="75vh">
-        <Box bg="white" w={{ base: 'sm', md: 'md' }} p={4} borderRadius="md" shadow="md">
-          <Heading size="lg" textAlign="center">
-            アカウント登録
-          </Heading>
-          <Divider my={4} />
-          <form onSubmit={handleSubmit(onSubmit)} noValidate>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
+        <Flex align="center" justify="center" h="75vh">
+          <Box bg="white" w={{ base: 'sm', md: 'md' }} p={4} borderRadius="md" shadow="md">
+            <Heading size="lg" textAlign="center">
+              アカウント登録
+            </Heading>
+            <Divider my={4} />
             <Stack spacing={6} py={4} px={10}>
               <InputForm
                 label="メールアドレス"
@@ -108,9 +123,9 @@ const SignUp: NextPage = () => {
                 </Link>
               </Center>
             </Stack>
-          </form>
-        </Box>
-      </Flex>
+          </Box>
+        </Flex>
+      </form>
     </Layout>
   );
 };

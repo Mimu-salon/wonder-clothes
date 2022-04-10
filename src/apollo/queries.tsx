@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 //signup時(アカウント登録)にユーザー情報を追加
 export const CREATE_USER = gql`
-  mutation CreateUser($id: uuid!, $display_id: String!, $email: String!, $name: String!, $image: String) {
+  mutation CreateUser($id: String!, $display_id: String!, $email: String!, $name: String!, $image: String) {
     insert_users_one(object: { id: $id, display_id: $display_id, name: $name, email: $email, image: $image }) {
       id
       display_id
@@ -15,7 +15,7 @@ export const CREATE_USER = gql`
 `;
 //signin時（ログイン）にユーザー情報を取得
 export const REACTIVE_VAR_GET_USER = gql`
-  query ReactiveVarGetUser($id: uuid!) {
+  query ReactiveVarGetUser($id: String!) {
     users_by_pk(id: $id) {
       id
       display_id
@@ -115,7 +115,7 @@ export const GET_POST_LIKE_COUNT = gql`
 `;
 //postsの詳細ページでlikeを追加
 export const ADD_POST_LIKE = gql`
-  mutation AddPostLike($userId: uuid!, $postId: uuid!) {
+  mutation AddPostLike($userId: String!, $postId: uuid!) {
     insert_post_likes_one(object: { user_id: $userId, post_id: $postId }) {
       id
       user_id
@@ -125,7 +125,7 @@ export const ADD_POST_LIKE = gql`
 `;
 //postsの詳細ページでいいねを削除
 export const REMOVE_POST_LIKE = gql`
-  mutation RemovePostLike($userId: uuid!, $postId: uuid!) {
+  mutation RemovePostLike($userId: String!, $postId: uuid!) {
     delete_post_likes(where: { _and: { user_id: { _eq: $userId }, post_id: { _eq: $postId } } }) {
       affected_rows
     }
@@ -133,7 +133,7 @@ export const REMOVE_POST_LIKE = gql`
 `;
 //postsの詳細ページでコメントを追加
 export const ADD_POST_COMMENT = gql`
-  mutation AddPostComment($userId: uuid!, $postId: uuid!, $comment: String!) {
+  mutation AddPostComment($userId: String!, $postId: uuid!, $comment: String!) {
     insert_post_comments_one(object: { user_id: $userId, post_id: $postId, comment: $comment }) {
       id
       comment
@@ -164,7 +164,7 @@ export const SUBSCRIPTION_POST_COMMENT = gql`
 //投稿モーダルで新規投稿
 export const INSERT_POST_ONE = gql`
   mutation InsertPostOne(
-    $user_id: uuid!
+    $user_id: String!
     $content: String!
     $image: String
     $imageUrl: String
@@ -200,7 +200,7 @@ export const INSERT_POST_ONE = gql`
 export const EDIT_POST_ONE = gql`
   mutation EditPostOne(
     $id: uuid!
-    $user_id: uuid!
+    $user_id: String!
     $content: String!
     $image: String!
     $imageUrl: String!
@@ -237,7 +237,7 @@ export const EDIT_POST_ONE = gql`
 export const EDIT_POST_ONE_WITHOUT_IMAGE = gql`
   mutation EditPostOneWithoutImage(
     $id: uuid!
-    $user_id: uuid!
+    $user_id: String!
     $content: String!
     $petName: String!
     $petGender: String!
@@ -270,7 +270,7 @@ export const DELETE_POST_ONE = gql`
 `;
 //マイページでプロフィール変更
 export const UPDATE_USER_PROFILE = gql`
-  mutation UpdateUserProfile($id: uuid!, $name: String!, $displayId: String!, $profile: String, $image: String) {
+  mutation UpdateUserProfile($id: String!, $name: String!, $displayId: String!, $profile: String, $image: String) {
     insert_users_one(
       object: { id: $id, name: $name, display_id: $displayId, profile: $profile, image: $image }
       on_conflict: { constraint: users_pkey, update_columns: [name, display_id, profile, image, updated_at] }
@@ -382,7 +382,7 @@ export const GRT_ONE_USER_LIKE_POST = gql`
 `;
 //マイページでフォローしているユーザーが投稿したpost一覧を取得
 export const GET_FOLLOW_USER_POST = gql`
-  query GetFollowUserPost($user_id: uuid!) {
+  query GetFollowUserPost($user_id: String!) {
     posts(where: { user: { followed: { user_id: { _eq: $user_id } } } }) {
       id
       user_id
@@ -464,7 +464,7 @@ export const GET_ONE_USER_FOLLOWER = gql`
 `;
 //フォローボタンでフォローしているユーザーIDを取得
 export const IS_FOLLOW_USER = gql`
-  query IsFollowUser($fromUserId: uuid!, $toUserId: uuid!) {
+  query IsFollowUser($fromUserId: String!, $toUserId: String!) {
     relationships(where: { user_id: { _eq: $fromUserId }, follow_id: { _eq: $toUserId } }) {
       id
       user_id
@@ -474,7 +474,7 @@ export const IS_FOLLOW_USER = gql`
 `;
 //フォローボタンでフォローを追加
 export const ADD_FOLLOW = gql`
-  mutation AddFollow($fromUserId: uuid!, $toUserId: uuid!) {
+  mutation AddFollow($fromUserId: String!, $toUserId: String!) {
     insert_relationships_one(object: { user_id: $fromUserId, follow_id: $toUserId }) {
       id
       user_id
@@ -484,7 +484,7 @@ export const ADD_FOLLOW = gql`
 `;
 //フォローボタンでフォローを解除
 export const REMOVE_FOLLOW = gql`
-  mutation RemoveFollow($fromUserId: uuid!, $toUserId: uuid!) {
+  mutation RemoveFollow($fromUserId: String!, $toUserId: String!) {
     delete_relationships(where: { user_id: { _eq: $fromUserId }, follow_id: { _eq: $toUserId } }) {
       affected_rows
     }
