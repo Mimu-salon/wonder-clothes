@@ -6,18 +6,16 @@ import { useState } from 'react';
 
 import { PrimaryButton } from '../components/atomic/atoms/PrimaryButton';
 import { Layout } from '../components/atomic/template/Layout';
-import { useAuth } from '../components/hooks/useAuth';
 
 const SignIn: NextPage = () => {
   const [userEmail, setUserEmail] = useState<string>('');
   const [userPassword, setUserPassword] = useState<string>('');
 
-  const { login, loading } = useAuth();
-
   const onChangeUserId = (e: ChangeEvent<HTMLInputElement>) => setUserEmail(e.target.value);
   const onChangeUserPassword = (e: ChangeEvent<HTMLInputElement>) => setUserPassword(e.target.value);
 
-  const onClickLogin = () => login(userEmail);
+  // eslint-disable-next-line no-console
+  const onClickLogin = () => console.log(userEmail);
 
   return (
     <Layout title="ログイン | わんだーくろーす">
@@ -45,7 +43,7 @@ const SignIn: NextPage = () => {
                 onChange={onChangeUserPassword}
               />
             </Box>
-            <PrimaryButton disabled={userEmail === '' || userPassword === ''} loading={loading} onClick={onClickLogin}>
+            <PrimaryButton disabled={userEmail === '' || userPassword === ''} onClick={onClickLogin}>
               ログイン
             </PrimaryButton>
             <Center color="blue">
