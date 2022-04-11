@@ -64,9 +64,22 @@ export const createApolloClient = () => {
 };
 
 // ログイン処理
-export const onLogin = async (token: string) => {
+export const onLogin = (token: string) => {
   if (localStorage.getItem(AUTH_TOKEN) !== token) {
     localStorage.setItem(AUTH_TOKEN, token);
+  }
+};
+
+//ログアウト処理
+export const onLogout = () => {
+  if (typeof localStorage !== 'undefined') {
+    localStorage.removeItem(AUTH_TOKEN);
+  }
+  try {
+    apolloClient.resetStore;
+  } catch (e) {
+    // eslint-disable-next-line
+    console.error(`Logout Failed. ${e}`);
   }
 };
 
