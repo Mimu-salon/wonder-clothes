@@ -2,10 +2,37 @@ import { Button } from '@chakra-ui/button';
 import { ArrowRightIcon } from '@chakra-ui/icons';
 import { Badge, Flex, Heading, Stack, Text, VStack } from '@chakra-ui/layout';
 import { useBreakpointValue } from '@chakra-ui/media-query';
+import { useRouter } from 'next/router';
 import type { VFC } from 'react';
 import { memo } from 'react';
 
+import { auth } from '../../../../firebase/firebaseConfig';
+import { userLoginAction } from '../../../../pages/signin';
+import { useMessage } from '../../../hooks/useMessage';
+import { useUserChanged } from '../../../hooks/userUserChanged';
+
 export const Heros2: VFC = memo(() => {
+  const router = useRouter();
+  const { showMessage } = useMessage();
+  const { unSubUser } = useUserChanged();
+
+  const handleTrialLogin = () => {
+    auth
+      .signInWithEmailAndPassword('test@example.com', 'password')
+      .then(async (userCredential) => {
+        await unSubUser(userCredential);
+        await userLoginAction(userCredential);
+        router.push('/');
+      })
+      .catch((error) => {
+        console.error(error.code, error.message);
+        showMessage({
+          title: 'エラーが発生しました',
+          status: 'error',
+        });
+      });
+  };
+
   return (
     <Flex
       w={'full'}
@@ -35,7 +62,12 @@ export const Heros2: VFC = memo(() => {
             <br />
             服を着たかわいいワンちゃんを自由に投稿してみよう。
           </Text>
-          <Button rightIcon={<ArrowRightIcon />} bg={'white'} color={'blue'} _hover={{ bg: 'blue.500' }}>
+          <Button
+            rightIcon={<ArrowRightIcon />}
+            bg={'white'}
+            color={'blue'}
+            _hover={{ bg: 'blue.500' }}
+            onClick={handleTrialLogin}>
             テストログイン
           </Button>
         </Stack>

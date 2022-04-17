@@ -34,7 +34,7 @@ const LoginSchema = yup.object().shape({
   password: yup.string().required(REQUIRE_MSG),
 });
 
-const userLoginAction = async (credential: firebase.auth.UserCredential) => {
+export const userLoginAction = async (credential: firebase.auth.UserCredential) => {
   const client = initializeApollo();
   const user = credential.user;
   if (user !== null) {
