@@ -2,6 +2,7 @@ import { Box, Center, Divider, Flex, Heading, Stack } from '@chakra-ui/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import type { NextPage } from 'next';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -10,6 +11,7 @@ import { PrimaryButton } from '../components/atomic/atoms/PrimaryButton';
 import { InputForm } from '../components/atomic/molecules/InputForm';
 import { Layout } from '../components/atomic/template/Layout';
 import { useMessage } from '../components/hooks/useMessage';
+import { useUserChanged } from '../components/hooks/userUserChanged';
 import { auth } from '../firebase/firebaseConfig';
 
 type FormType = {
@@ -36,6 +38,8 @@ const SignupSchema = yup.object().shape({
 });
 
 const SignUp: NextPage = () => {
+  const router = useRouter();
+  const { unSubUser } = useUserChanged();
   const { showMessage } = useMessage();
   const {
     register,
@@ -48,11 +52,14 @@ const SignUp: NextPage = () => {
   const onSubmit: SubmitHandler<FormType> = (data) => {
     auth
       .createUserWithEmailAndPassword(data.email, data.password)
-      .then(() => {
-        const user = auth.currentUser;
-        return user?.updateProfile({
+      .then(async (userCredential) => {
+        await unSubUser(userCredential);
+        await userCredential.user?.updateProfile({
           displayName: data.username,
         });
+        // eslint-disable-next-line no-console
+        console.log(userCredential.user);
+        router.push('/successSignup');
       })
       .catch((error) => {
         console.error(error.code, error.massage);
