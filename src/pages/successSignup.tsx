@@ -1,6 +1,8 @@
 import { Button } from '@chakra-ui/button';
+import { Box, Center, Divider, Flex, Heading, Icon, Stack, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
+import { FaRegCheckCircle } from 'react-icons/fa';
 
 import { loginUserVar } from '../apollo/cache';
 import { initializeApollo } from '../apollo/client';
@@ -40,12 +42,34 @@ const SuccessSignUp: NextPage = () => {
     await userSignupAction();
     router.push('/');
   };
+  const onClickAccount = async () => {
+    await userSignupAction();
+    router.push(`/setting/account`);
+  };
   return (
-    <>
-      <Button colorScheme="blue" onClick={onClickHome}>
-        このままはじめる
-      </Button>
-    </>
+    <Flex align="center" justify="center" h="75vh">
+      <Box bg="white" w={{ base: 'sm', md: 'md' }} p={4} borderRadius="md">
+        <Center m={8}>
+          <Icon as={FaRegCheckCircle} w={20} h={20} color="blue.500" />
+        </Center>
+        <Heading size="lg" textAlign="center">
+          アカウント作成完了
+        </Heading>
+        <Divider my={4} />
+        <Stack spacing={10} py={4} px={10}>
+          <Stack spacing={4}>
+            <Text>『わんだーくろーす』にようこそ！まず最初にアカウント設定をしますか？</Text>
+            <Text>なお、マイページよりアカウント設定はいつでも可能です。</Text>
+          </Stack>
+          <Button colorScheme="blue" variant="outline" _hover={{ opacity: 0.8 }} onClick={onClickHome}>
+            このままはじめる
+          </Button>
+          <Button colorScheme="blue" variant="solid" _hover={{ opacity: 0.8 }} onClick={onClickAccount}>
+            アカウント設定
+          </Button>
+        </Stack>
+      </Box>
+    </Flex>
   );
 };
 
