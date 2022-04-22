@@ -270,9 +270,9 @@ export const DELETE_POST_ONE = gql`
 `;
 //マイページでプロフィール変更
 export const UPDATE_USER_PROFILE = gql`
-  mutation UpdateUserProfile($id: String!, $name: String!, $displayId: String!, $profile: String, $image: String) {
+  mutation UpdateUserProfile($id: String!, $name: String!, $display_id: String!, $profile: String, $image: String) {
     insert_users_one(
-      object: { id: $id, name: $name, display_id: $displayId, profile: $profile, image: $image }
+      object: { id: $id, name: $name, display_id: $display_id, profile: $profile, image: $image }
       on_conflict: { constraint: users_pkey, update_columns: [name, display_id, profile, image, updated_at] }
     ) {
       id
