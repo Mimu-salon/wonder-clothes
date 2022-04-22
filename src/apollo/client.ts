@@ -9,6 +9,7 @@ import isEqual from 'lodash.isequal';
 import type { AppProps } from 'next/app';
 import { useMemo } from 'react';
 
+import { auth } from '../firebase/firebaseConfig';
 import { cache } from './cache';
 
 const AUTH_TOKEN = 'hasura-auth-token';
@@ -20,13 +21,19 @@ const httpLink = createHttpLink({
   uri: process.env.NEXT_PUBLIC_HASURA_ENDPOINT,
 });
 
-const authLink = setContext(async (_, { headers }) => {
-  return {
-    headers: {
-      ...headers,
-      authorization: `Bearer ${localStorage.getItem(AUTH_TOKEN)}`,
-    },
-  };
+const authLink = setContext((_, { headers }) => {
+  let token;
+  if (!auth.currentUser?.isAnonymous && auth.currentUser) {
+    token = localStorage.getItem(AUTH_TOKEN);
+  }
+  return token
+    ? {
+        headers: {
+          ...headers,
+          authorization: `Bearer ${token}`,
+        },
+      }
+    : { headers };
 });
 
 const wsLink = process.browser
