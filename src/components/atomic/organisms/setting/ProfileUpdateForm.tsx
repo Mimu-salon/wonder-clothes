@@ -119,7 +119,7 @@ export const ProfileUpdateForm: VFC = memo(() => {
                 <img src={previewImage} alt="プレビュー" />
               </Box>
             ) : (
-              <UserIcon src="/sampledog.png" width={120} height={120} />
+              <UserIcon src={loginUser?.image} width={120} height={120} />
             )}
             <Text textAlign="center" fontSize="13px" color="blue.400">
               変更
