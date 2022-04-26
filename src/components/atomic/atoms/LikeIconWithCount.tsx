@@ -11,12 +11,13 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 type Props = {
   count: number;
   fontSize: string;
+  iconSize: string;
   initial: boolean;
   noAnimation?: boolean;
 };
 
 export const LikeIconWithCount: VFC<Props> = memo((props) => {
-  const { count, fontSize, initial, noAnimation } = props;
+  const { count, fontSize, iconSize, initial, noAnimation } = props;
 
   const [isLike, setIsLike] = useState(initial);
 
@@ -60,7 +61,7 @@ export const LikeIconWithCount: VFC<Props> = memo((props) => {
           animate={control}
           transition={{ duration: 0.4 }}
           color={isLike ? 'red.400' : ''}>
-          <Icon as={isLike ? AiFillHeart : AiOutlineHeart} mr="3px" fontSize={fontSize} />
+          <Icon as={isLike ? AiFillHeart : AiOutlineHeart} mr="3px" fontSize={iconSize} />
         </MotionBox>
       </Tooltip>
       <Text fontSize={fontSize}>{count}</Text>

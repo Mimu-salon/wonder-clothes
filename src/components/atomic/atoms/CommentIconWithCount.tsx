@@ -5,7 +5,7 @@ import { FaRegComment } from 'react-icons/fa';
 
 type Props = {
   fontSize: string;
-  onClick: () => void;
+  onClick?: () => void;
   count: number;
 };
 

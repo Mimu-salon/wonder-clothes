@@ -37,17 +37,18 @@ export const GET_ALL_POST = gql`
       created_at
       user {
         id
+        display_id
         image
         name
-        post_comments_aggregate {
-          aggregate {
-            count(columns: id)
-          }
+      }
+      post_comments_aggregate {
+        aggregate {
+          count(columns: id)
         }
-        post_likes_aggregate {
-          aggregate {
-            count(columns: id)
-          }
+      }
+      post_likes_aggregate {
+        aggregate {
+          count(columns: id)
         }
       }
     }

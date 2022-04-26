@@ -11,7 +11,6 @@ import type {
   Users,
 } from '../../apollo/graphql';
 import { GET_ALL_USERS, GET_ONE_USER_ALL_POST } from '../../apollo/queries';
-import { PostCard } from '../../components/atomic/molecules/PostCard';
 import { PostTabs } from '../../components/atomic/organisms/userPage/PostTabs';
 import { Profile } from '../../components/atomic/organisms/userPage/Profile';
 import { Layout } from '../../components/atomic/template/Layout';
@@ -33,7 +32,7 @@ const UserPage: NextPage<Props> = (props) => {
       <Profile user={userPageUser as Users} />
       <PostTabs defaultTab={0} userDisplayId="1" />
       {/* userDisplayIdとしてuser.display_idを設定予定 */}
-      
+
       <Box textAlign="center" maxW="1200px" mx="auto" pt={10} pb={20}>
         {userPageUser.posts.length === 0 ? (
           <>
@@ -45,12 +44,7 @@ const UserPage: NextPage<Props> = (props) => {
             </Box>
           </>
         ) : (
-          <SimpleGrid columns={{ base: 1, md: 1, lg: 1, xl: 2 }} spacing={2}>
-            <PostCard />
-            <PostCard />
-            <PostCard />
-            <PostCard />
-          </SimpleGrid>
+          <SimpleGrid columns={{ base: 1, md: 1, lg: 1, xl: 2 }} spacing={2}></SimpleGrid>
         )}
         <Button my="40px" onClick={handleMoreMyPostLoad}>
           もっと見る
