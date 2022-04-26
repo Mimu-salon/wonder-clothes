@@ -2669,20 +2669,19 @@ export type GetAllPostQuery = (
     & Pick<Posts, 'id' | 'image' | 'content' | 'created_at'>
     & { user: (
       { __typename?: 'users' }
-      & Pick<Users, 'id' | 'image' | 'name'>
-      & { post_comments_aggregate: (
-        { __typename?: 'post_comments_aggregate' }
-        & { aggregate?: Maybe<(
-          { __typename?: 'post_comments_aggregate_fields' }
-          & Pick<PostCommentsAggregateFields, 'count'>
-        )> }
-      ), post_likes_aggregate: (
-        { __typename?: 'post_likes_aggregate' }
-        & { aggregate?: Maybe<(
-          { __typename?: 'post_likes_aggregate_fields' }
-          & Pick<PostLikesAggregateFields, 'count'>
-        )> }
-      ) }
+      & Pick<Users, 'id' | 'display_id' | 'image' | 'name'>
+    ), post_comments_aggregate: (
+      { __typename?: 'post_comments_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_comments_aggregate_fields' }
+        & Pick<PostCommentsAggregateFields, 'count'>
+      )> }
+    ), post_likes_aggregate: (
+      { __typename?: 'post_likes_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_likes_aggregate_fields' }
+        & Pick<PostLikesAggregateFields, 'count'>
+      )> }
     ) }
   )> }
 );
@@ -3248,17 +3247,18 @@ export const GetAllPostDocument = gql`
     created_at
     user {
       id
+      display_id
       image
       name
-      post_comments_aggregate {
-        aggregate {
-          count(columns: id)
-        }
+    }
+    post_comments_aggregate {
+      aggregate {
+        count(columns: id)
       }
-      post_likes_aggregate {
-        aggregate {
-          count(columns: id)
-        }
+    }
+    post_likes_aggregate {
+      aggregate {
+        count(columns: id)
       }
     }
   }

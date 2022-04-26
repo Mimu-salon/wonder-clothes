@@ -56,7 +56,7 @@ export const PostDetailPetInfo: VFC<Props> = memo((props) => {
             </Link>
           </HStack>
           <CommentIconWithCount fontSize="18px" count={5} onClick={onClick} />
-          <LikeIconWithCount fontSize="18px" count={14} initial={false} />
+          <LikeIconWithCount fontSize="18px" iconSize="21px" count={14} initial={false} />
         </Stack>
       </Stack>
     </VStack>
