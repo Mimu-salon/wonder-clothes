@@ -63,7 +63,6 @@ export const PostCard: VFC<PostCardProps> = memo((props) => {
         padding={4}>
         <Flex
           flex={1}
-          bg="blue.200"
           cursor="pointer"
           onClick={(e) => {
             toPostDetailPage(e);

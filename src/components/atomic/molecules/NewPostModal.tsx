@@ -18,22 +18,28 @@ import {
   Text,
   Textarea,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import type { VFC } from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { memo } from 'react';
 
+import { loginUserVar } from '../../../apollo/cache';
+import type { Posts } from '../../../apollo/graphql';
+import { deletePostImage, insertPostToHasura, uploadPostImage } from '../../hooks/usePostContents';
 import { ImageArea } from '../atoms/ImageArea';
 import { PrimaryButton } from '../atoms/PrimaryButton';
 
 type Props = {
   isOpen: boolean;
   onClose: () => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  postData?: any;
-  //型Postsを定義予定
+  postData?: Posts;
 };
 
+const CHARACTER_LIMIT = 140;
+
 export const NewPostModal: VFC<Props> = memo((props) => {
+  const router = useRouter();
   const { isOpen, onClose, postData } = props;
 
   const [image, setImage] = useState<File | string | null>(null);
@@ -59,11 +65,11 @@ export const NewPostModal: VFC<Props> = memo((props) => {
 
   const resetState = () => {
     setImage(null);
+    setPostMessage('');
     setPetName('');
     setPetGender('');
     setPetSize('');
     setRecommend('');
-    setPostMessage('');
   };
 
   const wrapperOnClose = () => {
@@ -74,13 +80,73 @@ export const NewPostModal: VFC<Props> = memo((props) => {
     onClose();
   };
 
-  const onClickSubmit = () => {
+  const handleSubmit = async () => {
     setIsLoading(true);
-    alert('ポストを投稿');
+    // 画像をfirebaseにアップロードする(アップロード後の画像URLを返す)
+    let imageInfo: {
+      image: string | null;
+      imageId: string | null;
+    } = {
+      image: null,
+      imageId: null,
+    };
+    // 新規投稿時に画像を設定している、または編集時に画像を切り替えた場合のみ実行
+    if (image && typeof image !== 'string') {
+      // 編集時は前の画像をfirebaseStorageから削除
+      if (postData) {
+        const loginUser = loginUserVar();
+        if (loginUser && postData.imageUrl) {
+          deletePostImage(loginUser.id, postData.imageUrl);
+        }
+      }
+      imageInfo = await uploadPostImage(image);
+    }
+    // HasuraのpostsにINSERTした後、postsのidを返して、/posts/[postId].tsxページに遷移
+    const insertPost = await insertPostToHasura({
+      id: postData?.id,
+      image: imageInfo.image,
+      imageUrl: imageInfo.imageId,
+      content: postMessage,
+      petName: petName,
+      petGender: petGender,
+      size: petSize,
+      recommend: recommend,
+    });
+    if (!postData) {
+      resetState();
+    }
+    onClose();
     setIsLoading(false);
+
+    const data = insertPost?.data?.insert_posts_one;
+    if (data) {
+      // 投稿時は投稿したポストの詳細ページへ遷移
+      // 編集時はページをリロードして変更を反映
+      postData
+        ? router.reload()
+        : router.push({
+            pathname: '/[userId]/posts/[postId]',
+            query: {
+              userId: data.user_id.substring(0, 8),
+              postId: data.id,
+            },
+          });
+    }
   };
 
-  const CHARACTER_LIMIT = 250;
+  useEffect(() => {
+    if (postData) {
+      setPostMessage(postData.content);
+      setPetName(postData.petName);
+      setPetGender(postData.petGender);
+      setPetSize(postData.post_tag_size?.size as string);
+      setRecommend(postData.post_tag_recommend?.recommend as string);
+      if (postData.image) {
+        setImage(postData.image);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Modal size="6xl" isOpen={isOpen} onClose={wrapperOnClose} autoFocus={false} scrollBehavior="outside">
@@ -88,7 +154,7 @@ export const NewPostModal: VFC<Props> = memo((props) => {
       <ModalContent pb={2}>
         <ModalCloseButton />
         <ModalHeader>
-          <Center>ポストを投稿</Center>
+          <Center>ポストを{postData ? '編集' : '投稿'}</Center>
         </ModalHeader>
         <ModalBody display="flex" justifyContent="center">
           <Stack direction={{ base: 'column', lg: 'row' }} spacing={4}>
@@ -104,8 +170,8 @@ export const NewPostModal: VFC<Props> = memo((props) => {
                 <FormControl>
                   <FormLabel>ペットの性別</FormLabel>
                   <Select placeholder="選択してください" value={petGender} onChange={onChangePetGender}>
-                    <option value="option1">男の子</option>
-                    <option value="option2">女の子</option>
+                    <option value="男の子">男の子</option>
+                    <option value="女の子">女の子</option>
                   </Select>
                 </FormControl>
               </Stack>
@@ -113,16 +179,16 @@ export const NewPostModal: VFC<Props> = memo((props) => {
                 <FormControl>
                   <FormLabel>ペットの大きさ</FormLabel>
                   <Select placeholder="選択してください" value={petSize} onChange={onChangePetSize}>
-                    <option value="option1">小型犬(10kg未満)</option>
-                    <option value="option2">中型犬(25kg未満)</option>
-                    <option value="option3">大型犬(25kg以上)</option>
+                    <option value="小型犬(10kg未満)">小型犬(10kg未満)</option>
+                    <option value="中型犬(25kg未満)">中型犬(25kg未満)</option>
+                    <option value="大型犬(25kg以上)">大型犬(25kg以上)</option>
                   </Select>
                 </FormControl>
                 <FormControl>
                   <FormLabel>それっておすすめ？</FormLabel>
                   <Select placeholder="選択してください" value={recommend} onChange={onChangeRecommend}>
-                    <option value="option1">おすすめしたい！</option>
-                    <option value="option2">しくじった！？</option>
+                    <option value="おすすめしたい！">おすすめしたい！</option>
+                    <option value="しくじった！？">しくじった！？</option>
                   </Select>
                 </FormControl>
               </Stack>
@@ -157,8 +223,8 @@ export const NewPostModal: VFC<Props> = memo((props) => {
                 )}
               </Box>
               <Flex w="100%" justify="flex-end">
-                <PrimaryButton onClick={onClickSubmit} disabled={disableSubmit} loading={isLoading}>
-                  投稿
+                <PrimaryButton onClick={handleSubmit} disabled={disableSubmit} loading={isLoading}>
+                  {postData ? '編集' : '投稿'}
                 </PrimaryButton>
               </Flex>
             </Stack>
