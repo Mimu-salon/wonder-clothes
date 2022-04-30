@@ -41,6 +41,7 @@ const wsLink = process.browser
       uri: process.env.NEXT_PUBLIC_HASURA_ENDPOINT_WS as string,
       options: {
         reconnect: true,
+        lazy: true,
       },
     })
   : undefined;
