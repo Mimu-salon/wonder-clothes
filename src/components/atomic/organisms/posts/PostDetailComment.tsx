@@ -3,7 +3,7 @@ import type { RefObject, VFC } from 'react';
 import { useState } from 'react';
 import { memo } from 'react';
 
-import { CommentList } from '../../molecules/CommentList';
+// import { CommentList } from './CommentList';
 
 type Props = {
   commentInput?: RefObject<HTMLTextAreaElement>;
@@ -39,7 +39,7 @@ export const PostDetailComment: VFC<Props> = memo((props) => {
       <Heading fontSize="20px" color="gray.700" my={3}>
         コメント(0)
       </Heading>
-      <CommentList />
+      {/* <CommentList /> */}
     </Box>
   );
 });
