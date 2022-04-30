@@ -10,14 +10,26 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { loginUserVar } from '../../../../apollo/cache';
 import { addApolloState, initializeApollo } from '../../../../apollo/client';
 import type {
+  AddPostLikeMutation,
+  AddPostLikeMutationVariables,
   GetAllUsersWithPostsQuery,
   GetAllUsersWithPostsQueryVariables,
   GetOneUserWithPostQuery,
   GetOneUserWithPostQueryVariables,
+  GetPostLikeCountQuery,
+  GetPostLikeCountQueryVariables,
   Posts,
+  RemovePostLikeMutation,
+  RemovePostLikeMutationVariables,
   Users,
 } from '../../../../apollo/graphql';
-import { GET_ALL_USERS_WITH_POSTS, GET_ONE_USER_WITH_POST } from '../../../../apollo/queries';
+import {
+  ADD_POST_LIKE,
+  GET_ALL_USERS_WITH_POSTS,
+  GET_ONE_USER_WITH_POST,
+  GET_POST_LIKE_COUNT,
+  REMOVE_POST_LIKE,
+} from '../../../../apollo/queries';
 import { CommentIconWithCount } from '../../../../components/atomic/atoms/CommentIconWithCount';
 import { LikeIconWithCount } from '../../../../components/atomic/atoms/LikeIconWithCount';
 import { PrimaryTag } from '../../../../components/atomic/atoms/PrimaryTag';
@@ -31,20 +43,27 @@ import { EditMenu } from '../../../../components/atomic/molecules/EditMenu';
 // import { PostDetailUserCard } from '../../../../components/atomic/organisms/posts/PostDetailUserCard';
 import { Layout } from '../../../../components/atomic/template/Layout';
 import { useConvertDateFromHasura } from '../../../../components/hooks/useConvertDateFromHasura';
+import { useMessage } from '../../../../components/hooks/useMessage';
 
 type Props = {
   user: Users;
+};
+
+const initialLikeData = {
+  post_likes: [],
 };
 
 const PostPage: NextPage<Props> = (props) => {
   const { user } = props;
   const [postUser, setPostUser] = useState<Users>(user);
   const [post, setPost] = useState<Posts>(user.posts[0]);
+  const [likeData, setLikeData] = useState<GetPostLikeCountQuery>(initialLikeData);
 
   const createdAt = useConvertDateFromHasura(post.created_at);
   const loginUser = useReactiveVar(loginUserVar);
   const client = initializeApollo();
   const router = useRouter();
+  const { showMessage } = useMessage();
   const isMine = loginUser && loginUser.id === postUser.id;
 
   // CommentIconをクリックしたら、入力のTextAreaにfocusを当てる
@@ -58,6 +77,44 @@ const PostPage: NextPage<Props> = (props) => {
         userId: postUser.display_id,
       },
     });
+  };
+
+  const fetchLike = async () => {
+    const data = await client.query<GetPostLikeCountQuery, GetPostLikeCountQueryVariables>({
+      query: GET_POST_LIKE_COUNT,
+      variables: {
+        postId: post.id,
+      },
+      fetchPolicy: 'network-only',
+    });
+    setLikeData(data.data);
+  };
+
+  const isCurrentUserLiked = () => {
+    return likeData.post_likes.some((item) => {
+      return item.user_id === loginUser?.id;
+    });
+  };
+
+  const handleToggleLike = async () => {
+    if (isCurrentUserLiked()) {
+      await client.mutate<RemovePostLikeMutation, RemovePostLikeMutationVariables>({
+        mutation: REMOVE_POST_LIKE,
+        variables: {
+          userId: loginUser?.id as string,
+          postId: post.id,
+        },
+      });
+    } else {
+      await client.mutate<AddPostLikeMutation, AddPostLikeMutationVariables>({
+        mutation: ADD_POST_LIKE,
+        variables: {
+          userId: loginUser?.id as string,
+          postId: post.id,
+        },
+      });
+    }
+    await fetchLike();
   };
 
   useEffect(() => {
@@ -76,6 +133,8 @@ const PostPage: NextPage<Props> = (props) => {
         setPostUser(data.users[0] as Users);
         setPost(data.users[0].posts[0] as Posts);
       }
+      // いいね情報の取得は毎回行う
+      await fetchLike();
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loginUser]);
@@ -195,7 +254,24 @@ const PostPage: NextPage<Props> = (props) => {
                     commentInput.current?.focus();
                   }}
                 />
-                <LikeIconWithCount fontSize="18px" iconSize="21px" count={14} initial={false} />
+                <Box
+                  onClick={async () => {
+                    if (!loginUser) {
+                      showMessage({
+                        title: 'いいね機能をご利用いただくにはログインが必要です',
+                        status: 'info',
+                      });
+                      return;
+                    }
+                    await handleToggleLike();
+                  }}>
+                  <LikeIconWithCount
+                    fontSize="18px"
+                    iconSize="21px"
+                    count={likeData.post_likes.length}
+                    initial={isCurrentUserLiked()}
+                  />
+                </Box>
               </HStack>
             </Stack>
           </Stack>
