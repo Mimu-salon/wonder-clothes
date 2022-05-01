@@ -5,17 +5,14 @@ import Image from 'next/image';
 import type { VFC } from 'react';
 import { memo } from 'react';
 
-import { useConvertDateFromHasura } from '../../../hooks/useConvertDateFromHasura';
 import { UserIcon } from '../../atoms/UserIcon';
 
-// nameがあればnameを表示、なければdisplayIdを表示
 type Props = {
   comments: {
     userIcon?: string | null;
     userName?: string | null;
     userId: string;
     comment: string;
-    createdAt: string;
   }[];
 };
 
@@ -35,7 +32,7 @@ export const CommentList: VFC<Props> = memo((props) => {
                   </Flex>
                   <Stack direction="column" spacing={0} fontSize="sm">
                     <Text fontWeight={600}>{comment.userName}</Text>
-                    <Text color="gray.500">{useConvertDateFromHasura(comment.createdAt)}</Text>
+                    <Text color="gray.500">@{comment.userId}</Text>
                     <Text whiteSpace="pre-wrap">{comment.comment}</Text>
                   </Stack>
                 </Stack>
