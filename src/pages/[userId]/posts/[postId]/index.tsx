@@ -64,7 +64,6 @@ const commentData = (data: PostComments[] | undefined) => {
         userName: comment.user.name,
         userId: comment.user.display_id,
         comment: comment.comment,
-        createdAt: comment.created_at,
       };
     });
   }
