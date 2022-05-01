@@ -1,11 +1,10 @@
 import { useReactiveVar } from '@apollo/client';
-import { Box, Button, Center, Heading, HStack, Spinner, Stack, Text, VStack } from '@chakra-ui/react';
+import { Box, Center, Heading, HStack, Spinner, Stack, Text, VStack } from '@chakra-ui/react';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
-import { AiOutlinePlus } from 'react-icons/ai';
 
 import { loginUserVar } from '../../../../apollo/cache';
 import { addApolloState, initializeApollo } from '../../../../apollo/client';
@@ -33,6 +32,7 @@ import {
   REMOVE_POST_LIKE,
 } from '../../../../apollo/queries';
 import { CommentIconWithCount } from '../../../../components/atomic/atoms/CommentIconWithCount';
+import { FollowButton } from '../../../../components/atomic/atoms/FollowButton';
 import { LikeIconWithCount } from '../../../../components/atomic/atoms/LikeIconWithCount';
 import { PrimaryTag } from '../../../../components/atomic/atoms/PrimaryTag';
 import { UserIcon } from '../../../../components/atomic/atoms/UserIcon';
@@ -188,17 +188,7 @@ const PostPage: NextPage<Props> = (props) => {
               <Stack direction="column" w="100%">
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
                   <Heading fontSize={{ base: '1xl', md: '2xl' }}>{postUser.name}</Heading>
-                  {loginUser && (
-                    <Button
-                      size="sm"
-                      leftIcon={<AiOutlinePlus />}
-                      colorScheme="blue"
-                      variant="outline"
-                      opacity={0.8}
-                      boxShadow="md">
-                      フォロー
-                    </Button>
-                  )}
+                  {loginUser && <FollowButton fromUserId={loginUser.id} toUserId={user.id} />}
                   {isMine && <EditMenu post={post} />}
                 </Stack>
                 <Text fontWeight={600} fontSize="xs" color="gray.500" size="sm" mb={4}>
