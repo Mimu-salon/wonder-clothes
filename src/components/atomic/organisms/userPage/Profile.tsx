@@ -10,6 +10,7 @@ import { VscEdit } from 'react-icons/vsc';
 import { loginUserVar } from '../../../../apollo/cache';
 import type { Users } from '../../../../apollo/graphql';
 import { useGetUserInfomationQuery } from '../../../../apollo/graphql';
+import { FollowButton } from '../../atoms/FollowButton';
 import { UserIcon } from '../../atoms/UserIcon';
 
 type UserInfo = {
@@ -37,6 +38,9 @@ export const Profile: VFC<Props> = memo((props) => {
 
   const query = { userId: user.display_id };
   const transitions = {
+    toPost: () => {
+      router.push({ pathname: '/[userId]', query });
+    },
     toFollow: () => {
       router.push({ pathname: '/[userId]/followings', query });
     },
@@ -79,12 +83,12 @@ export const Profile: VFC<Props> = memo((props) => {
         boxShadow={'1xl'}
         padding={6}>
         <Box mr={4}>
-          <UserIcon src={user.image ?? '/sampledog.png'} width={120} height={120} />
+          <UserIcon src={user.image} width={120} height={120} />
         </Box>
         <Stack direction="column" w="100%">
           <Stack direction="row" justifyContent="space-between" alignItems="center">
             <Heading fontSize={'2xl'}>{user.name}</Heading>
-            {isMine ? (
+            {isMine && (
               <Button
                 size="sm"
                 leftIcon={<VscEdit />}
@@ -97,9 +101,8 @@ export const Profile: VFC<Props> = memo((props) => {
                 }}>
                 編集
               </Button>
-            ) : (
-              <Button>フォロー</Button>
             )}
+            {loginUser && !isMine && <FollowButton fromUserId={loginUser.id} toUserId={user.id} />}
           </Stack>
           <Text fontWeight={600} color="gray.500" size="sm" mb={4}>
             @{user.display_id}
@@ -115,7 +118,7 @@ export const Profile: VFC<Props> = memo((props) => {
             )}
           </Box>
           <Stack direction="row" spacing={10} pt={2}>
-            <Stack spacing={0} alignItems="center">
+            <Stack spacing={0} p={1} alignItems="center">
               <Text color="gray.700" fontWeight={600}>
                 投稿数
               </Text>
@@ -125,11 +128,12 @@ export const Profile: VFC<Props> = memo((props) => {
             </Stack>
             <Stack
               spacing={0}
+              p={1}
               alignItems="center"
               borderRadius="5px"
               onClick={transitions.toFollow}
               cursor="pointer"
-              _hover={{ bg: 'blue.100' }}>
+              _hover={{ bg: 'cyan.200' }}>
               <Text color="gray.700" fontWeight={600}>
                 フォロー
               </Text>
@@ -139,11 +143,12 @@ export const Profile: VFC<Props> = memo((props) => {
             </Stack>
             <Stack
               spacing={0}
+              p={1}
               alignItems="center"
               borderRadius="5px"
               onClick={transitions.toFollower}
               cursor="pointer"
-              _hover={{ bg: 'blue.100' }}>
+              _hover={{ bg: 'cyan.200' }}>
               <Text color="gray.700" fontWeight={600}>
                 フォロワー
               </Text>

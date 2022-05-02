@@ -1,6 +1,7 @@
-import { Box, Button, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, SimpleGrid, Text } from '@chakra-ui/react';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
+import { Fragment } from 'react';
 
 import { addApolloState, initializeApollo } from '../../apollo/client';
 import type {
@@ -11,6 +12,7 @@ import type {
   Users,
 } from '../../apollo/graphql';
 import { GET_ALL_USERS, GET_ONE_USER_ALL_POST } from '../../apollo/queries';
+import { PostCard } from '../../components/atomic/molecules/PostCard';
 import { PostTabs } from '../../components/atomic/organisms/userPage/PostTabs';
 import { Profile } from '../../components/atomic/organisms/userPage/Profile';
 import { Layout } from '../../components/atomic/template/Layout';
@@ -22,10 +24,6 @@ type Props = {
 const UserPage: NextPage<Props> = (props) => {
   const { user } = props;
   const userPageUser = user[0];
-  const handleMoreMyPostLoad = () => {
-    // eslint-disable-next-line no-console
-    console.log('handleMoreLoad');
-  };
 
   return (
     <Layout title={`${userPageUser.name}のマイページ | わんだーくろーす`}>
@@ -44,11 +42,25 @@ const UserPage: NextPage<Props> = (props) => {
             </Box>
           </>
         ) : (
-          <SimpleGrid columns={{ base: 1, md: 1, lg: 1, xl: 2 }} spacing={2}></SimpleGrid>
+          <SimpleGrid columns={{ base: 1, md: 1, lg: 1, xl: 2 }} spacing={2}>
+            {userPageUser.posts.map((post) => {
+              return (
+                <Fragment key={post.id}>
+                  <PostCard
+                    imageSrc={post.image}
+                    postId={post.id}
+                    text={post.content}
+                    userIcon={userPageUser.image ?? '/nouser.svg'}
+                    userName={userPageUser.name as string}
+                    userId={userPageUser.display_id}
+                    commentCount={post.post_comments_aggregate.aggregate?.count as number}
+                    likeCount={post.post_likes_aggregate.aggregate?.count as number}
+                  />
+                </Fragment>
+              );
+            })}
+          </SimpleGrid>
         )}
-        <Button my="40px" onClick={handleMoreMyPostLoad}>
-          もっと見る
-        </Button>
       </Box>
     </Layout>
   );
