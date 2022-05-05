@@ -284,11 +284,16 @@ export const UPDATE_USER_PROFILE = gql`
     }
   }
 `;
-//マイページでユーザーの投稿数、フォロー数、フォロワー数の各集計値を取得
+//マイページでユーザーの投稿数、いいね数、フォロー数、フォロワー数の各集計値を取得
 export const GET_USER_INFOMATION = gql`
   query GetUserInfomation($display_id: String!) {
     users(where: { display_id: { _eq: $display_id } }) {
       posts_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+      post_likes_aggregate {
         aggregate {
           count(columns: id)
         }
@@ -345,7 +350,7 @@ export const GET_ALL_USERS = gql`
   }
 `;
 //マイページでユーザー情報といいねしたpost一覧を取得
-export const GRT_ONE_USER_LIKE_POST = gql`
+export const GET_ONE_USER_LIKE_POST = gql`
   query GetOneUserLikePost($display_id: String!) {
     users(where: { display_id: { _eq: $display_id } }) {
       id
@@ -362,18 +367,19 @@ export const GRT_ONE_USER_LIKE_POST = gql`
           updated_at
           user {
             id
+            display_id
             image
             name
             created_at
-            post_comments_aggregate {
-              aggregate {
-                count(columns: id)
-              }
+          }
+          post_comments_aggregate {
+            aggregate {
+              count(columns: id)
             }
-            post_likes_aggregate {
-              aggregate {
-                count(columns: id)
-              }
+          }
+          post_likes_aggregate {
+            aggregate {
+              count(columns: id)
             }
           }
         }
@@ -383,8 +389,16 @@ export const GRT_ONE_USER_LIKE_POST = gql`
 `;
 //マイページでフォローしているユーザーが投稿したpost一覧を取得
 export const GET_FOLLOW_USER_POST = gql`
-  query GetFollowUserPost($user_id: String!) {
-    posts(where: { user: { followed: { user_id: { _eq: $user_id } } } }) {
+  query GetFollowUserPost($display_id: String!) {
+    users(where: { display_id: { _eq: $display_id } }) {
+      id
+      display_id
+      name
+      profile
+      image
+      created_at
+    }
+    posts(where: { user: { followed: { user: { display_id: { _eq: $display_id } } } } }) {
       id
       user_id
       image
@@ -394,28 +408,21 @@ export const GET_FOLLOW_USER_POST = gql`
       created_at
       user {
         id
+        display_id
         image
         name
         created_at
-        post_comments_aggregate {
-          aggregate {
-            count(columns: id)
-          }
-        }
-        post_likes_aggregate {
-          aggregate {
-            count(columns: id)
-          }
+      }
+      post_comments_aggregate {
+        aggregate {
+          count(columns: id)
         }
       }
-    }
-    users(where: { followed: { user_id: { _eq: $user_id } } }) {
-      id
-      display_id
-      name
-      profile
-      image
-      created_at
+      post_likes_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
     }
   }
 `;

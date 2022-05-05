@@ -2911,6 +2911,12 @@ export type GetUserInfomationQuery = (
         { __typename?: 'posts_aggregate_fields' }
         & Pick<PostsAggregateFields, 'count'>
       )> }
+    ), post_likes_aggregate: (
+      { __typename?: 'post_likes_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_likes_aggregate_fields' }
+        & Pick<PostLikesAggregateFields, 'count'>
+      )> }
     ), following_aggregate: (
       { __typename?: 'relationships_aggregate' }
       & { aggregate?: Maybe<(
@@ -2985,20 +2991,19 @@ export type GetOneUserLikePostQuery = (
         & Pick<Posts, 'id' | 'content' | 'image' | 'updated_at'>
         & { user: (
           { __typename?: 'users' }
-          & Pick<Users, 'id' | 'image' | 'name' | 'created_at'>
-          & { post_comments_aggregate: (
-            { __typename?: 'post_comments_aggregate' }
-            & { aggregate?: Maybe<(
-              { __typename?: 'post_comments_aggregate_fields' }
-              & Pick<PostCommentsAggregateFields, 'count'>
-            )> }
-          ), post_likes_aggregate: (
-            { __typename?: 'post_likes_aggregate' }
-            & { aggregate?: Maybe<(
-              { __typename?: 'post_likes_aggregate_fields' }
-              & Pick<PostLikesAggregateFields, 'count'>
-            )> }
-          ) }
+          & Pick<Users, 'id' | 'display_id' | 'image' | 'name' | 'created_at'>
+        ), post_comments_aggregate: (
+          { __typename?: 'post_comments_aggregate' }
+          & { aggregate?: Maybe<(
+            { __typename?: 'post_comments_aggregate_fields' }
+            & Pick<PostCommentsAggregateFields, 'count'>
+          )> }
+        ), post_likes_aggregate: (
+          { __typename?: 'post_likes_aggregate' }
+          & { aggregate?: Maybe<(
+            { __typename?: 'post_likes_aggregate_fields' }
+            & Pick<PostLikesAggregateFields, 'count'>
+          )> }
         ) }
       ) }
     )> }
@@ -3006,35 +3011,34 @@ export type GetOneUserLikePostQuery = (
 );
 
 export type GetFollowUserPostQueryVariables = Exact<{
-  user_id: Scalars['String'];
+  display_id: Scalars['String'];
 }>;
 
 
 export type GetFollowUserPostQuery = (
   { __typename?: 'query_root' }
-  & { posts: Array<(
+  & { users: Array<(
+    { __typename?: 'users' }
+    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
+  )>, posts: Array<(
     { __typename?: 'posts' }
     & Pick<Posts, 'id' | 'user_id' | 'image' | 'content' | 'petName' | 'petGender' | 'created_at'>
     & { user: (
       { __typename?: 'users' }
-      & Pick<Users, 'id' | 'image' | 'name' | 'created_at'>
-      & { post_comments_aggregate: (
-        { __typename?: 'post_comments_aggregate' }
-        & { aggregate?: Maybe<(
-          { __typename?: 'post_comments_aggregate_fields' }
-          & Pick<PostCommentsAggregateFields, 'count'>
-        )> }
-      ), post_likes_aggregate: (
-        { __typename?: 'post_likes_aggregate' }
-        & { aggregate?: Maybe<(
-          { __typename?: 'post_likes_aggregate_fields' }
-          & Pick<PostLikesAggregateFields, 'count'>
-        )> }
-      ) }
+      & Pick<Users, 'id' | 'display_id' | 'image' | 'name' | 'created_at'>
+    ), post_comments_aggregate: (
+      { __typename?: 'post_comments_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_comments_aggregate_fields' }
+        & Pick<PostCommentsAggregateFields, 'count'>
+      )> }
+    ), post_likes_aggregate: (
+      { __typename?: 'post_likes_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_likes_aggregate_fields' }
+        & Pick<PostLikesAggregateFields, 'count'>
+      )> }
     ) }
-  )>, users: Array<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
   )> }
 );
 
@@ -3820,6 +3824,11 @@ export const GetUserInfomationDocument = gql`
         count(columns: id)
       }
     }
+    post_likes_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
     following_aggregate {
       aggregate {
         count(columns: id)
@@ -3969,18 +3978,19 @@ export const GetOneUserLikePostDocument = gql`
         updated_at
         user {
           id
+          display_id
           image
           name
           created_at
-          post_comments_aggregate {
-            aggregate {
-              count(columns: id)
-            }
+        }
+        post_comments_aggregate {
+          aggregate {
+            count(columns: id)
           }
-          post_likes_aggregate {
-            aggregate {
-              count(columns: id)
-            }
+        }
+        post_likes_aggregate {
+          aggregate {
+            count(columns: id)
           }
         }
       }
@@ -4017,8 +4027,16 @@ export type GetOneUserLikePostQueryHookResult = ReturnType<typeof useGetOneUserL
 export type GetOneUserLikePostLazyQueryHookResult = ReturnType<typeof useGetOneUserLikePostLazyQuery>;
 export type GetOneUserLikePostQueryResult = ApolloReactCommon.QueryResult<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>;
 export const GetFollowUserPostDocument = gql`
-    query GetFollowUserPost($user_id: String!) {
-  posts(where: {user: {followed: {user_id: {_eq: $user_id}}}}) {
+    query GetFollowUserPost($display_id: String!) {
+  users(where: {display_id: {_eq: $display_id}}) {
+    id
+    display_id
+    name
+    profile
+    image
+    created_at
+  }
+  posts(where: {user: {followed: {user: {display_id: {_eq: $display_id}}}}}) {
     id
     user_id
     image
@@ -4028,28 +4046,21 @@ export const GetFollowUserPostDocument = gql`
     created_at
     user {
       id
+      display_id
       image
       name
       created_at
-      post_comments_aggregate {
-        aggregate {
-          count(columns: id)
-        }
-      }
-      post_likes_aggregate {
-        aggregate {
-          count(columns: id)
-        }
+    }
+    post_comments_aggregate {
+      aggregate {
+        count(columns: id)
       }
     }
-  }
-  users(where: {followed: {user_id: {_eq: $user_id}}}) {
-    id
-    display_id
-    name
-    profile
-    image
-    created_at
+    post_likes_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
   }
 }
     `;
@@ -4066,7 +4077,7 @@ export const GetFollowUserPostDocument = gql`
  * @example
  * const { data, loading, error } = useGetFollowUserPostQuery({
  *   variables: {
- *      user_id: // value for 'user_id'
+ *      display_id: // value for 'display_id'
  *   },
  * });
  */
