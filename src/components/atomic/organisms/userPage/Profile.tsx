@@ -2,73 +2,24 @@ import { useReactiveVar } from '@apollo/client';
 import { Alert, AlertIcon, Box, Button, Heading, Stack, Text, VStack } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import type { VFC } from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
 import { memo } from 'react';
 import { VscEdit } from 'react-icons/vsc';
 
 import { loginUserVar } from '../../../../apollo/cache';
 import type { Users } from '../../../../apollo/graphql';
-import { useGetUserInfomationQuery } from '../../../../apollo/graphql';
 import { FollowButton } from '../../atoms/FollowButton';
 import { UserIcon } from '../../atoms/UserIcon';
-
-type UserInfo = {
-  post: number;
-  follow: number;
-  follower: number;
-};
 
 type Props = {
   user: Users;
 };
 
-const initialUserInfo = {
-  post: 0,
-  follow: 0,
-  follower: 0,
-};
-
 export const Profile: VFC<Props> = memo((props) => {
   const { user } = props;
-  const [userInfo, setUserInfo] = useState<UserInfo>(initialUserInfo);
+
   const router = useRouter();
   const loginUser = useReactiveVar(loginUserVar);
   const isMine = loginUser && loginUser.display_id === user.display_id;
-
-  const query = { userId: user.display_id };
-  const transitions = {
-    toPost: () => {
-      router.push({ pathname: '/[userId]', query });
-    },
-    toFollow: () => {
-      router.push({ pathname: '/[userId]/followings', query });
-    },
-    toFollower: () => {
-      router.push({ pathname: '/[userId]/followers', query });
-    },
-  };
-
-  // pathのユーザのdisplay_idを元に集計値をQuery(GET_USER_INFOMATION)
-  const { data, loading } = useGetUserInfomationQuery({
-    variables: {
-      display_id: user.display_id,
-    },
-  });
-
-  useEffect(() => {
-    if (!loading) {
-      const user = data?.users[0];
-      if (user) {
-        setUserInfo({
-          post: user.posts_aggregate.aggregate?.count ?? 0,
-          follow: user.following_aggregate.aggregate?.count ?? 0,
-          follower: user.followed_aggregate.aggregate?.count ?? 0,
-        });
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loading]);
 
   return (
     <VStack py={8}>
@@ -117,46 +68,6 @@ export const Profile: VFC<Props> = memo((props) => {
               </Alert>
             )}
           </Box>
-          <Stack direction="row" spacing={10} pt={2}>
-            <Stack spacing={0} p={1} alignItems="center">
-              <Text color="gray.700" fontWeight={600}>
-                投稿数
-              </Text>
-              <Text fontSize="md" color="gray.500">
-                {userInfo.post}
-              </Text>
-            </Stack>
-            <Stack
-              spacing={0}
-              p={1}
-              alignItems="center"
-              borderRadius="5px"
-              onClick={transitions.toFollow}
-              cursor="pointer"
-              _hover={{ bg: 'cyan.200' }}>
-              <Text color="gray.700" fontWeight={600}>
-                フォロー
-              </Text>
-              <Text fontSize="md" color="gray.500">
-                {userInfo.follow}
-              </Text>
-            </Stack>
-            <Stack
-              spacing={0}
-              p={1}
-              alignItems="center"
-              borderRadius="5px"
-              onClick={transitions.toFollower}
-              cursor="pointer"
-              _hover={{ bg: 'cyan.200' }}>
-              <Text color="gray.700" fontWeight={600}>
-                フォロワー
-              </Text>
-              <Text fontSize="md" color="gray.500">
-                {userInfo.follower}
-              </Text>
-            </Stack>
-          </Stack>
         </Stack>
       </Stack>
     </VStack>

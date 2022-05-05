@@ -1,5 +1,6 @@
 import { Button } from '@chakra-ui/react';
 import type { VFC } from 'react';
+import { memo } from 'react';
 import { Fragment } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -19,7 +20,7 @@ type Props = {
   toUserId: string;
 };
 
-export const FollowButton: VFC<Props> = (props) => {
+export const FollowButton: VFC<Props> = memo((props) => {
   const { fromUserId, toUserId } = props;
   const client = initializeApollo();
   const [isFollowed, setIsFollowed] = useState(false);
@@ -96,4 +97,4 @@ export const FollowButton: VFC<Props> = (props) => {
         ))}
     </>
   );
-};
+});
