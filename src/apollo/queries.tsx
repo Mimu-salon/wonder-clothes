@@ -387,31 +387,25 @@ export const GET_ONE_USER_LIKE_POST = gql`
     }
   }
 `;
-//マイページでフォローしているユーザーが投稿したpost一覧を取得
+//Feedページでフォローしているユーザーが投稿したpost一覧を取得
 export const GET_FOLLOW_USER_POST = gql`
-  query GetFollowUserPost($display_id: String!) {
-    users(where: { display_id: { _eq: $display_id } }) {
-      id
-      display_id
-      name
-      profile
-      image
-      created_at
-    }
-    posts(where: { user: { followed: { user: { display_id: { _eq: $display_id } } } } }) {
+  query GetFollowUserPost($id: String!) {
+    posts(
+      where: { user: { followed: { user_id: { _eq: $id } } } }
+      order_by: { created_at: asc }
+    ) {
       id
       user_id
       image
-      content
       petName
       petGender
+      content
       created_at
       user {
         id
         display_id
-        image
         name
-        created_at
+        image
       }
       post_comments_aggregate {
         aggregate {
@@ -423,6 +417,14 @@ export const GET_FOLLOW_USER_POST = gql`
           count(columns: id)
         }
       }
+    }
+    users(where: { followed: { user_id: { _eq: $id } } }) {
+      id
+      display_id
+      name
+      profile
+      image
+      created_at
     }
   }
 `;
