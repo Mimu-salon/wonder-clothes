@@ -27,7 +27,7 @@ export const Profile: VFC<Props> = memo((props) => {
         borderWidth="1px"
         borderRadius="lg"
         w={{ sm: '100%', md: '600px', lg: '720px' }}
-        height={{ sm: '450px', md: '21rem', lg: '20rem' }}
+        height={{ sm: '420px', md: '19rem', lg: '18rem' }}
         alignItems="flex-start"
         direction={{ base: 'column', md: 'row' }}
         bg="white"
