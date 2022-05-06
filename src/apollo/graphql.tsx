@@ -3244,7 +3244,7 @@ export type ReactiveVarGetUserLazyQueryHookResult = ReturnType<typeof useReactiv
 export type ReactiveVarGetUserQueryResult = ApolloReactCommon.QueryResult<ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables>;
 export const GetAllPostDocument = gql`
     query GetAllPost($limit: Int!, $offset: Int!) {
-  posts(limit: $limit, order_by: {id: asc}, offset: $offset) {
+  posts(limit: $limit, order_by: {created_at: desc}, offset: $offset) {
     id
     image
     content

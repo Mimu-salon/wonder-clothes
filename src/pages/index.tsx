@@ -19,6 +19,7 @@ import { addApolloState, initializeApollo } from '../apollo/client';
 import type { GetAllPostQuery, GetAllPostQueryVariables } from '../apollo/graphql';
 import { useGetAllPostQuery } from '../apollo/graphql';
 import { GET_ALL_POST } from '../apollo/queries';
+import { HomeTab } from '../components/atomic/molecules/HomeTab';
 import { PostCard } from '../components/atomic/molecules/PostCard';
 import { SearchBar } from '../components/atomic/molecules/SearchBar';
 import { SidebarContent } from '../components/atomic/organisms/layout/SidebarContent';
@@ -106,6 +107,7 @@ export const Home: NextPage = () => {
               <Icon as={SiDatadog} mr={4} />
               <Text>新規の投稿</Text>
             </Flex>
+            <HomeTab now="timeline" />
             <SimpleGrid columns={{ base: 1, md: 1, lg: 1, xl: 2 }} spacing={2} pb={20}>
               {posts.map((post) => {
                 return (

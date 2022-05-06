@@ -30,7 +30,7 @@ export const REACTIVE_VAR_GET_USER = gql`
 //Homeページで新規投稿のpost情報一覧を取得
 export const GET_ALL_POST = gql`
   query GetAllPost($limit: Int!, $offset: Int!) {
-    posts(limit: $limit, order_by: { id: asc }, offset: $offset) {
+    posts(limit: $limit, order_by: { created_at: desc }, offset: $offset) {
       id
       image
       content
@@ -390,10 +390,7 @@ export const GET_ONE_USER_LIKE_POST = gql`
 //Feedページでフォローしているユーザーが投稿したpost一覧を取得
 export const GET_FOLLOW_USER_POST = gql`
   query GetFollowUserPost($id: String!) {
-    posts(
-      where: { user: { followed: { user_id: { _eq: $id } } } }
-      order_by: { created_at: asc }
-    ) {
+    posts(where: { user: { followed: { user_id: { _eq: $id } } } }, order_by: { created_at: asc }) {
       id
       user_id
       image
