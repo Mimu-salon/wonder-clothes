@@ -40,7 +40,7 @@ export const PostTabs: VFC<Props> = memo((props) => {
       router.push({ pathname: '/[userId]/likes', query });
     },
     toFollowing: () => {
-      router.push({ pathname: '/[userId]/follow', query });
+      router.push({ pathname: '/[userId]/following', query });
     },
     toFollower: () => {
       router.push({ pathname: '/[userId]/follower', query });
