@@ -3011,21 +3011,18 @@ export type GetOneUserLikePostQuery = (
 );
 
 export type GetFollowUserPostQueryVariables = Exact<{
-  display_id: Scalars['String'];
+  id: Scalars['String'];
 }>;
 
 
 export type GetFollowUserPostQuery = (
   { __typename?: 'query_root' }
-  & { users: Array<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
-  )>, posts: Array<(
+  & { posts: Array<(
     { __typename?: 'posts' }
-    & Pick<Posts, 'id' | 'user_id' | 'image' | 'content' | 'petName' | 'petGender' | 'created_at'>
+    & Pick<Posts, 'id' | 'user_id' | 'image' | 'petName' | 'petGender' | 'content' | 'created_at'>
     & { user: (
       { __typename?: 'users' }
-      & Pick<Users, 'id' | 'display_id' | 'image' | 'name' | 'created_at'>
+      & Pick<Users, 'id' | 'display_id' | 'name' | 'image'>
     ), post_comments_aggregate: (
       { __typename?: 'post_comments_aggregate' }
       & { aggregate?: Maybe<(
@@ -3039,6 +3036,9 @@ export type GetFollowUserPostQuery = (
         & Pick<PostLikesAggregateFields, 'count'>
       )> }
     ) }
+  )>, users: Array<(
+    { __typename?: 'users' }
+    & Pick<Users, 'id' | 'display_id' | 'name' | 'profile' | 'image' | 'created_at'>
   )> }
 );
 
@@ -4027,29 +4027,23 @@ export type GetOneUserLikePostQueryHookResult = ReturnType<typeof useGetOneUserL
 export type GetOneUserLikePostLazyQueryHookResult = ReturnType<typeof useGetOneUserLikePostLazyQuery>;
 export type GetOneUserLikePostQueryResult = ApolloReactCommon.QueryResult<GetOneUserLikePostQuery, GetOneUserLikePostQueryVariables>;
 export const GetFollowUserPostDocument = gql`
-    query GetFollowUserPost($display_id: String!) {
-  users(where: {display_id: {_eq: $display_id}}) {
-    id
-    display_id
-    name
-    profile
-    image
-    created_at
-  }
-  posts(where: {user: {followed: {user: {display_id: {_eq: $display_id}}}}}) {
+    query GetFollowUserPost($id: String!) {
+  posts(
+    where: {user: {followed: {user_id: {_eq: $id}}}}
+    order_by: {created_at: asc}
+  ) {
     id
     user_id
     image
-    content
     petName
     petGender
+    content
     created_at
     user {
       id
       display_id
-      image
       name
-      created_at
+      image
     }
     post_comments_aggregate {
       aggregate {
@@ -4061,6 +4055,14 @@ export const GetFollowUserPostDocument = gql`
         count(columns: id)
       }
     }
+  }
+  users(where: {followed: {user_id: {_eq: $id}}}) {
+    id
+    display_id
+    name
+    profile
+    image
+    created_at
   }
 }
     `;
@@ -4077,7 +4079,7 @@ export const GetFollowUserPostDocument = gql`
  * @example
  * const { data, loading, error } = useGetFollowUserPostQuery({
  *   variables: {
- *      display_id: // value for 'display_id'
+ *      id: // value for 'id'
  *   },
  * });
  */
