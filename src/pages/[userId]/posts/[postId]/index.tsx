@@ -250,7 +250,7 @@ const PostPage: NextPage<Props> = (props) => {
                       pathname: '/weight/[weightId]',
                     }}>
                     <a href="replace">
-                      <PrimaryTag>#{post.post_tag_size?.size}</PrimaryTag>
+                      <PrimaryTag>#{post.tag_size}</PrimaryTag>
                     </a>
                   </Link>
                   <Link
@@ -258,7 +258,7 @@ const PostPage: NextPage<Props> = (props) => {
                       pathname: '/recommend/[recommendId]',
                     }}>
                     <a href="replace">
-                      <PrimaryTag>#{post.post_tag_recommend?.recommend}</PrimaryTag>
+                      <PrimaryTag>#{post.tag_recommend}</PrimaryTag>
                     </a>
                   </Link>
                 </HStack>

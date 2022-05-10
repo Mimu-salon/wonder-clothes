@@ -82,14 +82,8 @@ export const GET_ONE_USER_WITH_POST = gql`
         petGender
         content
         created_at
-        post_tag_size {
-          id
-          size
-        }
-        post_tag_recommend {
-          id
-          recommend
-        }
+        tag_size
+        tag_recommend
         post_comments {
           id
           comment
@@ -171,8 +165,8 @@ export const INSERT_POST_ONE = gql`
     $imageUrl: String
     $petName: String!
     $petGender: String!
-    $post_tag_size: String!
-    $post_tag_recommend: String!
+    $tag_size: String!
+    $tag_recommend: String!
   ) {
     insert_posts_one(
       object: {
@@ -182,8 +176,8 @@ export const INSERT_POST_ONE = gql`
         imageUrl: $imageUrl
         petName: $petName
         petGender: $petGender
-        post_tag_size: { data: { size: $post_tag_size } }
-        post_tag_recommend: { data: { recommend: $post_tag_recommend } }
+        tag_size: $tag_size
+        tag_recommend: $tag_recommend
       }
     ) {
       id
@@ -194,6 +188,8 @@ export const INSERT_POST_ONE = gql`
       petName
       petGender
       created_at
+      tag_size
+      tag_recommend
     }
   }
 `;
