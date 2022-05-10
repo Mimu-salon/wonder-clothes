@@ -140,8 +140,8 @@ export const insertPostToHasura = async (props: FromSubmitData) => {
         content: content,
         petName: petName,
         petGender: petGender,
-        post_tag_size: size,
-        post_tag_recommend: recommend,
+        tag_size: size,
+        tag_recommend: recommend,
         //TODO:size, recommendの登録できているか要確認
       },
     });

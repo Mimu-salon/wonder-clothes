@@ -139,8 +139,8 @@ export const NewPostModal: VFC<Props> = memo((props) => {
       setPostMessage(postData.content);
       setPetName(postData.petName);
       setPetGender(postData.petGender);
-      setPetSize(postData.post_tag_size?.size as string);
-      setRecommend(postData.post_tag_recommend?.recommend as string);
+      setPetSize(postData.tag_size);
+      setRecommend(postData.tag_recommend);
       if (postData.image) {
         setImage(postData.image);
       }

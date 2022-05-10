@@ -79,14 +79,6 @@ export type MutationRoot = {
   delete_post_likes?: Maybe<PostLikesMutationResponse>;
   /** delete single row from the table: "post_likes" */
   delete_post_likes_by_pk?: Maybe<PostLikes>;
-  /** delete data from the table: "post_tag_recommend" */
-  delete_post_tag_recommend?: Maybe<PostTagRecommendMutationResponse>;
-  /** delete single row from the table: "post_tag_recommend" */
-  delete_post_tag_recommend_by_pk?: Maybe<PostTagRecommend>;
-  /** delete data from the table: "post_tag_size" */
-  delete_post_tag_size?: Maybe<PostTagSizeMutationResponse>;
-  /** delete single row from the table: "post_tag_size" */
-  delete_post_tag_size_by_pk?: Maybe<PostTagSize>;
   /** delete data from the table: "posts" */
   delete_posts?: Maybe<PostsMutationResponse>;
   /** delete single row from the table: "posts" */
@@ -111,14 +103,6 @@ export type MutationRoot = {
   insert_post_likes?: Maybe<PostLikesMutationResponse>;
   /** insert a single row into the table: "post_likes" */
   insert_post_likes_one?: Maybe<PostLikes>;
-  /** insert data into the table: "post_tag_recommend" */
-  insert_post_tag_recommend?: Maybe<PostTagRecommendMutationResponse>;
-  /** insert a single row into the table: "post_tag_recommend" */
-  insert_post_tag_recommend_one?: Maybe<PostTagRecommend>;
-  /** insert data into the table: "post_tag_size" */
-  insert_post_tag_size?: Maybe<PostTagSizeMutationResponse>;
-  /** insert a single row into the table: "post_tag_size" */
-  insert_post_tag_size_one?: Maybe<PostTagSize>;
   /** insert data into the table: "posts" */
   insert_posts?: Maybe<PostsMutationResponse>;
   /** insert a single row into the table: "posts" */
@@ -143,14 +127,6 @@ export type MutationRoot = {
   update_post_likes?: Maybe<PostLikesMutationResponse>;
   /** update single row of the table: "post_likes" */
   update_post_likes_by_pk?: Maybe<PostLikes>;
-  /** update data of the table: "post_tag_recommend" */
-  update_post_tag_recommend?: Maybe<PostTagRecommendMutationResponse>;
-  /** update single row of the table: "post_tag_recommend" */
-  update_post_tag_recommend_by_pk?: Maybe<PostTagRecommend>;
-  /** update data of the table: "post_tag_size" */
-  update_post_tag_size?: Maybe<PostTagSizeMutationResponse>;
-  /** update single row of the table: "post_tag_size" */
-  update_post_tag_size_by_pk?: Maybe<PostTagSize>;
   /** update data of the table: "posts" */
   update_posts?: Maybe<PostsMutationResponse>;
   /** update single row of the table: "posts" */
@@ -198,30 +174,6 @@ export type MutationRootDeletePostLikesArgs = {
 
 /** mutation root */
 export type MutationRootDeletePostLikesByPkArgs = {
-  id: Scalars['uuid'];
-};
-
-
-/** mutation root */
-export type MutationRootDeletePostTagRecommendArgs = {
-  where: PostTagRecommendBoolExp;
-};
-
-
-/** mutation root */
-export type MutationRootDeletePostTagRecommendByPkArgs = {
-  id: Scalars['uuid'];
-};
-
-
-/** mutation root */
-export type MutationRootDeletePostTagSizeArgs = {
-  where: PostTagSizeBoolExp;
-};
-
-
-/** mutation root */
-export type MutationRootDeletePostTagSizeByPkArgs = {
   id: Scalars['uuid'];
 };
 
@@ -301,34 +253,6 @@ export type MutationRootInsertPostLikesArgs = {
 export type MutationRootInsertPostLikesOneArgs = {
   object: PostLikesInsertInput;
   on_conflict?: InputMaybe<PostLikesOnConflict>;
-};
-
-
-/** mutation root */
-export type MutationRootInsertPostTagRecommendArgs = {
-  objects: Array<PostTagRecommendInsertInput>;
-  on_conflict?: InputMaybe<PostTagRecommendOnConflict>;
-};
-
-
-/** mutation root */
-export type MutationRootInsertPostTagRecommendOneArgs = {
-  object: PostTagRecommendInsertInput;
-  on_conflict?: InputMaybe<PostTagRecommendOnConflict>;
-};
-
-
-/** mutation root */
-export type MutationRootInsertPostTagSizeArgs = {
-  objects: Array<PostTagSizeInsertInput>;
-  on_conflict?: InputMaybe<PostTagSizeOnConflict>;
-};
-
-
-/** mutation root */
-export type MutationRootInsertPostTagSizeOneArgs = {
-  object: PostTagSizeInsertInput;
-  on_conflict?: InputMaybe<PostTagSizeOnConflict>;
 };
 
 
@@ -413,34 +337,6 @@ export type MutationRootUpdatePostLikesArgs = {
 export type MutationRootUpdatePostLikesByPkArgs = {
   _set?: InputMaybe<PostLikesSetInput>;
   pk_columns: PostLikesPkColumnsInput;
-};
-
-
-/** mutation root */
-export type MutationRootUpdatePostTagRecommendArgs = {
-  _set?: InputMaybe<PostTagRecommendSetInput>;
-  where: PostTagRecommendBoolExp;
-};
-
-
-/** mutation root */
-export type MutationRootUpdatePostTagRecommendByPkArgs = {
-  _set?: InputMaybe<PostTagRecommendSetInput>;
-  pk_columns: PostTagRecommendPkColumnsInput;
-};
-
-
-/** mutation root */
-export type MutationRootUpdatePostTagSizeArgs = {
-  _set?: InputMaybe<PostTagSizeSetInput>;
-  where: PostTagSizeBoolExp;
-};
-
-
-/** mutation root */
-export type MutationRootUpdatePostTagSizeByPkArgs = {
-  _set?: InputMaybe<PostTagSizeSetInput>;
-  pk_columns: PostTagSizePkColumnsInput;
 };
 
 
@@ -1016,282 +912,6 @@ export enum PostLikesUpdateColumn {
   USER_ID = 'user_id'
 }
 
-/** columns and relationships of "post_tag_recommend" */
-export type PostTagRecommend = {
-  __typename?: 'post_tag_recommend';
-  id: Scalars['uuid'];
-  /** An object relationship */
-  post: Posts;
-  post_id: Scalars['uuid'];
-  recommend: Scalars['String'];
-};
-
-/** aggregated selection of "post_tag_recommend" */
-export type PostTagRecommendAggregate = {
-  __typename?: 'post_tag_recommend_aggregate';
-  aggregate?: Maybe<PostTagRecommendAggregateFields>;
-  nodes: Array<PostTagRecommend>;
-};
-
-/** aggregate fields of "post_tag_recommend" */
-export type PostTagRecommendAggregateFields = {
-  __typename?: 'post_tag_recommend_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<PostTagRecommendMaxFields>;
-  min?: Maybe<PostTagRecommendMinFields>;
-};
-
-
-/** aggregate fields of "post_tag_recommend" */
-export type PostTagRecommendAggregateFieldsCountArgs = {
-  columns?: InputMaybe<Array<PostTagRecommendSelectColumn>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-};
-
-/** Boolean expression to filter rows from the table "post_tag_recommend". All fields are combined with a logical 'AND'. */
-export type PostTagRecommendBoolExp = {
-  _and?: InputMaybe<Array<PostTagRecommendBoolExp>>;
-  _not?: InputMaybe<PostTagRecommendBoolExp>;
-  _or?: InputMaybe<Array<PostTagRecommendBoolExp>>;
-  id?: InputMaybe<UuidComparisonExp>;
-  post?: InputMaybe<PostsBoolExp>;
-  post_id?: InputMaybe<UuidComparisonExp>;
-  recommend?: InputMaybe<StringComparisonExp>;
-};
-
-/** unique or primary key constraints on table "post_tag_recommend" */
-export enum PostTagRecommendConstraint {
-  /** unique or primary key constraint */
-  POST_TAG_RECOMMEND_PKEY = 'post_tag_recommend_pkey',
-  /** unique or primary key constraint */
-  POST_TAG_RECOMMEND_POST_ID_KEY = 'post_tag_recommend_post_id_key'
-}
-
-/** input type for inserting data into table "post_tag_recommend" */
-export type PostTagRecommendInsertInput = {
-  id?: InputMaybe<Scalars['uuid']>;
-  post?: InputMaybe<PostsObjRelInsertInput>;
-  post_id?: InputMaybe<Scalars['uuid']>;
-  recommend?: InputMaybe<Scalars['String']>;
-};
-
-/** aggregate max on columns */
-export type PostTagRecommendMaxFields = {
-  __typename?: 'post_tag_recommend_max_fields';
-  id?: Maybe<Scalars['uuid']>;
-  post_id?: Maybe<Scalars['uuid']>;
-  recommend?: Maybe<Scalars['String']>;
-};
-
-/** aggregate min on columns */
-export type PostTagRecommendMinFields = {
-  __typename?: 'post_tag_recommend_min_fields';
-  id?: Maybe<Scalars['uuid']>;
-  post_id?: Maybe<Scalars['uuid']>;
-  recommend?: Maybe<Scalars['String']>;
-};
-
-/** response of any mutation on the table "post_tag_recommend" */
-export type PostTagRecommendMutationResponse = {
-  __typename?: 'post_tag_recommend_mutation_response';
-  /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
-  /** data from the rows affected by the mutation */
-  returning: Array<PostTagRecommend>;
-};
-
-/** input type for inserting object relation for remote table "post_tag_recommend" */
-export type PostTagRecommendObjRelInsertInput = {
-  data: PostTagRecommendInsertInput;
-  /** upsert condition */
-  on_conflict?: InputMaybe<PostTagRecommendOnConflict>;
-};
-
-/** on_conflict condition type for table "post_tag_recommend" */
-export type PostTagRecommendOnConflict = {
-  constraint: PostTagRecommendConstraint;
-  update_columns?: Array<PostTagRecommendUpdateColumn>;
-  where?: InputMaybe<PostTagRecommendBoolExp>;
-};
-
-/** Ordering options when selecting data from "post_tag_recommend". */
-export type PostTagRecommendOrderBy = {
-  id?: InputMaybe<OrderBy>;
-  post?: InputMaybe<PostsOrderBy>;
-  post_id?: InputMaybe<OrderBy>;
-  recommend?: InputMaybe<OrderBy>;
-};
-
-/** primary key columns input for table: post_tag_recommend */
-export type PostTagRecommendPkColumnsInput = {
-  id: Scalars['uuid'];
-};
-
-/** select columns of table "post_tag_recommend" */
-export enum PostTagRecommendSelectColumn {
-  /** column name */
-  ID = 'id',
-  /** column name */
-  POST_ID = 'post_id',
-  /** column name */
-  RECOMMEND = 'recommend'
-}
-
-/** input type for updating data in table "post_tag_recommend" */
-export type PostTagRecommendSetInput = {
-  id?: InputMaybe<Scalars['uuid']>;
-  post_id?: InputMaybe<Scalars['uuid']>;
-  recommend?: InputMaybe<Scalars['String']>;
-};
-
-/** update columns of table "post_tag_recommend" */
-export enum PostTagRecommendUpdateColumn {
-  /** column name */
-  ID = 'id',
-  /** column name */
-  POST_ID = 'post_id',
-  /** column name */
-  RECOMMEND = 'recommend'
-}
-
-/** columns and relationships of "post_tag_size" */
-export type PostTagSize = {
-  __typename?: 'post_tag_size';
-  id: Scalars['uuid'];
-  /** An object relationship */
-  post: Posts;
-  post_id: Scalars['uuid'];
-  size: Scalars['String'];
-};
-
-/** aggregated selection of "post_tag_size" */
-export type PostTagSizeAggregate = {
-  __typename?: 'post_tag_size_aggregate';
-  aggregate?: Maybe<PostTagSizeAggregateFields>;
-  nodes: Array<PostTagSize>;
-};
-
-/** aggregate fields of "post_tag_size" */
-export type PostTagSizeAggregateFields = {
-  __typename?: 'post_tag_size_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<PostTagSizeMaxFields>;
-  min?: Maybe<PostTagSizeMinFields>;
-};
-
-
-/** aggregate fields of "post_tag_size" */
-export type PostTagSizeAggregateFieldsCountArgs = {
-  columns?: InputMaybe<Array<PostTagSizeSelectColumn>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-};
-
-/** Boolean expression to filter rows from the table "post_tag_size". All fields are combined with a logical 'AND'. */
-export type PostTagSizeBoolExp = {
-  _and?: InputMaybe<Array<PostTagSizeBoolExp>>;
-  _not?: InputMaybe<PostTagSizeBoolExp>;
-  _or?: InputMaybe<Array<PostTagSizeBoolExp>>;
-  id?: InputMaybe<UuidComparisonExp>;
-  post?: InputMaybe<PostsBoolExp>;
-  post_id?: InputMaybe<UuidComparisonExp>;
-  size?: InputMaybe<StringComparisonExp>;
-};
-
-/** unique or primary key constraints on table "post_tag_size" */
-export enum PostTagSizeConstraint {
-  /** unique or primary key constraint */
-  POST_TAG_SIZE_PKEY = 'post_tag_size_pkey',
-  /** unique or primary key constraint */
-  POST_TAG_SIZE_POST_ID_KEY = 'post_tag_size_post_id_key'
-}
-
-/** input type for inserting data into table "post_tag_size" */
-export type PostTagSizeInsertInput = {
-  id?: InputMaybe<Scalars['uuid']>;
-  post?: InputMaybe<PostsObjRelInsertInput>;
-  post_id?: InputMaybe<Scalars['uuid']>;
-  size?: InputMaybe<Scalars['String']>;
-};
-
-/** aggregate max on columns */
-export type PostTagSizeMaxFields = {
-  __typename?: 'post_tag_size_max_fields';
-  id?: Maybe<Scalars['uuid']>;
-  post_id?: Maybe<Scalars['uuid']>;
-  size?: Maybe<Scalars['String']>;
-};
-
-/** aggregate min on columns */
-export type PostTagSizeMinFields = {
-  __typename?: 'post_tag_size_min_fields';
-  id?: Maybe<Scalars['uuid']>;
-  post_id?: Maybe<Scalars['uuid']>;
-  size?: Maybe<Scalars['String']>;
-};
-
-/** response of any mutation on the table "post_tag_size" */
-export type PostTagSizeMutationResponse = {
-  __typename?: 'post_tag_size_mutation_response';
-  /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
-  /** data from the rows affected by the mutation */
-  returning: Array<PostTagSize>;
-};
-
-/** input type for inserting object relation for remote table "post_tag_size" */
-export type PostTagSizeObjRelInsertInput = {
-  data: PostTagSizeInsertInput;
-  /** upsert condition */
-  on_conflict?: InputMaybe<PostTagSizeOnConflict>;
-};
-
-/** on_conflict condition type for table "post_tag_size" */
-export type PostTagSizeOnConflict = {
-  constraint: PostTagSizeConstraint;
-  update_columns?: Array<PostTagSizeUpdateColumn>;
-  where?: InputMaybe<PostTagSizeBoolExp>;
-};
-
-/** Ordering options when selecting data from "post_tag_size". */
-export type PostTagSizeOrderBy = {
-  id?: InputMaybe<OrderBy>;
-  post?: InputMaybe<PostsOrderBy>;
-  post_id?: InputMaybe<OrderBy>;
-  size?: InputMaybe<OrderBy>;
-};
-
-/** primary key columns input for table: post_tag_size */
-export type PostTagSizePkColumnsInput = {
-  id: Scalars['uuid'];
-};
-
-/** select columns of table "post_tag_size" */
-export enum PostTagSizeSelectColumn {
-  /** column name */
-  ID = 'id',
-  /** column name */
-  POST_ID = 'post_id',
-  /** column name */
-  SIZE = 'size'
-}
-
-/** input type for updating data in table "post_tag_size" */
-export type PostTagSizeSetInput = {
-  id?: InputMaybe<Scalars['uuid']>;
-  post_id?: InputMaybe<Scalars['uuid']>;
-  size?: InputMaybe<Scalars['String']>;
-};
-
-/** update columns of table "post_tag_size" */
-export enum PostTagSizeUpdateColumn {
-  /** column name */
-  ID = 'id',
-  /** column name */
-  POST_ID = 'post_id',
-  /** column name */
-  SIZE = 'size'
-}
-
 /** columns and relationships of "posts" */
 export type Posts = {
   __typename?: 'posts';
@@ -1310,10 +930,8 @@ export type Posts = {
   post_likes: Array<PostLikes>;
   /** An aggregate relationship */
   post_likes_aggregate: PostLikesAggregate;
-  /** An object relationship */
-  post_tag_recommend?: Maybe<PostTagRecommend>;
-  /** An object relationship */
-  post_tag_size?: Maybe<PostTagSize>;
+  tag_recommend: Scalars['String'];
+  tag_size: Scalars['String'];
   updated_at: Scalars['timestamptz'];
   /** An object relationship */
   user: Users;
@@ -1410,8 +1028,8 @@ export type PostsBoolExp = {
   petName?: InputMaybe<StringComparisonExp>;
   post_comments?: InputMaybe<PostCommentsBoolExp>;
   post_likes?: InputMaybe<PostLikesBoolExp>;
-  post_tag_recommend?: InputMaybe<PostTagRecommendBoolExp>;
-  post_tag_size?: InputMaybe<PostTagSizeBoolExp>;
+  tag_recommend?: InputMaybe<StringComparisonExp>;
+  tag_size?: InputMaybe<StringComparisonExp>;
   updated_at?: InputMaybe<TimestamptzComparisonExp>;
   user?: InputMaybe<UsersBoolExp>;
   user_id?: InputMaybe<StringComparisonExp>;
@@ -1434,8 +1052,8 @@ export type PostsInsertInput = {
   petName?: InputMaybe<Scalars['String']>;
   post_comments?: InputMaybe<PostCommentsArrRelInsertInput>;
   post_likes?: InputMaybe<PostLikesArrRelInsertInput>;
-  post_tag_recommend?: InputMaybe<PostTagRecommendObjRelInsertInput>;
-  post_tag_size?: InputMaybe<PostTagSizeObjRelInsertInput>;
+  tag_recommend?: InputMaybe<Scalars['String']>;
+  tag_size?: InputMaybe<Scalars['String']>;
   updated_at?: InputMaybe<Scalars['timestamptz']>;
   user?: InputMaybe<UsersObjRelInsertInput>;
   user_id?: InputMaybe<Scalars['String']>;
@@ -1451,6 +1069,8 @@ export type PostsMaxFields = {
   imageUrl?: Maybe<Scalars['String']>;
   petGender?: Maybe<Scalars['String']>;
   petName?: Maybe<Scalars['String']>;
+  tag_recommend?: Maybe<Scalars['String']>;
+  tag_size?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
   user_id?: Maybe<Scalars['String']>;
 };
@@ -1464,6 +1084,8 @@ export type PostsMaxOrderBy = {
   imageUrl?: InputMaybe<OrderBy>;
   petGender?: InputMaybe<OrderBy>;
   petName?: InputMaybe<OrderBy>;
+  tag_recommend?: InputMaybe<OrderBy>;
+  tag_size?: InputMaybe<OrderBy>;
   updated_at?: InputMaybe<OrderBy>;
   user_id?: InputMaybe<OrderBy>;
 };
@@ -1478,6 +1100,8 @@ export type PostsMinFields = {
   imageUrl?: Maybe<Scalars['String']>;
   petGender?: Maybe<Scalars['String']>;
   petName?: Maybe<Scalars['String']>;
+  tag_recommend?: Maybe<Scalars['String']>;
+  tag_size?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
   user_id?: Maybe<Scalars['String']>;
 };
@@ -1491,6 +1115,8 @@ export type PostsMinOrderBy = {
   imageUrl?: InputMaybe<OrderBy>;
   petGender?: InputMaybe<OrderBy>;
   petName?: InputMaybe<OrderBy>;
+  tag_recommend?: InputMaybe<OrderBy>;
+  tag_size?: InputMaybe<OrderBy>;
   updated_at?: InputMaybe<OrderBy>;
   user_id?: InputMaybe<OrderBy>;
 };
@@ -1529,8 +1155,8 @@ export type PostsOrderBy = {
   petName?: InputMaybe<OrderBy>;
   post_comments_aggregate?: InputMaybe<PostCommentsAggregateOrderBy>;
   post_likes_aggregate?: InputMaybe<PostLikesAggregateOrderBy>;
-  post_tag_recommend?: InputMaybe<PostTagRecommendOrderBy>;
-  post_tag_size?: InputMaybe<PostTagSizeOrderBy>;
+  tag_recommend?: InputMaybe<OrderBy>;
+  tag_size?: InputMaybe<OrderBy>;
   updated_at?: InputMaybe<OrderBy>;
   user?: InputMaybe<UsersOrderBy>;
   user_id?: InputMaybe<OrderBy>;
@@ -1558,6 +1184,10 @@ export enum PostsSelectColumn {
   /** column name */
   PETNAME = 'petName',
   /** column name */
+  TAG_RECOMMEND = 'tag_recommend',
+  /** column name */
+  TAG_SIZE = 'tag_size',
+  /** column name */
   UPDATED_AT = 'updated_at',
   /** column name */
   USER_ID = 'user_id'
@@ -1572,6 +1202,8 @@ export type PostsSetInput = {
   imageUrl?: InputMaybe<Scalars['String']>;
   petGender?: InputMaybe<Scalars['String']>;
   petName?: InputMaybe<Scalars['String']>;
+  tag_recommend?: InputMaybe<Scalars['String']>;
+  tag_size?: InputMaybe<Scalars['String']>;
   updated_at?: InputMaybe<Scalars['timestamptz']>;
   user_id?: InputMaybe<Scalars['String']>;
 };
@@ -1592,6 +1224,10 @@ export enum PostsUpdateColumn {
   PETGENDER = 'petGender',
   /** column name */
   PETNAME = 'petName',
+  /** column name */
+  TAG_RECOMMEND = 'tag_recommend',
+  /** column name */
+  TAG_SIZE = 'tag_size',
   /** column name */
   UPDATED_AT = 'updated_at',
   /** column name */
@@ -1618,18 +1254,6 @@ export type QueryRoot = {
   post_likes_aggregate: PostLikesAggregate;
   /** fetch data from the table: "post_likes" using primary key columns */
   post_likes_by_pk?: Maybe<PostLikes>;
-  /** fetch data from the table: "post_tag_recommend" */
-  post_tag_recommend: Array<PostTagRecommend>;
-  /** fetch aggregated fields from the table: "post_tag_recommend" */
-  post_tag_recommend_aggregate: PostTagRecommendAggregate;
-  /** fetch data from the table: "post_tag_recommend" using primary key columns */
-  post_tag_recommend_by_pk?: Maybe<PostTagRecommend>;
-  /** fetch data from the table: "post_tag_size" */
-  post_tag_size: Array<PostTagSize>;
-  /** fetch aggregated fields from the table: "post_tag_size" */
-  post_tag_size_aggregate: PostTagSizeAggregate;
-  /** fetch data from the table: "post_tag_size" using primary key columns */
-  post_tag_size_by_pk?: Maybe<PostTagSize>;
   /** An array relationship */
   posts: Array<Posts>;
   /** An aggregate relationship */
@@ -1716,52 +1340,6 @@ export type QueryRootPostLikesAggregateArgs = {
 
 
 export type QueryRootPostLikesByPkArgs = {
-  id: Scalars['uuid'];
-};
-
-
-export type QueryRootPostTagRecommendArgs = {
-  distinct_on?: InputMaybe<Array<PostTagRecommendSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<PostTagRecommendOrderBy>>;
-  where?: InputMaybe<PostTagRecommendBoolExp>;
-};
-
-
-export type QueryRootPostTagRecommendAggregateArgs = {
-  distinct_on?: InputMaybe<Array<PostTagRecommendSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<PostTagRecommendOrderBy>>;
-  where?: InputMaybe<PostTagRecommendBoolExp>;
-};
-
-
-export type QueryRootPostTagRecommendByPkArgs = {
-  id: Scalars['uuid'];
-};
-
-
-export type QueryRootPostTagSizeArgs = {
-  distinct_on?: InputMaybe<Array<PostTagSizeSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<PostTagSizeOrderBy>>;
-  where?: InputMaybe<PostTagSizeBoolExp>;
-};
-
-
-export type QueryRootPostTagSizeAggregateArgs = {
-  distinct_on?: InputMaybe<Array<PostTagSizeSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<PostTagSizeOrderBy>>;
-  where?: InputMaybe<PostTagSizeBoolExp>;
-};
-
-
-export type QueryRootPostTagSizeByPkArgs = {
   id: Scalars['uuid'];
 };
 
@@ -2016,18 +1594,6 @@ export type SubscriptionRoot = {
   post_likes_aggregate: PostLikesAggregate;
   /** fetch data from the table: "post_likes" using primary key columns */
   post_likes_by_pk?: Maybe<PostLikes>;
-  /** fetch data from the table: "post_tag_recommend" */
-  post_tag_recommend: Array<PostTagRecommend>;
-  /** fetch aggregated fields from the table: "post_tag_recommend" */
-  post_tag_recommend_aggregate: PostTagRecommendAggregate;
-  /** fetch data from the table: "post_tag_recommend" using primary key columns */
-  post_tag_recommend_by_pk?: Maybe<PostTagRecommend>;
-  /** fetch data from the table: "post_tag_size" */
-  post_tag_size: Array<PostTagSize>;
-  /** fetch aggregated fields from the table: "post_tag_size" */
-  post_tag_size_aggregate: PostTagSizeAggregate;
-  /** fetch data from the table: "post_tag_size" using primary key columns */
-  post_tag_size_by_pk?: Maybe<PostTagSize>;
   /** An array relationship */
   posts: Array<Posts>;
   /** An aggregate relationship */
@@ -2114,52 +1680,6 @@ export type SubscriptionRootPostLikesAggregateArgs = {
 
 
 export type SubscriptionRootPostLikesByPkArgs = {
-  id: Scalars['uuid'];
-};
-
-
-export type SubscriptionRootPostTagRecommendArgs = {
-  distinct_on?: InputMaybe<Array<PostTagRecommendSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<PostTagRecommendOrderBy>>;
-  where?: InputMaybe<PostTagRecommendBoolExp>;
-};
-
-
-export type SubscriptionRootPostTagRecommendAggregateArgs = {
-  distinct_on?: InputMaybe<Array<PostTagRecommendSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<PostTagRecommendOrderBy>>;
-  where?: InputMaybe<PostTagRecommendBoolExp>;
-};
-
-
-export type SubscriptionRootPostTagRecommendByPkArgs = {
-  id: Scalars['uuid'];
-};
-
-
-export type SubscriptionRootPostTagSizeArgs = {
-  distinct_on?: InputMaybe<Array<PostTagSizeSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<PostTagSizeOrderBy>>;
-  where?: InputMaybe<PostTagSizeBoolExp>;
-};
-
-
-export type SubscriptionRootPostTagSizeAggregateArgs = {
-  distinct_on?: InputMaybe<Array<PostTagSizeSelectColumn>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<PostTagSizeOrderBy>>;
-  where?: InputMaybe<PostTagSizeBoolExp>;
-};
-
-
-export type SubscriptionRootPostTagSizeByPkArgs = {
   id: Scalars['uuid'];
 };
 
@@ -2714,14 +2234,8 @@ export type GetOneUserWithPostQuery = (
     & Pick<Users, 'id' | 'display_id' | 'name' | 'image'>
     & { posts: Array<(
       { __typename?: 'posts' }
-      & Pick<Posts, 'id' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'content' | 'created_at'>
-      & { post_tag_size?: Maybe<(
-        { __typename?: 'post_tag_size' }
-        & Pick<PostTagSize, 'id' | 'size'>
-      )>, post_tag_recommend?: Maybe<(
-        { __typename?: 'post_tag_recommend' }
-        & Pick<PostTagRecommend, 'id' | 'recommend'>
-      )>, post_comments: Array<(
+      & Pick<Posts, 'id' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'content' | 'created_at' | 'tag_size' | 'tag_recommend'>
+      & { post_comments: Array<(
         { __typename?: 'post_comments' }
         & Pick<PostComments, 'id' | 'comment' | 'created_at'>
         & { user: (
@@ -2817,8 +2331,8 @@ export type InsertPostOneMutationVariables = Exact<{
   imageUrl?: InputMaybe<Scalars['String']>;
   petName: Scalars['String'];
   petGender: Scalars['String'];
-  post_tag_size: Scalars['String'];
-  post_tag_recommend: Scalars['String'];
+  tag_size: Scalars['String'];
+  tag_recommend: Scalars['String'];
 }>;
 
 
@@ -2826,7 +2340,7 @@ export type InsertPostOneMutation = (
   { __typename?: 'mutation_root' }
   & { insert_posts_one?: Maybe<(
     { __typename?: 'posts' }
-    & Pick<Posts, 'id' | 'user_id' | 'content' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'created_at'>
+    & Pick<Posts, 'id' | 'user_id' | 'content' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'created_at' | 'tag_size' | 'tag_recommend'>
   )> }
 );
 
@@ -3350,14 +2864,8 @@ export const GetOneUserWithPostDocument = gql`
       petGender
       content
       created_at
-      post_tag_size {
-        id
-        size
-      }
-      post_tag_recommend {
-        id
-        recommend
-      }
+      tag_size
+      tag_recommend
       post_comments {
         id
         comment
@@ -3592,9 +3100,9 @@ export function useSubscriptionPostCommentSubscription(baseOptions: ApolloReactH
 export type SubscriptionPostCommentSubscriptionHookResult = ReturnType<typeof useSubscriptionPostCommentSubscription>;
 export type SubscriptionPostCommentSubscriptionResult = ApolloReactCommon.SubscriptionResult<SubscriptionPostCommentSubscription>;
 export const InsertPostOneDocument = gql`
-    mutation InsertPostOne($user_id: String!, $content: String!, $image: String, $imageUrl: String, $petName: String!, $petGender: String!, $post_tag_size: String!, $post_tag_recommend: String!) {
+    mutation InsertPostOne($user_id: String!, $content: String!, $image: String, $imageUrl: String, $petName: String!, $petGender: String!, $tag_size: String!, $tag_recommend: String!) {
   insert_posts_one(
-    object: {user_id: $user_id, content: $content, image: $image, imageUrl: $imageUrl, petName: $petName, petGender: $petGender, post_tag_size: {data: {size: $post_tag_size}}, post_tag_recommend: {data: {recommend: $post_tag_recommend}}}
+    object: {user_id: $user_id, content: $content, image: $image, imageUrl: $imageUrl, petName: $petName, petGender: $petGender, tag_size: $tag_size, tag_recommend: $tag_recommend}
   ) {
     id
     user_id
@@ -3604,6 +3112,8 @@ export const InsertPostOneDocument = gql`
     petName
     petGender
     created_at
+    tag_size
+    tag_recommend
   }
 }
     `;
@@ -3628,8 +3138,8 @@ export type InsertPostOneMutationFn = ApolloReactCommon.MutationFunction<InsertP
  *      imageUrl: // value for 'imageUrl'
  *      petName: // value for 'petName'
  *      petGender: // value for 'petGender'
- *      post_tag_size: // value for 'post_tag_size'
- *      post_tag_recommend: // value for 'post_tag_recommend'
+ *      tag_size: // value for 'tag_size'
+ *      tag_recommend: // value for 'tag_recommend'
  *   },
  * });
  */
