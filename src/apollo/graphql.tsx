@@ -2352,6 +2352,8 @@ export type EditPostOneMutationVariables = Exact<{
   imageUrl: Scalars['String'];
   petName: Scalars['String'];
   petGender: Scalars['String'];
+  tag_size: Scalars['String'];
+  tag_recommend: Scalars['String'];
 }>;
 
 
@@ -2359,7 +2361,7 @@ export type EditPostOneMutation = (
   { __typename?: 'mutation_root' }
   & { insert_posts_one?: Maybe<(
     { __typename?: 'posts' }
-    & Pick<Posts, 'id' | 'user_id' | 'content' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'created_at'>
+    & Pick<Posts, 'id' | 'user_id' | 'content' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'created_at' | 'tag_size' | 'tag_recommend'>
   )> }
 );
 
@@ -2369,6 +2371,8 @@ export type EditPostOneWithoutImageMutationVariables = Exact<{
   content: Scalars['String'];
   petName: Scalars['String'];
   petGender: Scalars['String'];
+  tag_size: Scalars['String'];
+  tag_recommend: Scalars['String'];
 }>;
 
 
@@ -2376,16 +2380,16 @@ export type EditPostOneWithoutImageMutation = (
   { __typename?: 'mutation_root' }
   & { insert_posts_one?: Maybe<(
     { __typename?: 'posts' }
-    & Pick<Posts, 'id' | 'user_id' | 'content' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'created_at'>
+    & Pick<Posts, 'id' | 'user_id' | 'content' | 'image' | 'imageUrl' | 'petName' | 'petGender' | 'created_at' | 'tag_size' | 'tag_recommend'>
   )> }
 );
 
-export type DelatePostOneMutationVariables = Exact<{
+export type DeletePostOneMutationVariables = Exact<{
   postId: Scalars['uuid'];
 }>;
 
 
-export type DelatePostOneMutation = (
+export type DeletePostOneMutation = (
   { __typename?: 'mutation_root' }
   & { delete_posts_by_pk?: Maybe<(
     { __typename?: 'posts' }
@@ -3151,10 +3155,10 @@ export type InsertPostOneMutationHookResult = ReturnType<typeof useInsertPostOne
 export type InsertPostOneMutationResult = ApolloReactCommon.MutationResult<InsertPostOneMutation>;
 export type InsertPostOneMutationOptions = ApolloReactCommon.BaseMutationOptions<InsertPostOneMutation, InsertPostOneMutationVariables>;
 export const EditPostOneDocument = gql`
-    mutation EditPostOne($id: uuid!, $user_id: String!, $content: String!, $image: String!, $imageUrl: String!, $petName: String!, $petGender: String!) {
+    mutation EditPostOne($id: uuid!, $user_id: String!, $content: String!, $image: String!, $imageUrl: String!, $petName: String!, $petGender: String!, $tag_size: String!, $tag_recommend: String!) {
   insert_posts_one(
-    object: {id: $id, user_id: $user_id, content: $content, image: $image, imageUrl: $imageUrl, petName: $petName, petGender: $petGender}
-    on_conflict: {constraint: posts_pkey, update_columns: [content, image, imageUrl, petName, petGender, updated_at]}
+    object: {id: $id, user_id: $user_id, content: $content, image: $image, imageUrl: $imageUrl, petName: $petName, petGender: $petGender, tag_size: $tag_size, tag_recommend: $tag_recommend}
+    on_conflict: {constraint: posts_pkey, update_columns: [content, image, imageUrl, petName, petGender, updated_at, tag_size, tag_recommend]}
   ) {
     id
     user_id
@@ -3164,6 +3168,8 @@ export const EditPostOneDocument = gql`
     petName
     petGender
     created_at
+    tag_size
+    tag_recommend
   }
 }
     `;
@@ -3189,6 +3195,8 @@ export type EditPostOneMutationFn = ApolloReactCommon.MutationFunction<EditPostO
  *      imageUrl: // value for 'imageUrl'
  *      petName: // value for 'petName'
  *      petGender: // value for 'petGender'
+ *      tag_size: // value for 'tag_size'
+ *      tag_recommend: // value for 'tag_recommend'
  *   },
  * });
  */
@@ -3200,10 +3208,10 @@ export type EditPostOneMutationHookResult = ReturnType<typeof useEditPostOneMuta
 export type EditPostOneMutationResult = ApolloReactCommon.MutationResult<EditPostOneMutation>;
 export type EditPostOneMutationOptions = ApolloReactCommon.BaseMutationOptions<EditPostOneMutation, EditPostOneMutationVariables>;
 export const EditPostOneWithoutImageDocument = gql`
-    mutation EditPostOneWithoutImage($id: uuid!, $user_id: String!, $content: String!, $petName: String!, $petGender: String!) {
+    mutation EditPostOneWithoutImage($id: uuid!, $user_id: String!, $content: String!, $petName: String!, $petGender: String!, $tag_size: String!, $tag_recommend: String!) {
   insert_posts_one(
-    object: {id: $id, user_id: $user_id, content: $content, petName: $petName, petGender: $petGender}
-    on_conflict: {constraint: posts_pkey, update_columns: [content, petName, petGender, updated_at]}
+    object: {id: $id, user_id: $user_id, content: $content, petName: $petName, petGender: $petGender, tag_size: $tag_size, tag_recommend: $tag_recommend}
+    on_conflict: {constraint: posts_pkey, update_columns: [content, petName, petGender, updated_at, tag_size, tag_recommend]}
   ) {
     id
     user_id
@@ -3213,6 +3221,8 @@ export const EditPostOneWithoutImageDocument = gql`
     petName
     petGender
     created_at
+    tag_size
+    tag_recommend
   }
 }
     `;
@@ -3236,6 +3246,8 @@ export type EditPostOneWithoutImageMutationFn = ApolloReactCommon.MutationFuncti
  *      content: // value for 'content'
  *      petName: // value for 'petName'
  *      petGender: // value for 'petGender'
+ *      tag_size: // value for 'tag_size'
+ *      tag_recommend: // value for 'tag_recommend'
  *   },
  * });
  */
@@ -3246,8 +3258,8 @@ export function useEditPostOneWithoutImageMutation(baseOptions?: ApolloReactHook
 export type EditPostOneWithoutImageMutationHookResult = ReturnType<typeof useEditPostOneWithoutImageMutation>;
 export type EditPostOneWithoutImageMutationResult = ApolloReactCommon.MutationResult<EditPostOneWithoutImageMutation>;
 export type EditPostOneWithoutImageMutationOptions = ApolloReactCommon.BaseMutationOptions<EditPostOneWithoutImageMutation, EditPostOneWithoutImageMutationVariables>;
-export const DelatePostOneDocument = gql`
-    mutation DelatePostOne($postId: uuid!) {
+export const DeletePostOneDocument = gql`
+    mutation DeletePostOne($postId: uuid!) {
   delete_posts_by_pk(id: $postId) {
     id
     image
@@ -3256,32 +3268,32 @@ export const DelatePostOneDocument = gql`
   }
 }
     `;
-export type DelatePostOneMutationFn = ApolloReactCommon.MutationFunction<DelatePostOneMutation, DelatePostOneMutationVariables>;
+export type DeletePostOneMutationFn = ApolloReactCommon.MutationFunction<DeletePostOneMutation, DeletePostOneMutationVariables>;
 
 /**
- * __useDelatePostOneMutation__
+ * __useDeletePostOneMutation__
  *
- * To run a mutation, you first call `useDelatePostOneMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useDelatePostOneMutation` returns a tuple that includes:
+ * To run a mutation, you first call `useDeletePostOneMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeletePostOneMutation` returns a tuple that includes:
  * - A mutate function that you can call at any time to execute the mutation
  * - An object with fields that represent the current status of the mutation's execution
  *
  * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
  *
  * @example
- * const [delatePostOneMutation, { data, loading, error }] = useDelatePostOneMutation({
+ * const [deletePostOneMutation, { data, loading, error }] = useDeletePostOneMutation({
  *   variables: {
  *      postId: // value for 'postId'
  *   },
  * });
  */
-export function useDelatePostOneMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<DelatePostOneMutation, DelatePostOneMutationVariables>) {
+export function useDeletePostOneMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<DeletePostOneMutation, DeletePostOneMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useMutation<DelatePostOneMutation, DelatePostOneMutationVariables>(DelatePostOneDocument, options);
+        return ApolloReactHooks.useMutation<DeletePostOneMutation, DeletePostOneMutationVariables>(DeletePostOneDocument, options);
       }
-export type DelatePostOneMutationHookResult = ReturnType<typeof useDelatePostOneMutation>;
-export type DelatePostOneMutationResult = ApolloReactCommon.MutationResult<DelatePostOneMutation>;
-export type DelatePostOneMutationOptions = ApolloReactCommon.BaseMutationOptions<DelatePostOneMutation, DelatePostOneMutationVariables>;
+export type DeletePostOneMutationHookResult = ReturnType<typeof useDeletePostOneMutation>;
+export type DeletePostOneMutationResult = ApolloReactCommon.MutationResult<DeletePostOneMutation>;
+export type DeletePostOneMutationOptions = ApolloReactCommon.BaseMutationOptions<DeletePostOneMutation, DeletePostOneMutationVariables>;
 export const UpdateUserProfileDocument = gql`
     mutation UpdateUserProfile($id: String!, $name: String!, $display_id: String!, $profile: String, $image: String) {
   insert_users_one(

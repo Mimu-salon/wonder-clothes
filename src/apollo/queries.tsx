@@ -203,6 +203,8 @@ export const EDIT_POST_ONE = gql`
     $imageUrl: String!
     $petName: String!
     $petGender: String!
+    $tag_size: String!
+    $tag_recommend: String!
   ) {
     insert_posts_one(
       object: {
@@ -213,10 +215,12 @@ export const EDIT_POST_ONE = gql`
         imageUrl: $imageUrl
         petName: $petName
         petGender: $petGender
+        tag_size: $tag_size
+        tag_recommend: $tag_recommend
       }
       on_conflict: {
         constraint: posts_pkey
-        update_columns: [content, image, imageUrl, petName, petGender, updated_at]
+        update_columns: [content, image, imageUrl, petName, petGender, updated_at, tag_size, tag_recommend]
       }
     ) {
       id
@@ -227,6 +231,8 @@ export const EDIT_POST_ONE = gql`
       petName
       petGender
       created_at
+      tag_size
+      tag_recommend
     }
   }
 `;
@@ -238,10 +244,23 @@ export const EDIT_POST_ONE_WITHOUT_IMAGE = gql`
     $content: String!
     $petName: String!
     $petGender: String!
+    $tag_size: String!
+    $tag_recommend: String!
   ) {
     insert_posts_one(
-      object: { id: $id, user_id: $user_id, content: $content, petName: $petName, petGender: $petGender }
-      on_conflict: { constraint: posts_pkey, update_columns: [content, petName, petGender, updated_at] }
+      object: {
+        id: $id
+        user_id: $user_id
+        content: $content
+        petName: $petName
+        petGender: $petGender
+        tag_size: $tag_size
+        tag_recommend: $tag_recommend
+      }
+      on_conflict: {
+        constraint: posts_pkey
+        update_columns: [content, petName, petGender, updated_at, tag_size, tag_recommend]
+      }
     ) {
       id
       user_id
@@ -251,12 +270,14 @@ export const EDIT_POST_ONE_WITHOUT_IMAGE = gql`
       petName
       petGender
       created_at
+      tag_size
+      tag_recommend
     }
   }
 `;
 //EditMenu(postsの詳細ページのアイコン)で投稿を削除
 export const DELETE_POST_ONE = gql`
-  mutation DelatePostOne($postId: uuid!) {
+  mutation DeletePostOne($postId: uuid!) {
     delete_posts_by_pk(id: $postId) {
       id
       image

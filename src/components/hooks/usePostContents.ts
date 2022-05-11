@@ -111,7 +111,8 @@ export const insertPostToHasura = async (props: FromSubmitData) => {
           content: content,
           petName: petName,
           petGender: petGender,
-          //TODO:size, recommendの登録
+          tag_size: size,
+          tag_recommend: recommend,
         },
       });
     } else {
@@ -119,13 +120,13 @@ export const insertPostToHasura = async (props: FromSubmitData) => {
       return await client.mutate<EditPostOneWithoutImageMutation, EditPostOneWithoutImageMutationVariables>({
         mutation: EDIT_POST_ONE_WITHOUT_IMAGE,
         variables: {
-          // 投稿編集時
           id: id,
           user_id: loginUser.id,
           content: content,
           petName: petName,
           petGender: petGender,
-          //TODO:size, recommendの登録
+          tag_size: size,
+          tag_recommend: recommend,
         },
       });
     }
@@ -142,7 +143,6 @@ export const insertPostToHasura = async (props: FromSubmitData) => {
         petGender: petGender,
         tag_size: size,
         tag_recommend: recommend,
-        //TODO:size, recommendの登録できているか要確認
       },
     });
   }

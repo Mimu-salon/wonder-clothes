@@ -5,7 +5,7 @@ import type { VFC } from 'react';
 import { memo } from 'react';
 
 import { initializeApollo } from '../../../apollo/client';
-import type { DelatePostOneMutation, DelatePostOneMutationVariables, Posts } from '../../../apollo/graphql';
+import type { DeletePostOneMutation, DeletePostOneMutationVariables, Posts } from '../../../apollo/graphql';
 import { DELETE_POST_ONE } from '../../../apollo/queries';
 import { useMessage } from '../../hooks/useMessage';
 import { deletePostImage } from '../../hooks/usePostContents';
@@ -30,25 +30,23 @@ export const EditMenu: VFC<Props> = memo((props) => {
 
   const handleDelete = async () => {
     if (post) {
-      if (confirm('本当に削除しますか？')) {
-        if (confirm('本当にこの投稿を削除しますか？')) {
-          const result = await client.mutate<DelatePostOneMutation, DelatePostOneMutationVariables>({
-            mutation: DELETE_POST_ONE,
-            variables: {
-              postId: post.id,
-            },
-          });
-          const deletedPost = result.data?.delete_posts_by_pk;
-          // 削除した投稿に画像が登録されていればfirebase上の画像も削除
-          if (deletedPost?.image && deletedPost.imageUrl) {
-            deletePostImage(deletedPost.user_id, deletedPost.imageUrl);
-          }
-          showMessage({
-            title: '投稿を削除しました',
-            status: 'info',
-          });
-          router.push('/');
+      if (confirm('本当にこの投稿を削除しますか？')) {
+        const result = await client.mutate<DeletePostOneMutation, DeletePostOneMutationVariables>({
+          mutation: DELETE_POST_ONE,
+          variables: {
+            postId: post.id,
+          },
+        });
+        const deletedPost = result.data?.delete_posts_by_pk;
+        // 削除した投稿に画像が登録されていればfirebase上の画像も削除
+        if (deletedPost?.image && deletedPost.imageUrl) {
+          deletePostImage(deletedPost.user_id, deletedPost.imageUrl);
         }
+        router.push('/');
+        showMessage({
+          title: '投稿を削除しました',
+          status: 'info',
+        });
       }
     }
   };
