@@ -2,7 +2,6 @@ import { useReactiveVar } from '@apollo/client';
 import { Box, Center, Heading, HStack, Spinner, Stack, Text, VStack } from '@chakra-ui/react';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 
@@ -39,11 +38,6 @@ import { UserIcon } from '../../../../components/atomic/atoms/UserIcon';
 import { EditMenu } from '../../../../components/atomic/molecules/EditMenu';
 import { CommentForm } from '../../../../components/atomic/organisms/posts/CommentForm';
 import { CommentList } from '../../../../components/atomic/organisms/posts/CommentList';
-// import { PostDetailComment } from '../../../../components/atomic/organisms/posts/PostDetailComment';
-// import { PostDetailContent } from '../../../../components/atomic/organisms/posts/PostDetailContent';
-// import { PostDetailImage } from '../../../../components/atomic/organisms/posts/PostDetailImage';
-// import { PostDetailPetInfo } from '../../../../components/atomic/organisms/posts/PostDetailPetInfo';
-// import { PostDetailUserCard } from '../../../../components/atomic/organisms/posts/PostDetailUserCard';
 import { Layout } from '../../../../components/atomic/template/Layout';
 import { useConvertDateFromHasura } from '../../../../components/hooks/useConvertDateFromHasura';
 import { useMessage } from '../../../../components/hooks/useMessage';
@@ -97,6 +91,34 @@ const PostPage: NextPage<Props> = (props) => {
         userId: postUser.display_id,
       },
     });
+  };
+
+  const toSizeTagPase = () => {
+    if (post.tag_size === '小型犬(10kg未満)') {
+      router.push({
+        pathname: '/tag/small',
+      });
+    } else if (post.tag_size === '中型犬(25kg未満)') {
+      router.push({
+        pathname: '/tag/medium',
+      });
+    } else if (post.tag_size === '大型犬(25kg以上)') {
+      router.push({
+        pathname: '/tag/large',
+      });
+    }
+  };
+
+  const toRecommendTagPase = () => {
+    if (post.tag_recommend === 'おすすめしたい！') {
+      router.push({
+        pathname: '/tag/recommend',
+      });
+    } else if (post.tag_recommend === 'しくじった！？') {
+      router.push({
+        pathname: '/tag/mistake',
+      });
+    }
   };
 
   // CommentIconをクリックしたら、入力のTextAreaにfocusを当てる
@@ -197,7 +219,6 @@ const PostPage: NextPage<Props> = (props) => {
               </Stack>
             </Stack>
           </VStack>
-          {/* <PostDetailUserCard /> */}
 
           {/* PostImage */}
           <Box position="relative">
@@ -218,7 +239,6 @@ const PostPage: NextPage<Props> = (props) => {
               )}
             </Center>
           </Box>
-          {/* <PostDetailImage /> */}
 
           {/* PetInfo */}
           <VStack>
@@ -245,22 +265,12 @@ const PostPage: NextPage<Props> = (props) => {
               </Stack>
               <Stack direction="row" alignItems="center" spacing={3}>
                 <HStack>
-                  <Link
-                    href={{
-                      pathname: '/weight/[weightId]',
-                    }}>
-                    <a href="replace">
-                      <PrimaryTag>#{post.tag_size}</PrimaryTag>
-                    </a>
-                  </Link>
-                  <Link
-                    href={{
-                      pathname: '/recommend/[recommendId]',
-                    }}>
-                    <a href="replace">
-                      <PrimaryTag>#{post.tag_recommend}</PrimaryTag>
-                    </a>
-                  </Link>
+                  <Box onClick={toSizeTagPase}>
+                    <PrimaryTag>#{post.tag_size}</PrimaryTag>
+                  </Box>
+                  <Box onClick={toRecommendTagPase}>
+                    <PrimaryTag>#{post.tag_recommend}</PrimaryTag>
+                  </Box>
                 </HStack>
               </Stack>
               <Stack direction="row" alignItems="center" spacing={3}>
@@ -294,11 +304,6 @@ const PostPage: NextPage<Props> = (props) => {
             </Stack>
           </VStack>
 
-          {/* <PostDetailPetInfo
-          onClick={() => {
-            commentInput.current?.focus();
-          }}
-        /> */}
           {/* Content */}
           <Box
             w={{ base: '95vw', md: '540px' }}
@@ -310,7 +315,6 @@ const PostPage: NextPage<Props> = (props) => {
               {post.content}
             </Text>
           </Box>
-          {/* <PostDetailContent /> */}
 
           {/* Comment */}
           <Box w={{ base: '95vw', md: '540px' }} px="20px">
@@ -322,7 +326,6 @@ const PostPage: NextPage<Props> = (props) => {
             </Heading>
             <CommentList comments={commentData(data?.post_comments as PostComments[])} />
           </Box>
-          {/* <PostDetailComment commentInput={commentInput} /> */}
         </VStack>
       )}
     </Layout>
