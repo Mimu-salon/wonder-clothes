@@ -2674,6 +2674,141 @@ export type GetSearchResultQuery = (
   )> }
 );
 
+export type GetLargeDogPostQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetLargeDogPostQuery = (
+  { __typename?: 'query_root' }
+  & { posts: Array<(
+    { __typename?: 'posts' }
+    & Pick<Posts, 'id' | 'user_id' | 'image' | 'petName' | 'petGender' | 'content' | 'created_at'>
+    & { user: (
+      { __typename?: 'users' }
+      & Pick<Users, 'id' | 'display_id' | 'name' | 'image'>
+    ), post_comments_aggregate: (
+      { __typename?: 'post_comments_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_comments_aggregate_fields' }
+        & Pick<PostCommentsAggregateFields, 'count'>
+      )> }
+    ), post_likes_aggregate: (
+      { __typename?: 'post_likes_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_likes_aggregate_fields' }
+        & Pick<PostLikesAggregateFields, 'count'>
+      )> }
+    ) }
+  )> }
+);
+
+export type GetMediumDogPostQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetMediumDogPostQuery = (
+  { __typename?: 'query_root' }
+  & { posts: Array<(
+    { __typename?: 'posts' }
+    & Pick<Posts, 'id' | 'user_id' | 'image' | 'petName' | 'petGender' | 'content' | 'created_at'>
+    & { user: (
+      { __typename?: 'users' }
+      & Pick<Users, 'id' | 'display_id' | 'name' | 'image'>
+    ), post_comments_aggregate: (
+      { __typename?: 'post_comments_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_comments_aggregate_fields' }
+        & Pick<PostCommentsAggregateFields, 'count'>
+      )> }
+    ), post_likes_aggregate: (
+      { __typename?: 'post_likes_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_likes_aggregate_fields' }
+        & Pick<PostLikesAggregateFields, 'count'>
+      )> }
+    ) }
+  )> }
+);
+
+export type GetSmallDogPostQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetSmallDogPostQuery = (
+  { __typename?: 'query_root' }
+  & { posts: Array<(
+    { __typename?: 'posts' }
+    & Pick<Posts, 'id' | 'user_id' | 'image' | 'petName' | 'petGender' | 'content' | 'created_at'>
+    & { user: (
+      { __typename?: 'users' }
+      & Pick<Users, 'id' | 'display_id' | 'name' | 'image'>
+    ), post_comments_aggregate: (
+      { __typename?: 'post_comments_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_comments_aggregate_fields' }
+        & Pick<PostCommentsAggregateFields, 'count'>
+      )> }
+    ), post_likes_aggregate: (
+      { __typename?: 'post_likes_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_likes_aggregate_fields' }
+        & Pick<PostLikesAggregateFields, 'count'>
+      )> }
+    ) }
+  )> }
+);
+
+export type GetRecommendPostQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetRecommendPostQuery = (
+  { __typename?: 'query_root' }
+  & { posts: Array<(
+    { __typename?: 'posts' }
+    & Pick<Posts, 'id' | 'user_id' | 'image' | 'petName' | 'petGender' | 'content' | 'created_at'>
+    & { user: (
+      { __typename?: 'users' }
+      & Pick<Users, 'id' | 'display_id' | 'name' | 'image'>
+    ), post_comments_aggregate: (
+      { __typename?: 'post_comments_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_comments_aggregate_fields' }
+        & Pick<PostCommentsAggregateFields, 'count'>
+      )> }
+    ), post_likes_aggregate: (
+      { __typename?: 'post_likes_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_likes_aggregate_fields' }
+        & Pick<PostLikesAggregateFields, 'count'>
+      )> }
+    ) }
+  )> }
+);
+
+export type GetMistakePostQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetMistakePostQuery = (
+  { __typename?: 'query_root' }
+  & { posts: Array<(
+    { __typename?: 'posts' }
+    & Pick<Posts, 'id' | 'user_id' | 'image' | 'petName' | 'petGender' | 'content' | 'created_at'>
+    & { user: (
+      { __typename?: 'users' }
+      & Pick<Users, 'id' | 'display_id' | 'name' | 'image'>
+    ), post_comments_aggregate: (
+      { __typename?: 'post_comments_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_comments_aggregate_fields' }
+        & Pick<PostCommentsAggregateFields, 'count'>
+      )> }
+    ), post_likes_aggregate: (
+      { __typename?: 'post_likes_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'post_likes_aggregate_fields' }
+        & Pick<PostLikesAggregateFields, 'count'>
+      )> }
+    ) }
+  )> }
+);
+
 
 export const CreateUserDocument = gql`
     mutation CreateUser($id: String!, $display_id: String!, $email: String!, $name: String!, $image: String) {
@@ -3889,3 +4024,283 @@ export function useGetSearchResultLazyQuery(baseOptions?: ApolloReactHooks.LazyQ
 export type GetSearchResultQueryHookResult = ReturnType<typeof useGetSearchResultQuery>;
 export type GetSearchResultLazyQueryHookResult = ReturnType<typeof useGetSearchResultLazyQuery>;
 export type GetSearchResultQueryResult = ApolloReactCommon.QueryResult<GetSearchResultQuery, GetSearchResultQueryVariables>;
+export const GetLargeDogPostDocument = gql`
+    query GetLargeDogPost {
+  posts(where: {tag_size: {_eq: "大型犬(25kg以上)"}}, order_by: {created_at: desc}) {
+    id
+    user_id
+    image
+    petName
+    petGender
+    content
+    created_at
+    user {
+      id
+      display_id
+      name
+      image
+    }
+    post_comments_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
+    post_likes_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetLargeDogPostQuery__
+ *
+ * To run a query within a React component, call `useGetLargeDogPostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetLargeDogPostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetLargeDogPostQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetLargeDogPostQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<GetLargeDogPostQuery, GetLargeDogPostQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetLargeDogPostQuery, GetLargeDogPostQueryVariables>(GetLargeDogPostDocument, options);
+      }
+export function useGetLargeDogPostLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetLargeDogPostQuery, GetLargeDogPostQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetLargeDogPostQuery, GetLargeDogPostQueryVariables>(GetLargeDogPostDocument, options);
+        }
+export type GetLargeDogPostQueryHookResult = ReturnType<typeof useGetLargeDogPostQuery>;
+export type GetLargeDogPostLazyQueryHookResult = ReturnType<typeof useGetLargeDogPostLazyQuery>;
+export type GetLargeDogPostQueryResult = ApolloReactCommon.QueryResult<GetLargeDogPostQuery, GetLargeDogPostQueryVariables>;
+export const GetMediumDogPostDocument = gql`
+    query GetMediumDogPost {
+  posts(where: {tag_size: {_eq: "中型犬(25kg未満)"}}, order_by: {created_at: desc}) {
+    id
+    user_id
+    image
+    petName
+    petGender
+    content
+    created_at
+    user {
+      id
+      display_id
+      name
+      image
+    }
+    post_comments_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
+    post_likes_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetMediumDogPostQuery__
+ *
+ * To run a query within a React component, call `useGetMediumDogPostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMediumDogPostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMediumDogPostQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetMediumDogPostQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<GetMediumDogPostQuery, GetMediumDogPostQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetMediumDogPostQuery, GetMediumDogPostQueryVariables>(GetMediumDogPostDocument, options);
+      }
+export function useGetMediumDogPostLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetMediumDogPostQuery, GetMediumDogPostQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetMediumDogPostQuery, GetMediumDogPostQueryVariables>(GetMediumDogPostDocument, options);
+        }
+export type GetMediumDogPostQueryHookResult = ReturnType<typeof useGetMediumDogPostQuery>;
+export type GetMediumDogPostLazyQueryHookResult = ReturnType<typeof useGetMediumDogPostLazyQuery>;
+export type GetMediumDogPostQueryResult = ApolloReactCommon.QueryResult<GetMediumDogPostQuery, GetMediumDogPostQueryVariables>;
+export const GetSmallDogPostDocument = gql`
+    query GetSmallDogPost {
+  posts(where: {tag_size: {_eq: "小型犬(10kg未満)"}}, order_by: {created_at: desc}) {
+    id
+    user_id
+    image
+    petName
+    petGender
+    content
+    created_at
+    user {
+      id
+      display_id
+      name
+      image
+    }
+    post_comments_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
+    post_likes_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetSmallDogPostQuery__
+ *
+ * To run a query within a React component, call `useGetSmallDogPostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSmallDogPostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSmallDogPostQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetSmallDogPostQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<GetSmallDogPostQuery, GetSmallDogPostQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetSmallDogPostQuery, GetSmallDogPostQueryVariables>(GetSmallDogPostDocument, options);
+      }
+export function useGetSmallDogPostLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetSmallDogPostQuery, GetSmallDogPostQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetSmallDogPostQuery, GetSmallDogPostQueryVariables>(GetSmallDogPostDocument, options);
+        }
+export type GetSmallDogPostQueryHookResult = ReturnType<typeof useGetSmallDogPostQuery>;
+export type GetSmallDogPostLazyQueryHookResult = ReturnType<typeof useGetSmallDogPostLazyQuery>;
+export type GetSmallDogPostQueryResult = ApolloReactCommon.QueryResult<GetSmallDogPostQuery, GetSmallDogPostQueryVariables>;
+export const GetRecommendPostDocument = gql`
+    query GetRecommendPost {
+  posts(where: {tag_recommend: {_eq: "おすすめしたい！"}}, order_by: {created_at: desc}) {
+    id
+    user_id
+    image
+    petName
+    petGender
+    content
+    created_at
+    user {
+      id
+      display_id
+      name
+      image
+    }
+    post_comments_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
+    post_likes_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetRecommendPostQuery__
+ *
+ * To run a query within a React component, call `useGetRecommendPostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetRecommendPostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetRecommendPostQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetRecommendPostQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<GetRecommendPostQuery, GetRecommendPostQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetRecommendPostQuery, GetRecommendPostQueryVariables>(GetRecommendPostDocument, options);
+      }
+export function useGetRecommendPostLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetRecommendPostQuery, GetRecommendPostQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetRecommendPostQuery, GetRecommendPostQueryVariables>(GetRecommendPostDocument, options);
+        }
+export type GetRecommendPostQueryHookResult = ReturnType<typeof useGetRecommendPostQuery>;
+export type GetRecommendPostLazyQueryHookResult = ReturnType<typeof useGetRecommendPostLazyQuery>;
+export type GetRecommendPostQueryResult = ApolloReactCommon.QueryResult<GetRecommendPostQuery, GetRecommendPostQueryVariables>;
+export const GetMistakePostDocument = gql`
+    query GetMistakePost {
+  posts(where: {tag_recommend: {_eq: "しくじった！？"}}, order_by: {created_at: desc}) {
+    id
+    user_id
+    image
+    petName
+    petGender
+    content
+    created_at
+    user {
+      id
+      display_id
+      name
+      image
+    }
+    post_comments_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
+    post_likes_aggregate {
+      aggregate {
+        count(columns: id)
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetMistakePostQuery__
+ *
+ * To run a query within a React component, call `useGetMistakePostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMistakePostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMistakePostQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetMistakePostQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<GetMistakePostQuery, GetMistakePostQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetMistakePostQuery, GetMistakePostQueryVariables>(GetMistakePostDocument, options);
+      }
+export function useGetMistakePostLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetMistakePostQuery, GetMistakePostQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetMistakePostQuery, GetMistakePostQueryVariables>(GetMistakePostDocument, options);
+        }
+export type GetMistakePostQueryHookResult = ReturnType<typeof useGetMistakePostQuery>;
+export type GetMistakePostLazyQueryHookResult = ReturnType<typeof useGetMistakePostLazyQuery>;
+export type GetMistakePostQueryResult = ApolloReactCommon.QueryResult<GetMistakePostQuery, GetMistakePostQueryVariables>;
