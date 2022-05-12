@@ -13,13 +13,13 @@ type SidebarContentProps = {
   href: string;
 };
 const RecommendItems: Array<SidebarContentProps> = [
-  { name: 'おすすめしたい！', icon: FaRegKissBeam, href: '/' },
-  { name: '似合ってない！？', icon: FaRegSurprise, href: '/about' },
+  { name: 'おすすめしたい！', icon: FaRegKissBeam, href: '/tag/recommend' },
+  { name: 'しくじった！？', icon: FaRegSurprise, href: '/tag/mistake' },
 ];
 const WeightItems: Array<SidebarContentProps> = [
-  { name: '小型犬（10kg未満）', icon: FaDog, href: '/' },
-  { name: '中型犬（25kg未満）', icon: GiSittingDog, href: '/about' },
-  { name: '大型犬（25kg以上）', icon: GiSniffingDog, href: '/signin' },
+  { name: '小型犬（10kg未満）', icon: FaDog, href: '/tag/small' },
+  { name: '中型犬（25kg未満）', icon: GiSittingDog, href: '/tag/medium' },
+  { name: '大型犬（25kg以上）', icon: GiSniffingDog, href: '/tag/large' },
 ];
 
 type SidebarProps = {

@@ -552,3 +552,158 @@ export const GET_SEARCH_RESULT = gql`
     }
   }
 `;
+
+//largeページで大型犬の投稿のみを取得
+export const GET_LARGE_DOG_POST = gql`
+  query GetLargeDogPost {
+    posts(where: { tag_size: { _eq: "大型犬(25kg以上)" } }, order_by: { created_at: desc }) {
+      id
+      user_id
+      image
+      petName
+      petGender
+      content
+      created_at
+      user {
+        id
+        display_id
+        name
+        image
+      }
+      post_comments_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+      post_likes_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+    }
+  }
+`;
+
+//mediumページで中型犬の投稿のみを取得
+export const GET_MEDIUM_DOG_POST = gql`
+  query GetMediumDogPost {
+    posts(where: { tag_size: { _eq: "中型犬(25kg未満)" } }, order_by: { created_at: desc }) {
+      id
+      user_id
+      image
+      petName
+      petGender
+      content
+      created_at
+      user {
+        id
+        display_id
+        name
+        image
+      }
+      post_comments_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+      post_likes_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+    }
+  }
+`;
+
+//smallページで小型犬の投稿のみを取得
+export const GET_SMALL_DOG_POST = gql`
+  query GetSmallDogPost {
+    posts(where: { tag_size: { _eq: "小型犬(10kg未満)" } }, order_by: { created_at: desc }) {
+      id
+      user_id
+      image
+      petName
+      petGender
+      content
+      created_at
+      user {
+        id
+        display_id
+        name
+        image
+      }
+      post_comments_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+      post_likes_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+    }
+  }
+`;
+
+//recommendページでおすすめしたい！の投稿のみを取得
+export const GET_RECOMMEND_POST = gql`
+  query GetRecommendPost {
+    posts(where: { tag_recommend: { _eq: "おすすめしたい！" } }, order_by: { created_at: desc }) {
+      id
+      user_id
+      image
+      petName
+      petGender
+      content
+      created_at
+      user {
+        id
+        display_id
+        name
+        image
+      }
+      post_comments_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+      post_likes_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+    }
+  }
+`;
+
+//mistakeページでしくじった！？の投稿のみを取得
+export const GET_MISTAKE_POST = gql`
+  query GetMistakePost {
+    posts(where: { tag_recommend: { _eq: "しくじった！？" } }, order_by: { created_at: desc }) {
+      id
+      user_id
+      image
+      petName
+      petGender
+      content
+      created_at
+      user {
+        id
+        display_id
+        name
+        image
+      }
+      post_comments_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+      post_likes_aggregate {
+        aggregate {
+          count(columns: id)
+        }
+      }
+    }
+  }
+`;
