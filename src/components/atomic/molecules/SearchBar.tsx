@@ -6,24 +6,24 @@ import { memo, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 
 export const SearchBar: VFC = memo(() => {
-  const [searchValue, setSearchValue] = useState('');
+  const [word, setWord] = useState('');
   const router = useRouter();
 
   const handleSearchInputChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
+    setWord(e.target.value);
   };
 
-  const callSearch = () => {
+  const toSearchPage = () => {
     router.push({
       pathname: '/search',
-      query: { searchValue },
+      query: { word },
     });
   };
 
   return (
     <InputGroup w={{ base: '80', md: '96' }}>
-      <InputLeftElement color="gray.500" cursor="pointer" children={<FiSearch />} onClick={callSearch} />
-      <Input placeholder="投稿を検索する" value={searchValue} onChange={handleSearchInputChanges} />
+      <InputLeftElement color="gray.500" cursor="pointer" children={<FiSearch />} onClick={toSearchPage} />
+      <Input placeholder="投稿を検索する" value={word} onChange={handleSearchInputChanges} />
     </InputGroup>
   );
 });
