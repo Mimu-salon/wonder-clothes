@@ -1,20 +1,21 @@
-import { Box } from '@chakra-ui/layout';
+import { Center } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 
+import { TestLoginButton } from '../components/atomic/atoms/TestLoginButton';
 import { Concept } from '../components/atomic/organisms/about/Concept';
-import { Heros } from '../components/atomic/organisms/about/Heros';
-import { Heros2 } from '../components/atomic/organisms/about/Heros2';
+import { Hero } from '../components/atomic/organisms/about/Hero';
 import { HowToUse } from '../components/atomic/organisms/about/HowToUse';
 import { Layout } from '../components/atomic/template/Layout';
 
 const About: NextPage = () => {
   return (
     <Layout title="わんだーくろーす | 愛犬ファッション共有SNS">
-      <Heros />
-      <Box textAlign="center">一時的なスペース</Box>
-      <Heros2 />
+      <Hero />
       <Concept />
       <HowToUse />
+      <Center m={6}>
+        <TestLoginButton />
+      </Center>
     </Layout>
   );
 };

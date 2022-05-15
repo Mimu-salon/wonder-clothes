@@ -1,6 +1,7 @@
 import { Button } from '@chakra-ui/button';
 import { Flex, Heading, Spacer } from '@chakra-ui/layout';
 import { Box, useDisclosure } from '@chakra-ui/react';
+import Image from 'next/image';
 import Link from 'next/link';
 import type { VFC } from 'react';
 import { memo } from 'react';
@@ -20,11 +21,13 @@ export const HeaderLayout: VFC<Props> = memo((props) => {
   const onClickNewPost = () => onOpen();
 
   return (
-    <Heading bg="orange.200" p={{ base: 3, md: 5 }}>
+    <Heading bg="orange.200" px={{ base: 3, md: 5 }}>
       <Flex align="center" justify="space-between">
-        <Link href="/" passHref>
-          <Button color="black">ロゴ</Button>
-        </Link>
+        <Box m={0} p={0} cursor="pointer">
+          <Link href="/" passHref>
+            <Image src={'/logo.png'} alt="タイトルロゴ" width="100px" height="70px" />
+          </Link>
+        </Box>
         <Spacer />
         {user ? (
           <Flex alignItems="center">
