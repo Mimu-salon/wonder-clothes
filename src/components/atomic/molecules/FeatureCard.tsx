@@ -1,4 +1,4 @@
-import { Box, Stack, Text } from '@chakra-ui/layout';
+import { Stack, Text } from '@chakra-ui/layout';
 import Image from 'next/image';
 import type { VFC } from 'react';
 import { memo } from 'react';
@@ -17,9 +17,7 @@ export const FeatureCard: VFC<Props> = memo((props) => {
       <Text w={250} fontWeight={600} fontSize="2xl" textAlign="center">
         {title}
       </Text>
-      <Box w={250} h={250}>
-        <Image src={src} alt={alt} />
-      </Box>
+      <Image src={src} alt={alt} width={250} height={250} layout="fixed" />
       <Text w={250} color={'gray.600'}>
         {text}
       </Text>
