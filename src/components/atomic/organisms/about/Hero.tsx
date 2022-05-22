@@ -9,16 +9,14 @@ export const Hero: VFC = memo(() => {
   return (
     <Flex
       w={'full'}
-      h={'500'}
-      backgroundImage={
-        'url(https://images.unsplash.com/photo-1600267175161-cfaa711b4a81?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)'
-      }
+      h={{ base: '400px', md: '600px', lg: '800px' }}
+      backgroundImage={'/hero.jpg'}
       backgroundSize={'cover'}
-      backgroundPosition={{ base: 'left', md: 'center' }}>
+      backgroundPosition={'center'}>
       <VStack
         justify={'center'}
         px={useBreakpointValue({ base: 4, md: 8 })}
-        bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
+        bgGradient={'linear(to-r, blackAlpha.800, transparent)'}>
         <Stack maxW={'2xl'} align={'flex-start'} spacing={4}>
           <Badge color="white" px={3} py={1} mb={3} variant="solid" colorScheme="blue" rounded="full">
             Beta版
