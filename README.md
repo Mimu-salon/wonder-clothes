@@ -1,3 +1,5 @@
+![introduce](https://user-images.githubusercontent.com/75941362/169685574-489e3314-c2ac-4fa2-99b6-5485ab28f72b.gif)
+
 <br/>
 <h1 align="center">🐶 <a href="https://wonder-clothes.vercel.app/about">わんだーくろーす</a></h1><br/>
 
@@ -142,6 +144,7 @@ GraphQL の Subscriptions を用いて実装。
 ④ 作った UI モデルから必要なデータを考え ER 図を作成(draw.io を使用)<br />
 
 ### ER 図
+![ER](https://user-images.githubusercontent.com/75941362/169686609-40609bfd-af3c-43bc-9eea-42e789adb752.png)
 
 ### 苦労した点、悩んだ点
 
