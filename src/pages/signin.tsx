@@ -137,8 +137,8 @@ const SignIn: NextPage = () => {
   return (
     <Layout title="ログイン | わんだーくろーす">
       <form onSubmit={handleSubmit(emailLogin)} noValidate>
-        <Flex align="center" justify="center" h="75vh">
-          <Box bg="white" w={{ base: 'sm', md: 'md' }} p={4} borderRadius="md" shadow="md">
+        <Flex align="center" justify="center">
+          <Box bg="white" w={{ base: 'sm', md: 'md' }} my={4} p={4} borderRadius="md" shadow="md">
             <Heading size="lg" textAlign="center">
               ログイン
             </Heading>

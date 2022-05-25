@@ -80,8 +80,8 @@ const SignUp: NextPage = () => {
   return (
     <Layout title="アカウント登録 | わんだーくろーす">
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <Flex align="center" justify="center" h="75vh">
-          <Box bg="white" w={{ base: 'sm', md: 'md' }} p={4} borderRadius="md" shadow="md">
+        <Flex align="center" justify="center">
+          <Box bg="white" w={{ base: 'sm', md: 'md' }} my={4} p={4} borderRadius="md" shadow="md">
             <Heading size="lg" textAlign="center">
               アカウント登録
             </Heading>
