@@ -64,73 +64,94 @@ const SignIn: NextPage = () => {
   });
   const emailLogin: SubmitHandler<FormType> = (data) => {
     auth
-      .signInWithEmailAndPassword(data.email, data.password)
-      .then(async (userCredential) => {
-        await unSubUser(userCredential);
-        await userLoginAction(userCredential);
-        router.push('/');
+      .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      .then(() => {
+        auth
+          .signInWithEmailAndPassword(data.email, data.password)
+          .then(async (userCredential) => {
+            await unSubUser(userCredential);
+            await userLoginAction(userCredential);
+            router.push('/');
+          })
+          .catch((error) => {
+            console.error(error.code, error.message);
+            if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
+              showMessage({
+                title: 'ユーザ名またはパスワードが違います',
+                status: 'error',
+              });
+            } else {
+              showMessage({
+                title: 'エラーが発生しました',
+                status: 'error',
+              });
+            }
+          });
       })
       .catch((error) => {
-        console.error(error.code, error.message);
-        if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
-          showMessage({
-            title: 'ユーザ名またはパスワードが違います',
-            status: 'error',
-          });
-        } else {
-          showMessage({
-            title: 'エラーが発生しました',
-            status: 'error',
-          });
-        }
+        console.error(error);
       });
   };
 
   const googleLogin = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     await auth
-      .signInWithPopup(provider)
-      .then(async (userCredential) => {
-        await unSubUser(userCredential);
-        // eslint-disable-next-line no-console
-        console.log(userCredential.user);
-        if (userCredential.additionalUserInfo?.isNewUser) {
-          router.push('/successSignup');
-        } else {
-          await userLoginAction(userCredential);
-          router.push('/');
-        }
+      .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      .then(() => {
+        auth
+          .signInWithPopup(provider)
+          .then(async (userCredential) => {
+            await unSubUser(userCredential);
+            // eslint-disable-next-line no-console
+            console.log(userCredential.user);
+            if (userCredential.additionalUserInfo?.isNewUser) {
+              router.push('/successSignup');
+            } else {
+              await userLoginAction(userCredential);
+              router.push('/');
+            }
+          })
+          .catch((error) => {
+            console.error(error.code, error.message);
+            showMessage({
+              title: 'エラーが発生しました',
+              status: 'error',
+            });
+          });
       })
       .catch((error) => {
-        console.error(error.code, error.message);
-        showMessage({
-          title: 'エラーが発生しました',
-          status: 'error',
-        });
+        console.error(error);
       });
   };
 
   const twitterLogin = async () => {
     const provider = new firebase.auth.TwitterAuthProvider();
     await auth
-      .signInWithPopup(provider)
-      .then(async (userCredential) => {
-        await unSubUser(userCredential);
-        // eslint-disable-next-line no-console
-        console.log(userCredential.user);
-        if (userCredential.additionalUserInfo?.isNewUser) {
-          router.push('/successSignup');
-        } else {
-          await userLoginAction(userCredential);
-          router.push('/');
-        }
+      .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      .then(() => {
+        auth
+          .signInWithPopup(provider)
+          .then(async (userCredential) => {
+            await unSubUser(userCredential);
+            // eslint-disable-next-line no-console
+            console.log(userCredential.user);
+            if (userCredential.additionalUserInfo?.isNewUser) {
+              router.push('/successSignup');
+            } else {
+              await userLoginAction(userCredential);
+              router.push('/');
+            }
+          })
+          .catch((error) => {
+            console.error(error.code, error.message);
+            showMessage({
+              title: 'エラーが発生しました',
+              status: 'error',
+            });
+          });
       })
       .catch((error) => {
-        console.error(error.code, error.message);
-        showMessage({
-          title: 'エラーが発生しました',
-          status: 'error',
-        });
+        console.error(error);
       });
   };
 
