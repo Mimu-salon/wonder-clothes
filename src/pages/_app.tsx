@@ -6,9 +6,10 @@ import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
 
 import { loginUserVar } from '../apollo/cache';
-import { useApollo } from '../apollo/client';
+import { onLogout, useApollo } from '../apollo/client';
 import type { ReactiveVarGetUserQuery, ReactiveVarGetUserQueryVariables } from '../apollo/graphql';
 import { REACTIVE_VAR_GET_USER } from '../apollo/queries';
+import { unSubMeta } from '../components/hooks/userUserChanged';
 import { theme } from '../components/theme/theme';
 import { auth } from '../firebase/firebaseConfig';
 
@@ -36,7 +37,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         }
       } else {
         // logout時: グローバルステートを初期化
+        if (unSubMeta) {
+          unSubMeta();
+        }
+        await auth.signOut();
         loginUserVar(null);
+        // eslint-disable-next-line no-console
+        console.log(loginUserVar());
+        onLogout();
       }
     });
 
