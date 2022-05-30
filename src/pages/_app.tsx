@@ -31,8 +31,6 @@ function MyApp({ Component, pageProps }: AppProps) {
             })
             .then((getUser) => {
               loginUserVar(getUser.data.users_by_pk);
-              // eslint-disable-next-line no-console
-              console.log(loginUserVar());
             });
         }
       } else {
@@ -42,8 +40,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         }
         await auth.signOut();
         loginUserVar(null);
-        // eslint-disable-next-line no-console
-        console.log(loginUserVar());
         onLogout();
       }
     });

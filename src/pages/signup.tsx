@@ -57,8 +57,6 @@ const SignUp: NextPage = () => {
         await userCredential.user?.updateProfile({
           displayName: data.username,
         });
-        // eslint-disable-next-line no-console
-        console.log(userCredential.user);
         router.push('/successSignup');
       })
       .catch((error) => {

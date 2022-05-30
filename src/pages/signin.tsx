@@ -46,8 +46,6 @@ export const userLoginAction = async (credential: firebase.auth.UserCredential) 
     });
     // グローバルステートにユーザー情報格納
     loginUserVar(resdata.data.users_by_pk);
-    // eslint-disable-next-line no-console
-    console.log(loginUserVar());
   }
 };
 
@@ -102,8 +100,6 @@ const SignIn: NextPage = () => {
           .signInWithPopup(provider)
           .then(async (userCredential) => {
             await unSubUser(userCredential);
-            // eslint-disable-next-line no-console
-            console.log(userCredential.user);
             if (userCredential.additionalUserInfo?.isNewUser) {
               router.push('/successSignup');
             } else {
@@ -133,8 +129,6 @@ const SignIn: NextPage = () => {
           .signInWithPopup(provider)
           .then(async (userCredential) => {
             await unSubUser(userCredential);
-            // eslint-disable-next-line no-console
-            console.log(userCredential.user);
             if (userCredential.additionalUserInfo?.isNewUser) {
               router.push('/successSignup');
             } else {
