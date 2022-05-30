@@ -78,8 +78,6 @@ export const ProfileUpdateForm: VFC = memo(() => {
         });
         loginUserVar(resdata.data?.insert_users_one);
       }
-      // eslint-disable-next-line no-console
-      console.log(loginUserVar());
       router.push('/');
     } catch (error) {
       setIsIdDuplicateError(true);

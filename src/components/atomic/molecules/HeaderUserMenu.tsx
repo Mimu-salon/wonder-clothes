@@ -25,8 +25,6 @@ export const HeaderUserMenu: VFC<Props> = memo((props) => {
     }
     await auth.signOut();
     loginUserVar(null);
-    // eslint-disable-next-line no-console
-    console.log(loginUserVar());
     onLogout();
     router.push('/about');
   };

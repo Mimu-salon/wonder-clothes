@@ -30,8 +30,6 @@ const userSignupAction = async () => {
     });
     // グローバルステートにユーザー情報格納
     loginUserVar(resdata.data?.insert_users_one);
-    // eslint-disable-next-line no-console
-    console.log(loginUserVar());
   }
 };
 
