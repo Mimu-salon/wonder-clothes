@@ -17,8 +17,6 @@
 - こちらのページよりテストログインが可能です。
 - 犬のファッションの共有サイトとありますが、テストアカウントでは犬のファッションに限らず自由に機能をお試しください。
 
-[GitHub](https://github.com/Mimu-salon/wonder-clothes)
-
 <br/>
 
 ## Technologies
@@ -144,6 +142,7 @@ GraphQL の Subscriptions を用いて実装。
 ④ 作った UI モデルから必要なデータを考え ER 図を作成(draw.io を使用)<br />
 
 ### ER 図
+
 ![ER](https://user-images.githubusercontent.com/75941362/169686609-40609bfd-af3c-43bc-9eea-42e789adb752.png)
 
 ### 苦労した点、悩んだ点
@@ -160,3 +159,9 @@ GraphQL の Subscriptions を用いて実装。
 - 再レンダリングの抑制について(useMemo,React.memo,useCallback 等)
 - 非同期処理
 - 設計のやり方
+
+### 今後の改善点
+
+以下にまとめています。
+<br/>
+https://github.com/Mimu-salon/wonder-clothes/issues/77#issue-1252825088
